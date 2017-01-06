@@ -51,6 +51,19 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+
+    <target name="test" depends="compile">
+        <junit fork="yes" haltonfailure="true">
+          <classpath refid="classpath.test" />
+          <batchtest fork="yes" todir="tres">
+            <formatter type="brief" usefile="false"/>
+            <fileset dir="${test}">
+              <include name="**/*Test*.java"/>
+            </fileset>
+          </batchtest>
+        </junit>
+      </target>
+  <!--
     <target name="DefaultTest">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -60,6 +73,7 @@
             <classpath refid="COSC 4F90.classpath"/>
         </junit>
     </target>
+  -->
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">
             <fileset dir="${junit.output.dir}">
