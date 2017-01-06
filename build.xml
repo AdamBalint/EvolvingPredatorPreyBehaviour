@@ -16,7 +16,7 @@
     <mkdir dir="build/main"/>
     <mkdir dir="bin"/>
     <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="source,lines,vars" destdir="bin" includeantruntime="false" source="1.8" target="1.8">
+        <javac debug="true" debuglevel="source,lines,vars" destdir="bin" includeantruntime="false" source="1.7" target="1.7">
             <src path="src"/>
             <classpath refid="classpath.test"/>
         </javac>
