@@ -52,7 +52,7 @@
         <antcall target="build"/>
     </target>
 
-    <target name="test" depends="compile">
+    <target name="test">
         <junit fork="yes" haltonfailure="true">
           <classpath refid="COSC 4F90.classpath"/>
           <!--classpath refid="classpath.test" /-->
