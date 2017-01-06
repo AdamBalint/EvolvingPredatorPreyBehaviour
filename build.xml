@@ -18,7 +18,7 @@
     <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="source,lines,vars" destdir="bin" includeantruntime="false" source="1.8" target="1.8">
             <src path="src"/>
-            <classpath refid="COSC 4F90.classpath"/>
+            <classpath refid="classpath.test"/>
         </javac>
   </target>
 
