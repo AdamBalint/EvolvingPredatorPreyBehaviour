@@ -57,7 +57,7 @@
 
   <target name="test" depends="build-project">
     <junit fork="yes" haltonfailure="true">
-      <classpath refid="COSC 4F90.classpath/test" />
+      <classpath refid="COSC 4F90.classpath.test" />
       <batchtest fork="yes" todir="tres">
         <formatter type="brief" usefile="false"/>
         <fileset dir="${test}">
