@@ -26,9 +26,11 @@
     <target name="clean">
         <delete dir="bin"/>
     </target>
+
     <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects"/>
+
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
@@ -36,6 +38,7 @@
             <classpath refid="COSC 4F90.classpath"/>
         </javac>
     </target>
+
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
         <copy todir="${ant.library.dir}">
@@ -46,8 +49,22 @@
             <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
         </unzip>
     </target>
+
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+
+  <target name="test" depends="build-project">
+    <junit fork="yes" haltonfailure="true">
+      <classpath refid="COSC 4F90.classpath/test" />
+      <batchtest fork="yes" todir="tres">
+        <formatter type="brief" usefile="false"/>
+        <fileset dir="${test}">
+          <include name="**/*Test*.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
 </project>
