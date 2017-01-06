@@ -58,7 +58,7 @@
           <!--classpath refid="classpath.test" /-->
           <batchtest fork="yes" todir="tres">
             <formatter type="brief" usefile="false"/>
-            <fileset dir="${test}">
+            <fileset dir="${src/test}">
               <include name="**/*Test*.java"/>
             </fileset>
           </batchtest>
