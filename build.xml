@@ -14,6 +14,11 @@
     <mkdir dir="build"/>
     <mkdir dir="build/test"/>
     <mkdir dir="build/main"/>
+    <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="COSC 4F90.classpath"/>
+        </javac>
   </target>
 
   <target name="compile" depends="init" description="compile">
