@@ -1,4 +1,4 @@
-<project name="travis playground" default="dist" basedir=".">
+<project name="COSC 4F00" default="dist" basedir=".">
     <description>
         travis stuff
     </description>
