@@ -42,7 +42,7 @@
         </javac>
     </target>
 
-  <dirset id="dist.contents" dir="${nativePackageDir}" includes="*"/>
+  <dirset id="dist.contents" dir="bin" includes="*"/>
   <property name="prop.dist.contents" refid="dist.contents"/>
   <echo>${prop.dist.contents}</echo>
 
