@@ -16,6 +16,7 @@
         <pathelement location="lib/junit.jar"/>
         <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
     </path>
+
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
@@ -25,9 +26,11 @@
             </fileset>
         </copy>
     </target>
+
     <target name="clean">
         <delete dir="bin"/>
     </target>
+
     <target depends="clean" name="cleanall"/>
     <target depends="build-project" name="build"/>
 
@@ -38,6 +41,10 @@
             <classpath refid="COSC 4F90.classpath"/>
         </javac>
     </target>
+
+  <dirset id="dist.contents" dir="${nativePackageDir}" includes="*"/>
+  <property name="prop.dist.contents" refid="dist.contents"/>
+  <echo>${prop.dist.contents}</echo>
 
     <target name="test" depends="build"><!--depends="build"-->
       <junit printsummary="withOutAndErr" haltonfailure="yes">
