@@ -55,7 +55,7 @@
     <target name="test" ><!--depends="build"-->
       <junit printsummary="on" haltonfailure="yes">
           <classpath>
-            <!--path refid="classpath.test" /-->
+            <path refid="COSC 4F90.classpath" />
             <!--pathelement location="${test.build.dir}"/-->
           </classpath>
           <formatter type="brief" usefile="false" />
