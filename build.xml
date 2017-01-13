@@ -26,10 +26,10 @@ permissions and limitations under the License.
     <pathelement location="build/classes"/>
     <pathelement location="build/test/classes"/>
     <fileset dir="lib">
-      <include name="*.jar"/>
+      <includes name="*.jar"/>
     </fileset>
     <fileset dir=".">
-      <include name="*.jar"/>
+      <includes name="*.jar"/>
     </fileset>
   </path>
 
