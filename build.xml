@@ -54,14 +54,15 @@
     </target>
 
     <target name="test" ><!--depends="build"-->
-      <junit printsummary="on" haltonfailure="yes">
+      <mkdir dir="${junit.output.dir}"/>
+      <junit printsummary="withOutAndErr" haltonfailure="yes">
           <classpath>
             <path refid="COSC 4F90.classpath" />
             <!--pathelement location="${test.build.dir}"/-->
           </classpath>
           <formatter type="brief" usefile="false" />
           <batchtest>
-              <fileset dir="bin/test/" includes="**/*Test*.java" />
+              <fileset dir="test" includes="**/*Test*.java" />
           </batchtest>
       </junit>
     </target>
