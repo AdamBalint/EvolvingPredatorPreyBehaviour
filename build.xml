@@ -24,8 +24,8 @@
   </target>
 
   <target name="compile" depends="init" description="compile">
-    <javac srcdir="${src}" destdir="${build}/main"/>
-    <javac srcdir="${test}" destdir="${build}/test">
+    <javac srcdir="${src}" includeantruntime="false" destdir="${build}/main"/>
+    <javac srcdir="${test}" includeantruntime="false" destdir="${build}/test">
       <classpath>
         <pathelement location="${junit}"/>
         <pathelement location="lib/commons-math3-3.6.1.jar"/>
