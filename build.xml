@@ -54,10 +54,15 @@
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
+          <batchtest>
+            <fileset dir="${test}">
+              <include name="**/*Test*" />
+            </fileset>
+          </batchtest>
             <formatter type="xml"/>
-            <test name="test.DefaultTest" todir="${junit.output.dir}"/>
+            <!--test name="test.DefaultTest" todir="${junit.output.dir}"/>
             <jvmarg line="-ea"/>
-            <classpath refid="COSC 4F90.classpath"/>
+            <classpath refid="COSC 4F90.classpath"/-->
         </junit>
     </target>
     <target name="junitreport">
