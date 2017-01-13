@@ -31,6 +31,7 @@
     <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects"/>
+
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
@@ -54,7 +55,6 @@
     </target>
 
     <target name="test" ><!--depends="build"-->
-      <mkdir dir="${junit.output.dir}"/>
       <junit printsummary="withOutAndErr" haltonfailure="yes">
           <classpath>
             <path refid="COSC 4F90.classpath" />
@@ -62,7 +62,7 @@
           </classpath>
           <formatter type="brief" usefile="false" />
           <batchtest>
-              <fileset dir="test" includes="**/*Test*.java" />
+              <fileset dir="bin/test" includes="**/*Test*.java" />
           </batchtest>
       </junit>
     </target>
