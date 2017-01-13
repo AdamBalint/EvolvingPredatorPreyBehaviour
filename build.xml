@@ -47,7 +47,7 @@
           </classpath>
           <formatter type="brief" usefile="false" />
           <batchtest>
-              <fileset dir="bin" includes="**/*Test*.java" />
+              <fileset dir="COSC 4F90.classpath" includes="**/*Test*.java" />
           </batchtest>
       </junit>
     </target>
