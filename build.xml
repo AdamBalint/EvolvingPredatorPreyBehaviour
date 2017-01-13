@@ -53,7 +53,12 @@
     </target>
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
+        <junit fork="yes" printsummary="withOutAndErr" >
+
+          <classpath location="lib/commons-math3-3.6.1.jar"/>
+          <classpath location="lib/junit.jar"/>
+          <classpath location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+
           <batchtest>
             <fileset dir="${test}">
               <include name="**/*Test*" />
