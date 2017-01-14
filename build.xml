@@ -42,10 +42,6 @@
         </javac>
     </target>
 
-  <dirset id="dist.contents" dir="bin" includes="*"/>
-  <property name="prop.dist.contents" refid="dist.contents"/>
-  <echo>${prop.dist.contents}</echo>
-
     <target name="test" depends="build"><!--depends="build"-->
       <junit printsummary="withOutAndErr" haltonfailure="yes">
           <classpath>
@@ -58,58 +54,4 @@
           </batchtest>
       </junit>
     </target>
-
-
-    <!--target name="DefaultTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="test.DefaultTest" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="COSC 4F90.classpath"/>
-        </junit>
-    </target>
-    <target name="NeuralNetTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="test.NeuralNetTest" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="COSC 4F90.classpath"/>
-        </junit>
-    </target>
-    <target name="Main (2)">
-        <java classname="Main" failonerror="true" fork="yes">
-            <classpath refid="COSC 4F90.classpath"/>
-        </java>
-    </target>
-    <target name="MovementTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="test.MovementTest" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="COSC 4F90.classpath"/>
-        </junit>
-    </target>
-    <target name="MovementTest.testDiagonal_Down_Right">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="test.MovementTest" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="COSC 4F90.classpath"/>
-        </junit>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target-->
-
-
-
 </project>
