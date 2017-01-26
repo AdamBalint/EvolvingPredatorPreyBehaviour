@@ -1,9 +1,5 @@
 package storage;
 
-import java.util.ArrayList;
-
-import org.apache.commons.math3.linear.RealMatrix;
-
 import simulation.creature.NeuralNet;
 
 
