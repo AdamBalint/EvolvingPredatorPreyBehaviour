@@ -3,33 +3,77 @@ package pso;
 import org.apache.commons.math3.linear.RealMatrix;
 
 import pso.particles.Particle;
+import storage.SpeciesType;
 
 public class Swarm {
 
 	private Particle [] swarm;
+	private int speciesNum;
+	private RealMatrix[] globalBest;
+	private double globalBestFitness = Double.NEGATIVE_INFINITY;
+	private SpeciesType sType;
 	
-	public void createSwarm(int num){
+	public Swarm(int num, SpeciesType sType, int speciesNumber){
+		System.err.println("Swarm - Constructor");
 		swarm = new Particle[num];
-		
+		this.sType = sType;
+		setUpParticles();
 	}
 	
+	/*public void createSwarm(int num, SpeciesType sType, int speciesNumber){
+		swarm = new Particle[num];
+		this.sType = sType;
+		setUpParticles();
+	}*/
+	
+	private void setUpParticles() {
+		// TODO Auto-generated method stub
+		System.err.println("Swarm - Setting up particles");
+		for (int i = 0; i < swarm.length; i++){
+			swarm[i] = new Particle(sType, this, i);
+		}
+	}
+
 	public RealMatrix[] getGlobalBest(){
-		return null;
+		return globalBest;
+	}
+	
+	public double getGlobalBestFitness(){
+		return globalBestFitness;
 	}
 	
 	public void updatePopulation(){
+		//System.err.println("Swarm - Updating Population");
 		evaluatePopulation();
 		updateLocations();
 	}
 
+	//
 	private void updateLocations() {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < swarm.length; i++){
+			swarm[i].updateParticle();
+		}
 	}
 
+	// Updates the global best
 	private void evaluatePopulation() {
-		// TODO Auto-generated method stub
-		
+
+		// Could have just 1 call to method
+		for (Particle p : swarm){
+			if (p.getFitness() > globalBestFitness){
+				globalBestFitness = p.getFitness();
+				globalBest = p.getLocation().clone();
+			}
+		}
+	}
+	
+	public Particle getParticle(int particleNum){
+		return swarm[particleNum];
+	}
+	
+	public int getSpeciesNumber(){
+		return speciesNum;
 	}
 	
 }

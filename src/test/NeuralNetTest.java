@@ -9,6 +9,8 @@ import org.apache.commons.math3.linear.RealMatrix;
 import org.junit.Test;
 
 import simulation.creature.NeuralNet;
+import storage.BrainStorage;
+import storage.Variables;
 
 public class NeuralNetTest {
 

@@ -1,13 +1,17 @@
-import java.util.Arrays;
-
-import org.apache.commons.math3.linear.MatrixUtils;
-import org.apache.commons.math3.linear.RealMatrix;
+import pso.PSO;
+import storage.BrainStorage;
+import storage.Variables;
 
 public class Main {
 	
+	PSO pso;
+	
 	public Main(){
+		// Brain storage
+		Variables.brainStorage = new BrainStorage();
 		setUpPSO();
 		setUpSimulation();
+		pso.runPSO();
 	}
 	
 	
@@ -19,9 +23,9 @@ public class Main {
 
 
 	private void setUpPSO() {
-		// predator/prey, number of different styles, population size of each
+		//predator/prey, number of different styles, population size of each
 		//BrainStorage.brains = new RealMatrix[2][1][100];
-		
+		pso = new PSO();
 	}
 
 

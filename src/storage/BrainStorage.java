@@ -9,12 +9,14 @@ public class BrainStorage {
 	
 	public BrainStorage(){
 		brains = new NeuralNet[2][1][Math.max(Variables.popSizePred, Variables.popSizePrey)];
+		setUpBrains();
 	}
 	
 	public void setUpBrains(){
 		for(int i = 0; i < 2; i++){
 			for(int j = 0; j < brains[i].length; j++){
 				for(int pop = 0; pop < brains[i][j].length; pop++){
+					brains[i][j][pop] = new NeuralNet(i == 0 ? SpeciesType.PREDATOR : SpeciesType.PREY);
 					brains[i][j][pop].generateRandomBrains();
 				}
 			}
