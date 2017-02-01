@@ -7,8 +7,8 @@ import org.apache.commons.math3.linear.RealMatrix;
 public class MovementMessage {
 
 	private boolean diagonalFlag;
-	private int xDir;
-	private int yDir;
+	private int xDir = 0;
+	private int yDir = 0;
 	
 	public MovementMessage(RealMatrix res){
 		

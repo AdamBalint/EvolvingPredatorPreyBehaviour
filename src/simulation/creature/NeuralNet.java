@@ -40,15 +40,15 @@ public class NeuralNet {
 		if (hidden.length > 0){
 			for (int i = 0; i < brain.length; i++){
 				if (i == 0){
-					brain[i] = MatrixUtils.createRealMatrix(hidden[0], inSize);
+					brain[i] = MatrixUtils.createRealMatrix(inSize, hidden[0]);
 					numConnections += inSize*hidden[0];
 				}
 				else if (i == brain.length-1){
-					brain[i] = MatrixUtils.createRealMatrix(outSize, hidden[hidden.length-1]);
+					brain[i] = MatrixUtils.createRealMatrix(hidden[hidden.length-1], outSize);
 					numConnections += outSize*hidden[hidden.length-1];
 				}
 				else{
-					brain[i] = MatrixUtils.createRealMatrix(hidden[i], hidden[i-1]);
+					brain[i] = MatrixUtils.createRealMatrix(hidden[i-1], hidden[i]);
 					numConnections += hidden[i]*hidden[i-1];
 				}
 			}
@@ -72,6 +72,7 @@ public class NeuralNet {
 	
 	public MovementMessage getOutput(RealMatrix inp){
 		for (int i = 0; i < brain.length; i++){
+			//System.out.println(brain[i].getRowDimension() + "\t" + brain[i].getColumnDimension());
 			inp = inp.multiply(brain[i]);
 			for (int j = 0; j < inp.getColumnDimension(); j++){
 				// go through row matrix and pass through sigmoid function

@@ -6,6 +6,7 @@ import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 import storage.SpeciesType;
 import pso.Swarm;
+import simulation.SimulationMaster;
 import storage.Variables;
 
 public class Particle implements ParticleInterface{
@@ -18,10 +19,12 @@ public class Particle implements ParticleInterface{
 	private RealMatrix[] location;
 	private Swarm parentSwarm;
 	private double currFit;
+	private int brainNum;
 	
 	public Particle(SpeciesType sType, Swarm parent, int brainNum){
 		this.sType = sType;
 		parentSwarm = parent;
+		this.brainNum = brainNum;
 		initParticle(sType, parent, brainNum);
 		updateFitness();
 	}
@@ -90,8 +93,10 @@ public class Particle implements ParticleInterface{
 		
 		// Run simulation n times
 		// thread the simulation runs
+		SimulationMaster sm = new SimulationMaster(sType, Variables.brainStorage.getParticleBrain(sType, parentSwarm.getSpeciesNumber(), brainNum));
+		double score = sm.runSimulations();
 		
-		return 0;
+		return score;
 	}
 	
 	

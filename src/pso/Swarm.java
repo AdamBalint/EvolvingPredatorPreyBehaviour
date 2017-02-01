@@ -75,5 +75,14 @@ public class Swarm {
 	public int getSpeciesNumber(){
 		return speciesNum;
 	}
+
+	public double getAverageFitness() {
+		// TODO Auto-generated method stub
+		double fit = 0;
+		for (int i = 0; i < swarm.length; i++){
+			fit += swarm[i].getFitness();
+		}
+		return fit/swarm.length;
+	}
 	
 }

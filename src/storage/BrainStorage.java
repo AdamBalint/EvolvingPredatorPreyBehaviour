@@ -27,6 +27,11 @@ public class BrainStorage {
 		int type = SpeciesType.PREDATOR == specType ? 0 : 1;
 		return brains[type][speciesNumber][particleNumber];
 	}
+
+	public NeuralNet getRandomBrain(int i) {
+		// TODO Auto-generated method stub
+		return brains[i][0][Variables.rand.nextInt(brains[i][0].length)];
+	}
 	
 	
 }
