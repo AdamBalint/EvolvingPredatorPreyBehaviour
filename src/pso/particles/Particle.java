@@ -91,7 +91,7 @@ public class Particle implements ParticleInterface{
 	private void updateVelocity(){
 		RealMatrix[] globalBestLoc = parentSwarm.getGlobalBest();
 		for (int i = 0; i < velocity.length; i++){
-			velocity[i].scalarMultiply(sType == SpeciesType.PREDATOR ? Variables.inertiaPred : Variables.inertiaPrey);
+			velocity[i] = velocity[i].scalarMultiply(sType == SpeciesType.PREDATOR ? Variables.inertiaPred : Variables.inertiaPrey);
 			
 			RealMatrix per = (personalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.cognitivePred : Variables.cognitivePrey));
 			RealMatrix glob = (globalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.socialPred : Variables.socialPrey));

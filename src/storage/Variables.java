@@ -10,7 +10,7 @@ public class Variables {
 	//PSO Parameters
 	public static int psoEpochs = 50;
 	
-	public static int popSizePred = 50;
+	public static int popSizePred = 100;
 	public static double socialPred = 1.496180;
 	public static double cognitivePred = 1.496180;
 	public static double inertiaPred = 0.729844;
@@ -28,7 +28,7 @@ public class Variables {
 	public static BrainStorage brainStorage;
 	
 	public static int inputLayerSizePred = 25;
-	public static int[] hiddenLayerSizesPred = {20, 10};
+	public static int[] hiddenLayerSizesPred = {20, 20};
 	public static int outputLayerSizePred = 7;
 	
 	public static int inputLayerSizePrey = 9;
@@ -41,7 +41,7 @@ public class Variables {
 	
 	
 	public static int simulationTurnNum = 50;
-	public static int simulationNum = 250;
+	public static int simulationNum = 50;
 	
 	public static Random rand = new Random();
 	
