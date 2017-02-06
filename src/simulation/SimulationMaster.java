@@ -49,7 +49,7 @@ public class SimulationMaster {
 						try {
 							SimulationLog sl = f.get();
 							//System.err.println("Added to Predator score");
-							score += sl.predatorScore;
+							score += (sl.predatorScore);
 						} catch (InterruptedException | ExecutionException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -58,7 +58,7 @@ public class SimulationMaster {
 						try {
 							SimulationLog sl = f.get();
 							//System.err.println("Added to Prey score");
-							score += sl.preyScore;
+							score += (sl.preyScore);
 						} catch (InterruptedException | ExecutionException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

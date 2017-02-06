@@ -35,7 +35,12 @@ public class Swarm {
 	}
 
 	public RealMatrix[] getGlobalBest(){
-		return globalBest;
+		RealMatrix[] copy = new RealMatrix[globalBest.length];
+		for (int i = 0; i < copy.length; i++){
+			copy[i] = globalBest[i].copy();
+		}
+		
+		return copy;
 	}
 	
 	public double getGlobalBestFitness(){
@@ -62,8 +67,8 @@ public class Swarm {
 		// Could have just 1 call to method
 		for (Particle p : swarm){
 			if (p.getFitness() > globalBestFitness){
-				globalBestFitness = p.getFitness();
-				globalBest = p.getLocation().clone();
+				globalBestFitness = p.getPersonalBestFit();
+				globalBest = p.getPersonalBestLoc();
 			}
 		}
 	}

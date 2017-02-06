@@ -33,12 +33,19 @@ public class Particle implements ParticleInterface{
 	private void initParticle(SpeciesType sType2, Swarm parent, int brainNum) {
 		// TODO Auto-generated method stub
 		location = Variables.brainStorage.getParticleBrain(sType, parent.getSpeciesNumber(), brainNum).getBrain();
+		/*System.out.println("Brain Storage NN: \n" + Arrays.toString(Variables.brainStorage.getParticleBrain(sType, parent.getSpeciesNumber(), brainNum).getBrain()));
+		System.out.println("Particle NN: \n" + Arrays.toString(location));
+		location[0] = location[0].scalarMultiply(5.0);
+		System.err.println("Brain Storage NN: \n" + Arrays.toString(Variables.brainStorage.getParticleBrain(sType, parent.getSpeciesNumber(), brainNum).getBrain()));
+		System.err.println("Particle NN: \n" + Arrays.toString(location));
+		
+		System.exit(0);*/
 		velocity = new RealMatrix[location.length];
 		for (int i = 0; i < velocity.length; i++){
 			velocity[i] = MatrixUtils.createRealMatrix(location[i].getRowDimension(), location[i].getColumnDimension());
 			for(int r = 0; r < velocity[i].getRowDimension(); r++){
 				for(int c = 0; c < velocity[i].getColumnDimension(); c++){
-					velocity[i].addToEntry(r, c, Variables.rand.nextDouble());
+					velocity[i].addToEntry(r, c, Variables.rand.nextDouble()*2-1);
 				}
 			}
 		}
@@ -60,13 +67,24 @@ public class Particle implements ParticleInterface{
 	@Override
 	public RealMatrix[] getPersonalBestLoc() {
 		// TODO Auto-generated method stub
-		return personalBestLoc;
+		RealMatrix[] copy = new RealMatrix[personalBestLoc.length];
+		
+		for (int i = 0; i < copy.length; i++){
+			copy[i] = personalBestLoc[i].copy();
+		}
+		
+		return copy;
 	}
 
 	@Override
 	public RealMatrix[] getLocation() {
 		// TODO Auto-generated method stub
-		return location;
+		RealMatrix[] copy = new RealMatrix[location.length];
+		for (int i = 0; i < copy.length; i++){
+			copy[i] = location[i].copy();
+		}
+		
+		return copy;
 	}
 
 	// updates the velocity of the particle
@@ -78,14 +96,14 @@ public class Particle implements ParticleInterface{
 			RealMatrix per = (personalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.cognitivePred : Variables.cognitivePrey));
 			RealMatrix glob = (globalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.socialPred : Variables.socialPrey));
 			
-			velocity[i].add(per.add(glob));
+			velocity[i] = velocity[i].add(per.add(glob));
 		}
 	}
 	
 	// updates the location of the particle
 	private void updateLocation(){
 		for (int i = 0; i < location.length; i++){
-			location[i].add(velocity[i]);
+			location[i] = location[i].add(velocity[i]);
 		}
 	}
 	
@@ -104,7 +122,7 @@ public class Particle implements ParticleInterface{
 		currFit = calculateFitness();
 		if (currFit >= personalBestFitness || personalBestFitness == Double.NEGATIVE_INFINITY){
 			personalBestFitness = currFit;
-			personalBestLoc = location.clone();
+			personalBestLoc = getLocation();
 		}
 	}
 	

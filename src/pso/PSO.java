@@ -28,20 +28,19 @@ public class PSO {
 			// Loop through species
 			for (int s = 0; s < predPreySwarms.length; s++){
 				// loop through specializations
-				System.out.println(predPreySwarms.length);
-				iterationLog[i][s*2] = predPreySwarms[i][0].getGlobalBestFitness();
-				iterationLog[i][s*2+1] = predPreySwarms[i][0].getAverageFitness();
+				iterationLog[i][s*2] = predPreySwarms[s][0].getGlobalBestFitness();
+				iterationLog[i][s*2+1] = predPreySwarms[s][0].getAverageFitness();
 				
 				
 				for (int spec = 0; spec <predPreySwarms[s].length; spec++){
-					System.out.println((s == 0 ? "Predator ":"Prey ") + "Global Best Fitness: " + predPreySwarms[s][spec].getGlobalBestFitness());
 					predPreySwarms[s][spec].updatePopulation();
+					System.out.println((s == 0 ? "Pred ":"Prey ") + "Global Best Fitness: " + predPreySwarms[s][spec].getGlobalBestFitness() + "\t Average: " + iterationLog[i][s*2+1]);
 				}
 			}
 		}
 		
 		for (int i = 0; i < iterationLog.length; i++){
-			System.out.println(iterationLog[0] + "\t" + iterationLog[1] + "\t" + iterationLog[2] + "\t" + iterationLog[3] + "\t");
+			System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
 		}
 		
 		

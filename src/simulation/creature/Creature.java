@@ -28,15 +28,27 @@ public class Creature {
 
 	public void makeMove(double[] surroundings) {
 		// TODO Auto-generated method stub
+		
+		if (speciesType == SpeciesType.PREDATOR){
 		RealMatrix inp = MatrixUtils.createRowRealMatrix(surroundings);
 		MovementMessage mov = brain.getOutput(inp);
-		int nx = x+mov.getXMovement();
-		int ny = y+mov.getYMovement();
+		
+		int multiplierX = 1;
+		int multiplierY = 1;
+		if (mov.isChasingX())
+			multiplierX = 2;
+		if (mov.isChasingY())
+			multiplierY = 2;
+		
+		int nx = x+mov.getXMovement() * multiplierX;
+		int ny = y+mov.getYMovement() * multiplierY;
 		if (nx >= Variables.boardWidth || nx < 0 || ny >= Variables.boardHeight || ny < 0){
 			return;
 		}
-		x += mov.getXMovement();
-		y += mov.getYMovement();
+		
+			x += mov.getXMovement();
+			y += mov.getYMovement();
+		}
 		
 	}
 	

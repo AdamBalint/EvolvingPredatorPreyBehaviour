@@ -32,12 +32,18 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 	
 	// predator, prey
 	public void placeCreatures(NeuralNet predatorBrain, NeuralNet preyBrain){
-		Point p1 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height));
+		//Point p1 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height));
+		
+		// Replace with random point later
+		Point p1 = new Point (0,0);
 		Point p2;
 		do {
 			p2 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height));
 			
 		}while (p1.equals(p2) || p1.distance(p2) < 2);
+		
+		// Remove later
+		p2 = new Point(0,4);
 		
 		for (int r = 0; r < height; r++){
 			for (int c = 0; c < width; c++){
@@ -82,8 +88,8 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 				else if (board[n.x][n.y].getSpeciesType() == SpeciesType.PREY && currCreature.getSpeciesType() == SpeciesType.PREDATOR){
 					// caught the enemy get a score
 					board[n.x][n.y] = currCreature;
-					predScore += 0.1;
-					preyScore -= 0.1;
+					//predScore += 0.1;
+					//preyScore -= 0.1;
 					
 					
 					// Remove prey from arraylist
@@ -108,10 +114,12 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 				}
 			}
 		}
-		if (predCount > preyCount)
-			predScore += 5;
-		else if (preyCount >= predCount)
-			preyScore += 5;
+		if (predCount > preyCount){
+			predScore += 1;
+		}
+		else if (preyCount >= predCount){
+			preyScore += 1;
+		}
 		log.predatorScore = predScore;
 		log.preyScore = preyScore;
 	}
@@ -132,13 +140,16 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 	private double[] getSurroundings(Creature creature) {
 		// TODO Auto-generated method stub
 		// See in 3x3 box around themselves
-		double[] surr = new double[9];
 		
-		for (int i = -1; i < 2; i++){
-			for (int j = -1; j < 2; j++){
+		int start = creature.getSpeciesType() == SpeciesType.PREDATOR? -2 : -1;
+		int end = creature.getSpeciesType() == SpeciesType.PREDATOR? 2 : 1;;
+		double[] surr = new double[(end-start+1)*(end-start+1)];
+		
+		for (int i = start; i <= end; i++){
+			for (int j = start; j <= end; j++){
 				int xLoc = creature.getX()-i;
 				int yLoc = creature.getY()-j;
-				int ind = (i+1)*3+(j+1);
+				int ind = (i+end)*(end-start+1)+(j+end);
 				if (xLoc < width || xLoc >= width || yLoc < height || yLoc >= height)
 					surr[ind] = -2;
 				else if(board[xLoc][yLoc] == null)
