@@ -77,7 +77,7 @@ public class SimulationMaster {
 			return preyScore;
 		*/
 		//System.out.println("Score: " + score);
-		return score;
+		return score/Variables.simulationNum;
 	}
 	
 	

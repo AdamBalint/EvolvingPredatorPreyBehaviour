@@ -35,6 +35,22 @@ public class NeuralNet {
 		setUpMatrices();
 	}
 	
+	public NeuralNet(SpeciesType specType, RealMatrix[] net){
+		this.specType = specType;
+		if (specType == SpeciesType.PREDATOR){
+			brain = new RealMatrix[Variables.hiddenLayerSizesPred.length+1];
+			inSize = Variables.inputLayerSizePred;
+			outSize = Variables.outputLayerSizePred;
+			hidden = Variables.hiddenLayerSizesPred.clone();
+		}else{
+			brain = new RealMatrix[Variables.hiddenLayerSizesPrey.length+1];
+			inSize = Variables.inputLayerSizePrey;
+			outSize = Variables.outputLayerSizePrey;
+			hidden = Variables.hiddenLayerSizesPrey.clone();
+		}
+		brain = net;
+	}
+	
 	private void setUpMatrices() {
 		// Generate the number of matrices needed for the weights
 		if (hidden.length > 0){
@@ -59,11 +75,13 @@ public class NeuralNet {
 		}
 	}
 
+	
+	
 	public void generateRandomBrains(){
 		for (int i = 0; i < brain.length; i++){
 			for (int j = 0; j < brain[i].getRowDimension(); j++){
 				for (int k = 0; k < brain[i].getColumnDimension(); k++){
-					brain[i].setEntry(j, k, (Math.random()*2)-1);
+					brain[i].setEntry(j, k, (Math.random()*4)-2);
 				}
 			}
 		}

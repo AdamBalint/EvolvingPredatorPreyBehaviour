@@ -17,7 +17,11 @@ public class MovementMessage {
 	public MovementMessage(RealMatrix res){
 		
 		double[] row = res.getRow(0);
-		
+		// 0 - Check Diagonal
+		// 1 & 2 - horizontal movement
+		// 3 & 4 - vertical movement
+		// 5 - sprint horizontal
+		// 6 - sprint vertical
 		if (row[0] <= 0.5){
 			diagonalFlag = false;
 			double maxVal = row[1];

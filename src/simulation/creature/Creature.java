@@ -29,7 +29,7 @@ public class Creature {
 	public void makeMove(double[] surroundings) {
 		// TODO Auto-generated method stub
 		
-		if (speciesType == SpeciesType.PREDATOR){
+		//if (speciesType == SpeciesType.PREDATOR){
 			RealMatrix inp = MatrixUtils.createRowRealMatrix(surroundings);
 			MovementMessage mov = brain.getOutput(inp);
 			
@@ -48,7 +48,7 @@ public class Creature {
 			
 			x += mov.getXMovement();
 			y += mov.getYMovement();
-		}
+		//}
 		
 	}
 	

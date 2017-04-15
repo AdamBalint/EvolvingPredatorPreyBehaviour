@@ -141,7 +141,20 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		// TODO Auto-generated method stub
 		// See in 3x3 box around themselves
 		
-		int start = creature.getSpeciesType() == SpeciesType.PREDATOR? -2 : -1;
+		double[] surr = new double[Variables.inputLayerSizePred];
+		for (int i = 0; i < Variables.boardWidth; i++){
+			for (int j = 0; j < Variables.boardHeight; j++){	
+				if(board[i][j] == null)
+					surr[i*Variables.boardWidth+j] = 0;
+				else if (board[i][j].getSpeciesType() == creature.getSpeciesType())
+					surr[i*Variables.boardWidth+j] = 1;
+				else
+					surr[i*Variables.boardWidth+j] = -1;
+			}
+		}
+		return surr;
+		
+		/*int start = creature.getSpeciesType() == SpeciesType.PREDATOR? -2 : -1;
 		int end = creature.getSpeciesType() == SpeciesType.PREDATOR? 2 : 1;;
 		double[] surr = new double[(end-start+1)*(end-start+1)];
 		
@@ -161,7 +174,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			}
 		}
 		
-		return surr;
+		return surr;*/
 	}
 
 	@Override
