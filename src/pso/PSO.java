@@ -51,6 +51,10 @@ public class PSO {
 			}
 		}
 		
+		
+		// print to log file of run
+		
+		
 		for (int i = 0; i < iterationLog.length; i++){
 			System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
 		}

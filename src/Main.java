@@ -8,10 +8,14 @@ public class Main {
 	
 	public Main(){
 		// Brain storage
+		
+		// Loop for experiments
 		Variables.brainStorage = new BrainStorage();
 		setUpPSO();
 		setUpSimulation();
 		pso.runPSO();
+	
+	
 	}
 	
 	
