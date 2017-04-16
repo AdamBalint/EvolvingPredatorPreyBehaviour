@@ -14,6 +14,13 @@ import visualizer.components.*;
 public class VisualizerMain implements ActionListener{
 
 	public static String experimentBaseLocation = "";
+	public static String selectedRun = "";
+	private ParameterDisplayer parameterDisplayer = null;
+	private GameDisplayer gameDisplayer = null;
+	private ParticleDisplayer particleDisplayer = null;
+	private CreatureDisplayer creatureDisplayer = null;
+	private GraphDisplayer graphDisplayer = null;
+	private RunDisplayer runDisplayer = null;
 	
 	public VisualizerMain(){
 		
@@ -29,6 +36,7 @@ public class VisualizerMain implements ActionListener{
 		setUpTopPane(f);
 		setUpBotPane(f);
 		
+		f.setResizable(false);
 		f.pack();
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
@@ -46,7 +54,9 @@ public class VisualizerMain implements ActionListener{
 	}
 	
 	private void setUpTopPane(JFrame f){
-		
+		parameterDisplayer = new ParameterDisplayer();
+		gameDisplayer = new GameDisplayer();
+		particleDisplayer = new ParticleDisplayer();
 		
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setVgap(0);
@@ -57,14 +67,18 @@ public class VisualizerMain implements ActionListener{
 		topPane.setBackground(Color.blue);
 		topPane.setPreferredSize(new Dimension(900, 450));
 		
-		topPane.add(new ParameterDisplayer());
-		topPane.add(new GameDisplayer());
-		topPane.add(new ParticleDisplayer());
+		topPane.add(parameterDisplayer);
+		topPane.add(gameDisplayer);
+		topPane.add(particleDisplayer);
 		f.add(topPane, BorderLayout.CENTER);
 	}
 	
 	
 	private void setUpBotPane(JFrame f){
+		graphDisplayer = new GraphDisplayer();
+		creatureDisplayer = new CreatureDisplayer();
+		runDisplayer = new RunDisplayer(this);
+		
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
@@ -72,9 +86,9 @@ public class VisualizerMain implements ActionListener{
 		botPane.setBackground(Color.red);
 		botPane.setPreferredSize(new Dimension(900, 150));
 		
-		botPane.add(new GraphDisplayer());
-		botPane.add(new ParticleDisplayer());
-		botPane.add(new RunDisplayer());
+		botPane.add(graphDisplayer);
+		botPane.add(creatureDisplayer);
+		botPane.add(runDisplayer);
 		f.add(botPane,  BorderLayout.SOUTH);
 	}
 	
@@ -94,7 +108,13 @@ public class VisualizerMain implements ActionListener{
 		if (choice == 0){
 			File selected = fc.getSelectedFile();
 			experimentBaseLocation = selected.getPath();
+			runDisplayer.update();
 		}
 	}
 
+	public void updateParticleDisplayer() {
+		// TODO Auto-generated method stub
+		particleDisplayer.update();
+	}
+	
 }
