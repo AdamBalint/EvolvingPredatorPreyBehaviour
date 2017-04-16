@@ -41,6 +41,7 @@ public class PSO {
 		
 		
 		for (int i = 0; i < Variables.psoEpochs; i++){
+			Variables.currentEpoch = i;
 			System.err.println("Epoch: " + i);
 			try {
 				Thread.sleep(1);

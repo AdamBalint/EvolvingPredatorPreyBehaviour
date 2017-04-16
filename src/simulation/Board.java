@@ -69,6 +69,12 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 	public void runSimulation(){
 		double predScore = 0;
 		double preyScore = 0;
+		log.movementLog = new ArrayList<Point>();
+		Creature creat = creatures.get(0);
+		log.movementLog.add(new Point(creat.getX(), creat.getY()));
+		creat = creatures.get(1);
+		log.movementLog.add(new Point(creat.getX(), creat.getY()));
+		boolean endSimulation = false;
 		
 		for (int i = 0; i < Variables.simulationTurnNum; i++){
 			for (int cr = 0; cr < creatures.size(); cr++){
@@ -76,8 +82,8 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 				Point prev = new Point (currCreature.getX(), currCreature.getY());
 				currCreature.makeMove(getSurroundings(currCreature));
 				board[prev.x][prev.y] = null;
-				
 				Point n = new Point(currCreature.getX(), currCreature.getY());
+				log.movementLog.add((Point)n.clone());
 				if(n.x >= width || n.x < 0 || n.y >= height || n.y < 0){
 					board[prev.x][prev.y] = currCreature;
 					break;
@@ -96,11 +102,14 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 					
 					
 					removePrey(n.x, n.y);
+					endSimulation = true;
 					// increase score of predators
 				} else{
 					board[prev.x][prev.y] = currCreature;
 				}
 			}
+			if (endSimulation)
+				break;
 		}
 		int predCount = 0, preyCount = 0;
 		

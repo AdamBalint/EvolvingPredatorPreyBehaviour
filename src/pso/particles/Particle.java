@@ -142,7 +142,7 @@ public class Particle implements ParticleInterface{
 		
 		// Run simulation n times
 		// thread the simulation runs
-		SimulationMaster sm = new SimulationMaster(sType, Variables.brainStorage.getParticleBrain(sType, parentSwarm.getSpeciesNumber(), brainNum));
+		SimulationMaster sm = new SimulationMaster(sType, Variables.brainStorage.getParticleBrain(sType, parentSwarm.getSpeciesNumber(), brainNum), brainNum);
 		double score = sm.runSimulations();
 		
 		return score;

@@ -135,12 +135,12 @@ public class Swarm {
 	// Recalculates the fitness of the currently stored best location
 	public void recalculateBest() {
 		// TODO Auto-generated method stub
-		SimulationMaster sm = new SimulationMaster(sType, new NeuralNet(sType, priorBests.lastElement()));
+		SimulationMaster sm = new SimulationMaster(sType, new NeuralNet(sType, priorBests.lastElement()), -1);
 		double nFitness = sm.runSimulations();
 		globalBestFitness = nFitness;
 		
 		for (RealMatrix[] oldBest : priorBests){
-			sm = new SimulationMaster(sType, new NeuralNet(sType, oldBest));
+			sm = new SimulationMaster(sType, new NeuralNet(sType, oldBest), -1);
 			nFitness = sm.runSimulations();
 			if (nFitness > globalBestFitness){
 				globalBest = oldBest;

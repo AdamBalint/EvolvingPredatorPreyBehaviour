@@ -8,6 +8,8 @@ public class Variables {
 
 	public static String runBase = "";
 	public static int currentRun;
+	public static int currentEpoch;
+	
 	//PSO Parameters
 	public static int psoEpochs = 10;
 	
