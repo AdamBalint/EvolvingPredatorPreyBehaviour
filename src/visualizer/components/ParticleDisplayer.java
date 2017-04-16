@@ -10,24 +10,28 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import visualizer.VisualizerMain;
 
-public class ParticleDisplayer extends JPanel implements ChangeListener{
+public class ParticleDisplayer extends JPanel implements ChangeListener, ListSelectionListener{
 
 	JList displayPred, displayPrey;
 	private ArrayList<File> predParticles, preyParticles;
 	private int epochSelected = 0;
 	private int minEpoch = 0, maxEpoch = 10;
 	private JSpinner epochSelector;
+	private VisualizerMain vm;
 	
-	public ParticleDisplayer(){
-		this(225, 450);
+	public ParticleDisplayer(VisualizerMain vm){
+		this(225, 450, vm);
 	}
 	
-	public ParticleDisplayer(int width, int height){
+	public ParticleDisplayer(int width, int height, VisualizerMain vm){
 		this.setPreferredSize(new Dimension(width, height));
 		this.setBackground(Color.magenta);
+		this.vm = vm;
 		
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setVgap(0);
@@ -39,6 +43,8 @@ public class ParticleDisplayer extends JPanel implements ChangeListener{
 		displayPred.setLayout(flowLayout);
 		displayPred.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		displayPred.setLayoutOrientation(JList.VERTICAL);
+		displayPred.addListSelectionListener(this);
+		displayPred.setName("pred");
 		JScrollPane listScroller = new JScrollPane(displayPred);
 		listScroller.setPreferredSize(new Dimension(width, height-100));
 		
@@ -46,6 +52,8 @@ public class ParticleDisplayer extends JPanel implements ChangeListener{
 		displayPrey.setLayout(flowLayout);
 		displayPrey.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		displayPrey.setLayoutOrientation(JList.VERTICAL);
+		displayPrey.addListSelectionListener(this);
+		displayPrey.setName("prey");
 		JScrollPane listScroller2 = new JScrollPane(displayPrey);
 		listScroller2.setPreferredSize(new Dimension(width, height-100));
 		//this.add(listScroller);
@@ -131,6 +139,28 @@ public class ParticleDisplayer extends JPanel implements ChangeListener{
 		epochSelected = ((Number)epochSelector.getValue()).intValue();
 		updateParticles();
 		this.repaint();
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		// TODO Auto-generated method stub
+		String name = ((JList) e.getSource()).getName();
+		if (name.equals("pred")){
+			int selected = displayPred.getSelectedIndex();
+			if (selected == -1)
+				selected = 0;
+			String loc = predParticles.get(selected).getPath();
+			vm.updateParticleGame(loc);
+			
+		}
+		else{
+			int selected = displayPrey.getSelectedIndex();
+			String loc = preyParticles.get(selected).getPath();
+			vm.updateParticleGame(loc);
+		}
+		
+		
+		
 	}
 	
 	

@@ -56,7 +56,7 @@ public class VisualizerMain implements ActionListener{
 	private void setUpTopPane(JFrame f){
 		parameterDisplayer = new ParameterDisplayer();
 		gameDisplayer = new GameDisplayer();
-		particleDisplayer = new ParticleDisplayer();
+		particleDisplayer = new ParticleDisplayer(this);
 		
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setVgap(0);
@@ -115,6 +115,10 @@ public class VisualizerMain implements ActionListener{
 	public void updateParticleDisplayer() {
 		// TODO Auto-generated method stub
 		particleDisplayer.update();
+	}
+	
+	public void updateParticleGame(String dir){
+		gameDisplayer.update(dir);
 	}
 	
 }

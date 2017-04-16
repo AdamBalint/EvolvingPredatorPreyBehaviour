@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.*;
 
@@ -14,6 +15,9 @@ public class GameDisplayer extends JPanel implements ActionListener{
 	int counter = 1;
 	int max = 20;
 	JLabel currentRun;
+	Board b;
+	String dir;
+	
 	public GameDisplayer(){
 		this(450, 450);
 		
@@ -23,7 +27,7 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		
 		this.setPreferredSize(new Dimension(width, height));
 		
-		Board b = new Board();
+		b = new Board();
 		BorderLayout borderLayout = new BorderLayout();
 		borderLayout.setVgap(20);
 		this.setLayout(borderLayout);
@@ -53,6 +57,24 @@ public class GameDisplayer extends JPanel implements ActionListener{
 	}
 	
 	
+	public void update(String dir){
+		this.dir = dir;
+		File f = new File(dir);
+		File[] files = f.listFiles();
+		int count = 0;
+		for (File file : files){
+			if (file.getName().contains("Game"))
+				count++;
+		}
+		max = count;
+		if (counter > max-1)
+			counter = max-1;
+		currentRun.setText(counter + "/" + max);
+		
+		b.loadBoard(new File(dir+"/Game-"+(counter-1)+".txt"));
+	}
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -65,7 +87,8 @@ public class GameDisplayer extends JPanel implements ActionListener{
 			loadNext();
 			break;
 		}
-		currentRun.setText(counter + "/"+max);
+		currentRun.setText(counter + "/" + max);
+		b.loadBoard(new File(dir+"/Game-"+(counter-1)+".txt"));
 	}
 	
 	
