@@ -6,9 +6,10 @@ import simulation.*;
 
 public class Variables {
 
-	
+	public static String runBase = "";
+	public static int currentRun;
 	//PSO Parameters
-	public static int psoEpochs = 100;
+	public static int psoEpochs = 10;
 	
 	public static int popSizePred = 200;
 	public static double socialPred = 1.42;//1.496180;

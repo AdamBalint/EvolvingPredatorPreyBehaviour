@@ -1,3 +1,5 @@
+import java.io.File;
+
 import pso.PSO;
 import storage.BrainStorage;
 import storage.Variables;
@@ -8,12 +10,21 @@ public class Main {
 	
 	public Main(){
 		// Brain storage
+		String nanoTime = ""+System.nanoTime();
+		Variables.runBase = nanoTime;
+		File f = new File ("Logs/"+nanoTime);
+		f.mkdirs();
 		
-		// Loop for experiments
-		Variables.brainStorage = new BrainStorage();
-		setUpPSO();
-		setUpSimulation();
-		pso.runPSO();
+		for (int run = 0; run < 1; run++){
+			Variables.currentRun = run;
+			f = new File ("Logs/"+nanoTime+"/Run-"+run);
+			f.mkdir();
+			// Loop for experiments
+			Variables.brainStorage = new BrainStorage();
+			setUpPSO();
+			setUpSimulation();
+			pso.runPSO();
+		}
 	
 	
 	}

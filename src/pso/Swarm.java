@@ -44,12 +44,20 @@ public class Swarm {
 		System.err.println("Swarm - Setting up particles");
 		for (int i = 0; i < swarm.length; i++){
 			if (sType == SpeciesType.PREDATOR)
-				swarm[i] = new Particle(sType, this, i, i > swarm.length*0.3 ? true : false);
+				swarm[i] = new Particle(sType, this, i, i > swarm.length*(1-0.3) ? true : false);
 			else
 				swarm[i] = new Particle(sType, this, i, false);
 		}
 	}
-
+	
+	public boolean particleIsCharged(int num){
+		return swarm[num].isCharged();
+	}
+	
+	public int getSwarmSize(){
+		return swarm.length;
+	}
+	
 	public RealMatrix[] getGlobalBest(){
 		RealMatrix[] copy = new RealMatrix[globalBest.length];
 		for (int i = 0; i < copy.length; i++){

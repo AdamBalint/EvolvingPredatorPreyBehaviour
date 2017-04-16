@@ -1,5 +1,7 @@
 package pso;
 
+import java.io.*;
+
 import storage.SpeciesType;
 import storage.Variables;
 
@@ -17,6 +19,27 @@ public class PSO {
 	}
 	
 	public void runPSO(){
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/ParticleSummary.txt")));
+			
+			for (int i = 0; i < predPreySwarms.length; i++){
+				bw.write((i == 0 ? "Predator\t" : "Prey\t")+predPreySwarms[i][0].getSwarmSize());
+				bw.newLine();
+				for(int p = 0; p < predPreySwarms[i][0].getSwarmSize(); p++){
+					bw.write(p+"\t"+predPreySwarms[i][0].particleIsCharged(p));
+					bw.newLine();
+				}
+				bw.newLine();
+			}
+			bw.flush();
+			bw.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		for (int i = 0; i < Variables.psoEpochs; i++){
 			System.err.println("Epoch: " + i);
 			try {
@@ -53,7 +76,21 @@ public class PSO {
 		
 		
 		// print to log file of run
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/RunSummary.txt")));
+			
+			for (int i = 0; i < iterationLog.length; i++){
+				bw.write(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
+				bw.newLine();
+				//System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
+			}
+			bw.flush();
+			bw.close();
 		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		for (int i = 0; i < iterationLog.length; i++){
 			System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
