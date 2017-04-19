@@ -43,10 +43,10 @@ public class Swarm {
 		// TODO Auto-generated method stub
 		System.err.println("Swarm - Setting up particles");
 		for (int i = 0; i < swarm.length; i++){
-			if (sType == SpeciesType.PREDATOR)
+			//if (sType == SpeciesType.PREDATOR)
 				swarm[i] = new Particle(sType, this, i, i > swarm.length*(1-0.3) ? true : false);
-			else
-				swarm[i] = new Particle(sType, this, i, false);
+			//else
+			//	swarm[i] = new Particle(sType, this, i, false);
 		}
 	}
 	

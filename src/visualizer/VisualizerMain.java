@@ -114,6 +114,7 @@ public class VisualizerMain implements ActionListener{
 
 	public void updateParticleDisplayer() {
 		// TODO Auto-generated method stub
+		graphDisplayer.update();
 		particleDisplayer.update();
 	}
 	
