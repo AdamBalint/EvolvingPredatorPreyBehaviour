@@ -11,12 +11,12 @@ import javax.swing.*;
 
 public class GameDisplayer extends JPanel implements ActionListener{
 
-	JButton left, right;
-	int counter = 1;
-	int max = 20;
-	JLabel currentRun;
-	Board b;
-	String dir;
+	private JButton left, right;
+	private int counter = 1;
+	private int max = 20;
+	private JLabel currentRun;
+	private Board b;
+	private String dir;
 	
 	public GameDisplayer(){
 		this(450, 450);
@@ -62,16 +62,20 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		File f = new File(dir);
 		File[] files = f.listFiles();
 		int count = 0;
-		for (File file : files){
+		
+		b.loadGames(new File(dir+"/games.save"));
+		b.loadBoard(counter-1);
+		
+		/*for (File file : files){
 			if (file.getName().contains("Game"))
 				count++;
-		}
-		max = count;
+		}*/
+		max = b.getGamesNumber();
 		if (counter > max-1)
 			counter = max-1;
 		currentRun.setText(counter + "/" + max);
 		
-		b.loadBoard(new File(dir+"/Game-"+(counter-1)+".txt"));
+		
 	}
 	
 	
@@ -88,7 +92,8 @@ public class GameDisplayer extends JPanel implements ActionListener{
 			break;
 		}
 		currentRun.setText(counter + "/" + max);
-		b.loadBoard(new File(dir+"/Game-"+(counter-1)+".txt"));
+		//b.loadGames(new File(dir+"/games.save"));
+		b.loadBoard(counter-1);
 	}
 	
 	

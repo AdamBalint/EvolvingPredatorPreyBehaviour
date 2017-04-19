@@ -117,6 +117,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			}
 			if (endSimulation)
 				break;
+			updateBoard();
 		}
 		int predCount = 0, preyCount = 0;
 		
@@ -198,6 +199,13 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		return surr;*/
 	}
 
+	private void updateBoard(){
+		board = new Creature[board.length][board[0].length];
+		for (Creature curr : creatures){
+			board[curr.getX()][curr.getY()] = curr;
+		}
+	}
+	
 	@Override
 	public int[] getSurroundings(int x, int y, int xOff, int yOff, int xLOS, int yLOS) {
 		// TODO Auto-generated method stub

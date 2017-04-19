@@ -3,10 +3,13 @@ package simulation;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class GameLogger implements Serializable{
 
-	private static final long serialVersionUID = -5481024168409828837L;
+	
+	private static final long serialVersionUID = 8921384492548109895L;
 	
 	private ArrayList<ArrayList<Point>> games;
 	
@@ -19,6 +22,15 @@ public class GameLogger implements Serializable{
 	}
 	
 	public void addGame(ArrayList<Point> game){
-		games.add(game);
+		ArrayList<Point> copy = new ArrayList<>();
+		for (Point g : game){
+			copy.add((Point) g.clone());
+		}
+		games.add(copy);
+		//System.out.println(games.get(games.size()-1).toString());
+	}
+	
+	public int getGamesNumber(){
+		return games.size();
 	}
 }
