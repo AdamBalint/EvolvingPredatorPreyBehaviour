@@ -3,8 +3,10 @@ package simulation;
 import java.awt.Point;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -23,12 +25,15 @@ public class SimulationMaster {
 	private SpeciesType specType;
 	private NeuralNet nn;
 	private int particleNum;
+	private GameLogger gameLogger = null;
+	
 	
 	// Species type to get type of brain, 
 	public SimulationMaster(SpeciesType specType, NeuralNet nn, int particleNum){
 		this.specType = specType;
 		this.nn = nn;
 		this.particleNum = particleNum;
+		this.gameLogger = new GameLogger();
 	}
 	
 	public double runSimulations(){
@@ -51,6 +56,20 @@ public class SimulationMaster {
 			for (int i = resultList.size()-1; i >= 0 ; i--){
 				if (resultList.get(i).isDone()){
 					count++;
+					Future<SimulationLog> f = resultList.remove(i);
+					try {
+						SimulationLog sl = f.get();
+						ArrayList<Point> moves = sl.movementLog;
+						score += specType == SpeciesType.PREDATOR ? sl.predatorScore : sl.preyScore;
+						gameLogger.addGame(moves);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					/*count++;
 					Future<SimulationLog> f = resultList.remove(i);
 					if (specType == SpeciesType.PREDATOR){
 						try {
@@ -80,22 +99,32 @@ public class SimulationMaster {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-					}
+					}*/
 				}
 			}
 		}
 		if (particleNum != -1){
 			String loc;
-			if (specType == SpeciesType.PREDATOR)
+			if (specType == SpeciesType.PREDATOR){
 				loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Predator/Pred-"+particleNum+"/";
-			else
+			}else{
 				loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Prey/Prey-"+particleNum+"/";
-			
+			}
 			try {
+				File f = new File(loc);
+				//f.createNewFile();
+				f.mkdirs();
+				FileOutputStream fout = new FileOutputStream(loc+"/games.save");
+				ObjectOutputStream oos = new ObjectOutputStream(fout);
+				oos.writeObject(gameLogger);
+				oos.flush();
+				oos.close();
+				/*
 				BufferedWriter bw = new BufferedWriter(new FileWriter(new File(loc+"Fitness.txt")));
 				bw.write(""+score);
 				bw.flush();
 				bw.close();
+				*/
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

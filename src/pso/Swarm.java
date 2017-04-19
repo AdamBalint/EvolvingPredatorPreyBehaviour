@@ -1,5 +1,8 @@
 package pso;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.commons.math3.analysis.function.Abs;
@@ -80,9 +83,13 @@ public class Swarm {
 	//
 	private void updateLocations() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < swarm.length; i++){
+		
+		List<Particle> swarmList = Arrays.asList(swarm);
+		swarmList.parallelStream().forEach(p -> p.updateParticle());
+		
+		/*for (int i = 0; i < swarm.length; i++){
 			swarm[i].updateParticle();
-		}
+		}*/
 	}
 
 	// Updates the global best

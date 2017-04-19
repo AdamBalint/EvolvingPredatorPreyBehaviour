@@ -13,7 +13,7 @@ public class Variables {
 	//PSO Parameters
 	public static int psoEpochs = 10;
 	
-	public static int popSizePred = 100;
+	public static int popSizePred = 200;
 	public static double socialPred = 1.42;//1.496180;
 	public static double cognitivePred = 1.42; //1.496180;
 	public static double inertiaPred = 0.72;//0.729844;
@@ -21,7 +21,7 @@ public class Variables {
 //	public static double communityCoeffPred;
 //	public static double personalCoeffPred;
 	
-	public static int popSizePrey = 100;
+	public static int popSizePrey = 200;
 	public static double socialPrey = 1.42;//1.496180;
 	public static double cognitivePrey = 1.42;//1.496180;
 	public static double inertiaPrey = 0.72;//0.729844;
