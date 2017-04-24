@@ -75,7 +75,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		creat = creatures.get(1);
 		log.movementLog.add(new Point(creat.getX(), creat.getY()));
 		boolean endSimulation = false;
-		
+		boolean predFallen = false, preyFallen = false;
 		for (int i = 0; i < Variables.simulationTurnNum; i++){
 			for (int cr = 0; cr < creatures.size(); cr++){
 				Creature currCreature = creatures.get(cr);
@@ -112,6 +112,14 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			}
 			Creature pred = creatures.get(0);
 			Creature prey = creatures.get(1);
+			if (Variables.canFall){
+				if (offBoard(pred))
+					predFallen = true;
+				if (offBoard(prey))
+					preyFallen = true;
+				if (predFallen || preyFallen)
+					break;
+			}
 			if (pred.getX() == prey.getX() && pred.getY() == prey.getY()){
 				endSimulation = true;
 			}
@@ -121,10 +129,12 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}
 		int predCount = 0, preyCount = 0;
 		
-		if (endSimulation)
-			predScore += 1;
-		else
-			preyScore += 1;
+		if (!(predFallen && preyFallen)){
+			if (endSimulation || preyFallen)
+				predScore += 1;
+			else
+				preyScore += 1;
+		}
 		
 		/*for (int c = 0; c < width; c++){
 			for (int r = 0; r < height; r++){
@@ -144,6 +154,11 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}*/
 		log.predatorScore = predScore;
 		log.preyScore = preyScore;
+	}
+
+	private boolean offBoard(Creature pred) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	private void removePrey(int x, int y) {

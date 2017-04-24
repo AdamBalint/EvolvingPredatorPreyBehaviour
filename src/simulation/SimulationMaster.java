@@ -52,11 +52,12 @@ public class SimulationMaster {
 		
 		double score = 0;
 		int count = 0;
-		while(resultList.size() > 0 && count != Variables.simulationNum){
-			while(count < Variables.simulationNum){
-				if (resultList.get(0).isDone()){
+		
+		while(count < Variables.simulationNum){
+			for (int i = 0; i < resultList.size(); i++){
+				if (resultList.get(i).isDone()){
 					count++;
-					Future<SimulationLog> f = resultList.remove(0);
+					Future<SimulationLog> f = resultList.remove(i);
 					try {
 						SimulationLog sl = f.get();
 						ArrayList<Point> moves = sl.movementLog;
@@ -102,6 +103,7 @@ public class SimulationMaster {
 					}*/
 				}
 			}
+			
 		}
 		if (particleNum != -1){
 			String loc;
