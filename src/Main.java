@@ -15,7 +15,7 @@ public class Main {
 		File f = new File ("Logs/"+nanoTime);
 		f.mkdirs();
 		
-		for (int run = 0; run < 20; run++){
+		for (int run = 0; run < 10; run++){
 			Variables.currentRun = run;
 			f = new File ("Logs/"+nanoTime+"/Run-"+run);
 			f.mkdir();
