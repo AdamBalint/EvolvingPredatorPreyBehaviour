@@ -109,6 +109,8 @@ public class Swarm {
 		if (bestLoc != null){
 			globalBestFitness = maxFit;
 			globalBest = bestLoc;
+			if (priorBests.size() == 25)
+				priorBests.remove(0);
 			priorBests.add(bestLoc);
 		}		
 	}
