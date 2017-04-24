@@ -43,7 +43,7 @@ public class Creature {
 			int nx = x+mov.getXMovement() * multiplierX;
 			int ny = y+mov.getYMovement() * multiplierY;
 			
-			if (Variables.canFall && (nx >= Variables.boardWidth || nx < 0 || ny >= Variables.boardHeight || ny < 0)){
+			if (!Variables.canFall && (nx >= Variables.boardWidth || nx < 0 || ny >= Variables.boardHeight || ny < 0)){
 				return;
 			}
 			
