@@ -49,7 +49,7 @@ public class Variables {
 	
 	
 	public static int simulationTurnNum = 20;
-	public static int simulationNum = 400;
+	public static int simulationNum = 40;
 	
 	public static Random rand = new Random();
 	

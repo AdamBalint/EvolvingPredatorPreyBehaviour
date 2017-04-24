@@ -53,10 +53,10 @@ public class SimulationMaster {
 		double score = 0;
 		int count = 0;
 		while(resultList.size() > 0 && count != Variables.simulationNum){
-			for (int i = resultList.size()-1; i >= 0 ; i--){
-				if (resultList.get(i).isDone()){
+			while(count < Variables.simulationNum){
+				if (resultList.get(0).isDone()){
 					count++;
-					Future<SimulationLog> f = resultList.remove(i);
+					Future<SimulationLog> f = resultList.remove(0);
 					try {
 						SimulationLog sl = f.get();
 						ArrayList<Point> moves = sl.movementLog;
