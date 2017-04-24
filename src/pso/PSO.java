@@ -53,7 +53,7 @@ public class PSO {
 			for (int s = 0; s < predPreySwarms.length; s++){
 				// loop through specializations
 				
-				if (i % 5 == 0 && i != 0){
+				if (i % 10 == 0 && i != 0){
 					// Recalculate old best
 					//if (s == 0)
 					predPreySwarms[s][0].recalculateBest();

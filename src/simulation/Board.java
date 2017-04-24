@@ -32,18 +32,18 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 	
 	// predator, prey
 	public void placeCreatures(NeuralNet predatorBrain, NeuralNet preyBrain){
-		//Point p1 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height));
+		Point p1 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height/2));
 		
 		// Replace with random point later
-		Point p1 = new Point (0,0);
+		//Point p1 = new Point (0,0);
 		Point p2;
-		do {
-			p2 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height));
+		//do {
+			p2 = new Point(Variables.rand.nextInt(width), (height/2)+Variables.rand.nextInt(height/2));
 			
-		}while (p1.equals(p2) || p1.distance(p2) < 2);
+		//}while (p1.equals(p2) || p1.distance(p2) < 2);
 		
 		// Remove later
-		p2 = new Point(0,4);
+		//p2 = new Point(0,4);
 		
 		for (int r = 0; r < height; r++){
 			for (int c = 0; c < width; c++){
@@ -81,10 +81,12 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 				Creature currCreature = creatures.get(cr);
 				Point prev = new Point (currCreature.getX(), currCreature.getY());
 				currCreature.makeMove(getSurroundings(currCreature));
-				board[prev.x][prev.y] = null;
 				Point n = new Point(currCreature.getX(), currCreature.getY());
 				log.movementLog.add((Point)n.clone());
-				if(n.x >= width || n.x < 0 || n.y >= height || n.y < 0){
+				/*board[prev.x][prev.y] = null;
+				
+				*/
+				/*if(n.x >= width || n.x < 0 || n.y >= height || n.y < 0){
 					board[prev.x][prev.y] = currCreature;
 					break;
 				}
@@ -106,14 +108,25 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 					// increase score of predators
 				} else{
 					board[prev.x][prev.y] = currCreature;
-				}
+				}*/
+			}
+			Creature pred = creatures.get(0);
+			Creature prey = creatures.get(1);
+			if (pred.getX() == prey.getX() && pred.getY() == prey.getY()){
+				endSimulation = true;
 			}
 			if (endSimulation)
 				break;
+			updateBoard();
 		}
 		int predCount = 0, preyCount = 0;
 		
-		for (int c = 0; c < width; c++){
+		if (endSimulation)
+			predScore += 1;
+		else
+			preyScore += 1;
+		
+		/*for (int c = 0; c < width; c++){
 			for (int r = 0; r < height; r++){
 				if (board[c][r] != null){
 					if (board[c][r].getSpeciesType() == SpeciesType.PREDATOR)
@@ -122,13 +135,13 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 						preyCount++;
 				}
 			}
-		}
-		if (predCount > preyCount){
+		}*/
+		/*if (predCount > preyCount){
 			predScore += 1;
 		}
 		else if (preyCount >= predCount){
 			preyScore += 1;
-		}
+		}*/
 		log.predatorScore = predScore;
 		log.preyScore = preyScore;
 	}
@@ -186,6 +199,13 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		return surr;*/
 	}
 
+	private void updateBoard(){
+		board = new Creature[board.length][board[0].length];
+		for (Creature curr : creatures){
+			board[curr.getX()][curr.getY()] = curr;
+		}
+	}
+	
 	@Override
 	public int[] getSurroundings(int x, int y, int xOff, int yOff, int xLOS, int yLOS) {
 		// TODO Auto-generated method stub

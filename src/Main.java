@@ -15,7 +15,7 @@ public class Main {
 		File f = new File ("Logs/"+nanoTime);
 		f.mkdirs();
 		
-		for (int run = 0; run < 1; run++){
+		for (int run = 0; run < 20; run++){
 			Variables.currentRun = run;
 			f = new File ("Logs/"+nanoTime+"/Run-"+run);
 			f.mkdir();
@@ -46,6 +46,19 @@ public class Main {
 
 
 	public static void main(String[] args) {
+		Variables.predPercentCharged = Double.parseDouble(args[0]);
+		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[1])};
+		
+		Variables.predPercentCharged = Double.parseDouble(args[2]);
+		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[3])};
+		
+		Variables.coreRad = Double.parseDouble(args[4]);
+		Variables.perceptionLimit = Double.parseDouble(args[5]);
+		
+		Variables.canFall = Boolean.parseBoolean(args[6]);
+		
+		
+		
 		new Main();
 	}
 
