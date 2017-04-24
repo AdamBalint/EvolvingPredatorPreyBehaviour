@@ -18,16 +18,17 @@ public class Variables {
 	public static double cognitivePred = 1.42; //1.496180;
 	public static double inertiaPred = 0.72;//0.729844;
 	public static double chargeCoeffPred = 1;
-//	public static double communityCoeffPred;
-//	public static double personalCoeffPred;
+	public static double predPercentCharged = 0;
+
 	
 	public static int popSizePrey = 50;
 	public static double socialPrey = 1.42;//1.496180;
 	public static double cognitivePrey = 1.42;//1.496180;
 	public static double inertiaPrey = 0.72;//0.729844;
 	public static double chargeCoeffPrey = 1;
-//	public static double communityCoeffPrey;
-//	public static double personalCoeffPrey;
+	public static double preyPercentCharged = 0;
+
+	
 	
 	
 	public static BrainStorage brainStorage;
@@ -53,6 +54,8 @@ public class Variables {
 	public static Random rand = new Random();
 	
 	public static boolean canFall = false;
+	public static double coreRad = 0.1;
+	public static double perceptionLimit = 25;
 	
 	
 }
