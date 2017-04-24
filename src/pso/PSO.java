@@ -9,7 +9,7 @@ public class PSO {
 	// [0=predator, 1=prey][specializationSub-swarm]
 	Swarm[][] predPreySwarms;
 	
-	double iterationLog[][] = new double[Variables.psoEpochs][4];
+	double iterationLog[][] = new double[Variables.psoEpochs][6];
 	
 	public PSO(){
 		predPreySwarms = new Swarm[2][1];
@@ -59,9 +59,9 @@ public class PSO {
 					predPreySwarms[s][0].recalculateBest();
 				}
 				
-				iterationLog[i][s*2] = predPreySwarms[s][0].getGlobalBestFitness();
-				iterationLog[i][s*2+1] = predPreySwarms[s][0].getAverageFitness();
-				
+				iterationLog[i][s*3] = predPreySwarms[s][0].getGlobalBestFitness();
+				iterationLog[i][s*3+1] = predPreySwarms[s][0].getAverageFitness();
+				iterationLog[i][s*3+2] = predPreySwarms[s][0].getBestParticleNum();
 				
 				for (int spec = 0; spec <predPreySwarms[s].length; spec++){
 					predPreySwarms[s][spec].updatePopulation();
@@ -81,7 +81,7 @@ public class PSO {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/RunSummary.txt")));
 			
 			for (int i = 0; i < iterationLog.length; i++){
-				bw.write(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
+				bw.write(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][3] + "\t" + iterationLog[i][4] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][5]);
 				bw.newLine();
 				//System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
 			}

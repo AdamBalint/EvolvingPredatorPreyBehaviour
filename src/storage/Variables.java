@@ -17,7 +17,7 @@ public class Variables {
 	public static double socialPred = 1.42;//1.496180;
 	public static double cognitivePred = 1.42; //1.496180;
 	public static double inertiaPred = 0.72;//0.729844;
-	public static double chargeCoeffPred = 1;
+	public static double chargeCoeffPred;
 	public static double predPercentCharged = 0;
 
 	
@@ -25,7 +25,7 @@ public class Variables {
 	public static double socialPrey = 1.42;//1.496180;
 	public static double cognitivePrey = 1.42;//1.496180;
 	public static double inertiaPrey = 0.72;//0.729844;
-	public static double chargeCoeffPrey = 1;
+	public static double chargeCoeffPrey;
 	public static double preyPercentCharged = 0;
 
 	
@@ -35,12 +35,12 @@ public class Variables {
 	
 	//public static int inputLayerSizePred = 25;
 	public static int inputLayerSizePred = 9*9;
-	public static int[] hiddenLayerSizesPred = {12};
+	public static int[] hiddenLayerSizesPred;
 	public static int outputLayerSizePred = 7;
 	
 	//public static int inputLayerSizePrey = 9;
 	public static int inputLayerSizePrey = 9*9;
-	public static int[] hiddenLayerSizesPrey = {12};
+	public static int[] hiddenLayerSizesPrey;
 	public static int outputLayerSizePrey = 5;
 	
 	
@@ -53,9 +53,9 @@ public class Variables {
 	
 	public static Random rand = new Random();
 	
-	public static boolean canFall = false;
-	public static double coreRad = 0.1;
-	public static double perceptionLimit = 25;
+	public static boolean canFall;
+	public static double coreRad;
+	public static double perceptionLimit;
 	
 	
 }

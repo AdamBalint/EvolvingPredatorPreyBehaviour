@@ -28,7 +28,7 @@ public class Swarm {
 	
 	private double coreRad = 2;
 	private double perceptionLimit = 40;
-	
+	private int bestParticle;
 	
 	public Swarm(int num, SpeciesType sType, int speciesNumber){
 		coreRad = Variables.coreRad;
@@ -104,10 +104,13 @@ public class Swarm {
 		double maxFit = globalBestFitness;
 		RealMatrix[] bestLoc = null;
 		
-		for (Particle p : swarm){
+		for (int i = 0; i < swarm.length; i++){
+			Particle p = swarm[i];
+		//for (Particle p : swarm){
 			if (p.getFitness() > globalBestFitness){
 				maxFit = p.getPersonalBestFit();
 				bestLoc = p.getPersonalBestLoc();
+				bestParticle = i;
 			}
 		}
 		if (bestLoc != null){
@@ -144,6 +147,9 @@ public class Swarm {
 		}
 	}
 	
+	public int getBestParticleNum(){
+		return bestParticle;
+	}
 	
 	// Recalculates the fitness of the currently stored best location
 	public void recalculateBest() {

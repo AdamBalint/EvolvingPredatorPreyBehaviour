@@ -50,7 +50,7 @@ public class Main {
 		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[1])};
 		
 		Variables.predPercentCharged = Double.parseDouble(args[2]);
-		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[3])};
+		Variables.hiddenLayerSizesPrey= new int[]{Integer.parseInt(args[3])};
 		
 		Variables.coreRad = Double.parseDouble(args[4]);
 		Variables.perceptionLimit = Double.parseDouble(args[5]);
