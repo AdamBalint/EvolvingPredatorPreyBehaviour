@@ -11,7 +11,7 @@ public class Main {
 	public Main(){
 		// Brain storage
 		String nanoTime = ""+System.nanoTime();
-		Variables.runBase = nanoTime;
+		//Variables.runBase = nanoTime;
 		File f = new File ("Logs/"+nanoTime);
 		f.mkdirs();
 		
@@ -49,13 +49,14 @@ public class Main {
 		Variables.predPercentCharged = Double.parseDouble(args[0]);
 		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[1])};
 		
-		Variables.predPercentCharged = Double.parseDouble(args[2]);
+		Variables.preyPercentCharged = Double.parseDouble(args[2]);
 		Variables.hiddenLayerSizesPrey= new int[]{Integer.parseInt(args[3])};
 		
 		Variables.coreRad = Double.parseDouble(args[4]);
 		Variables.perceptionLimit = Double.parseDouble(args[5]);
 		
 		Variables.canFall = Boolean.parseBoolean(args[6]);
+		Variables.runBase = args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
 		
 		
 		

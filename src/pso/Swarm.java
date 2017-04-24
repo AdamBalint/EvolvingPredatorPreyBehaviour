@@ -96,9 +96,13 @@ public class Swarm {
 		}*/
 	}
 
+	double epochBestFit = 0;
+	int epochBestParticle = 0;
+	
 	// Updates the global best
 	private void evaluatePopulation() {
-
+		epochBestFit = 0;
+		epochBestParticle = 0;
 		
 		// Could have just 1 call to method
 		double maxFit = globalBestFitness;
@@ -112,7 +116,12 @@ public class Swarm {
 				bestLoc = p.getPersonalBestLoc();
 				bestParticle = i;
 			}
+			if (p.getFitness() > epochBestFit){
+				epochBestFit = p.getFitness();
+				epochBestParticle = i;
+			}
 		}
+		swarm[epochBestParticle].writeGames();
 		if (bestLoc != null){
 			globalBestFitness = maxFit;
 			globalBest = bestLoc;

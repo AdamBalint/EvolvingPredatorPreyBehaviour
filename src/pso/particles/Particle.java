@@ -22,7 +22,7 @@ public class Particle implements ParticleInterface{
 	private int brainNum;
 	private boolean charged = false;
 	private RealMatrix[] newLocation;
-	
+	private SimulationMaster sm;
 	
 	public Particle(SpeciesType sType, Swarm parent, int brainNum, boolean charged){
 		this.sType = sType;
@@ -142,7 +142,7 @@ public class Particle implements ParticleInterface{
 		
 		// Run simulation n times
 		// thread the simulation runs
-		SimulationMaster sm = new SimulationMaster(sType, Variables.brainStorage.getParticleBrain(sType, parentSwarm.getSpeciesNumber(), brainNum), brainNum);
+		sm = new SimulationMaster(sType, Variables.brainStorage.getParticleBrain(sType, parentSwarm.getSpeciesNumber(), brainNum), brainNum);
 		double score = sm.runSimulations();
 		
 		return score;
@@ -180,6 +180,10 @@ public class Particle implements ParticleInterface{
 			}
 		}
 		//location = copy;
+	}
+	
+	public void writeGames(){
+		sm.saveSimulationGames();
 	}
 	
 	public int getBrainNum(){

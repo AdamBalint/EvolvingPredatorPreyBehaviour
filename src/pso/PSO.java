@@ -20,7 +20,11 @@ public class PSO {
 	
 	public void runPSO(){
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/ParticleSummary.txt")));
+			File f = new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun);
+			f.mkdirs();
+			f = new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/ParticleSummary.txt");
+			f.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
 			
 			for (int i = 0; i < predPreySwarms.length; i++){
 				bw.write((i == 0 ? "Predator\t" : "Prey\t")+predPreySwarms[i][0].getSwarmSize());

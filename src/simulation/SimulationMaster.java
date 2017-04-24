@@ -105,35 +105,11 @@ public class SimulationMaster {
 			}
 			
 		}
-		if (particleNum != -1){
-			String loc;
-			gameLogger.setParticleFitness(score/Variables.simulationNum);
-			if (specType == SpeciesType.PREDATOR){
-				loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Predator/Pred-"+particleNum+"/";
-			}else{
-				loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Prey/Prey-"+particleNum+"/";
-			}
-			try {
-				File f = new File(loc);
-				//f.createNewFile();
-				f.mkdirs();
-				FileOutputStream fout = new FileOutputStream(loc+"/games.save");
-				ObjectOutputStream oos = new ObjectOutputStream(fout);
-				oos.writeObject(gameLogger);
-				oos.flush();
-				oos.close();
-				/*
-				BufferedWriter bw = new BufferedWriter(new FileWriter(new File(loc+"Fitness.txt")));
-				bw.write(""+score);
-				bw.flush();
-				bw.close();
-				*/
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		gameLogger.setParticleFitness(score/Variables.simulationNum);
+		
+		//if (particleNum != -1){
+			
+		//}
 		executor.shutdown();
 		
 		
@@ -144,6 +120,36 @@ public class SimulationMaster {
 		*/
 		//System.out.println("Score: " + score);
 		return score/Variables.simulationNum;
+	}
+	
+	public void saveSimulationGames(){
+		String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch;;
+		String save;
+		if (specType == SpeciesType.PREDATOR){
+			save = "/PredBest-"+particleNum+".save";
+		}else{
+			save = "/PreyBest-"+particleNum+".save";
+		}
+		try {
+			File f = new File(loc);
+			//f.createNewFile();
+			f.mkdirs();
+			FileOutputStream fout = new FileOutputStream(loc+save);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(gameLogger);
+			oos.flush();
+			oos.close();
+			/*
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(loc+"Fitness.txt")));
+			bw.write(""+score);
+			bw.flush();
+			bw.close();
+			*/
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void writeMovementLog(ArrayList<Point> moves, String location, int gameNum){
