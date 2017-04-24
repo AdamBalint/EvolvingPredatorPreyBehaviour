@@ -156,8 +156,10 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		log.preyScore = preyScore;
 	}
 
-	private boolean offBoard(Creature pred) {
+	private boolean offBoard(Creature creat) {
 		// TODO Auto-generated method stub
+		if (creat.getX() < 0 || creat.getX() >= Variables.boardWidth || creat.getY() < 0 || creat.getY() >= Variables.boardHeight)
+			return true;		
 		return false;
 	}
 
