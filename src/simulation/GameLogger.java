@@ -13,6 +13,8 @@ public class GameLogger implements Serializable{
 	
 	private ArrayList<ArrayList<Point>> games;
 	
+	private double particleFitness;
+	
 	public GameLogger(){
 		games = new ArrayList<>();
 	}
@@ -32,5 +34,12 @@ public class GameLogger implements Serializable{
 	
 	public int getGamesNumber(){
 		return games.size();
+	}
+	
+	public double getParticleFitness(){
+		return particleFitness;
+	}
+	public void setParticleFitness(double fitness){
+		particleFitness = fitness;
 	}
 }

@@ -15,6 +15,7 @@ import pso.particles.Particle;
 import simulation.SimulationMaster;
 import simulation.creature.NeuralNet;
 import storage.SpeciesType;
+import storage.Variables;
 
 public class Swarm {
 
@@ -30,6 +31,8 @@ public class Swarm {
 	
 	
 	public Swarm(int num, SpeciesType sType, int speciesNumber){
+		coreRad = Variables.coreRad;
+		perceptionLimit = Variables.perceptionLimit;
 		System.err.println("Swarm - Constructor");
 		swarm = new Particle[num];
 		this.sType = sType;
@@ -45,9 +48,10 @@ public class Swarm {
 	private void setUpParticles() {
 		// TODO Auto-generated method stub
 		System.err.println("Swarm - Setting up particles");
+		double percentCharged = sType == SpeciesType.PREDATOR ? Variables.predPercentCharged : Variables.preyPercentCharged;
 		for (int i = 0; i < swarm.length; i++){
 			//if (sType == SpeciesType.PREDATOR)
-				swarm[i] = new Particle(sType, this, i, i > swarm.length*(1-0.3) ? true : false);
+			swarm[i] = new Particle(sType, this, i, i > swarm.length*(1-percentCharged) ? true : false);
 			//else
 			//	swarm[i] = new Particle(sType, this, i, false);
 		}

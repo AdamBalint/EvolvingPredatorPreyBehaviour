@@ -105,6 +105,7 @@ public class SimulationMaster {
 		}
 		if (particleNum != -1){
 			String loc;
+			gameLogger.setParticleFitness(score/Variables.simulationNum);
 			if (specType == SpeciesType.PREDATOR){
 				loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Predator/Pred-"+particleNum+"/";
 			}else{
