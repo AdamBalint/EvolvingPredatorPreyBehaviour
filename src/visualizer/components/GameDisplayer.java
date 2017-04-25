@@ -63,7 +63,7 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		File[] files = f.listFiles();
 		int count = 0;
 		
-		b.loadGames(new File(dir+"/games.save"));
+		b.loadGames(new File(dir));
 		b.loadBoard(counter-1);
 		
 		/*for (File file : files){

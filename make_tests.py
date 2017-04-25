@@ -9,11 +9,10 @@ game_fall = ["true", "false"]
 count = 0
 for pred_charge in charges:
     for pred_hidden in hidden_nodes:
-        count += 1
-        for fall in game_fall:
-            
-            f = open(fall+"-"+str(count)+".sh","w+")
-            for rad in radius:
-                f.write("java -jar pvp.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + fall + "\n")
+        for rad in radius:
+            count += 1
+            f = open(str(count)+".sh","w+")
+            f.write("java -jar pvpv2.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[1] + "\n")
+            f.write("java -jar pvpv2.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[0] + "\n")
             f.flush()
             f.close()

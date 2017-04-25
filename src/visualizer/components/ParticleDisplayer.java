@@ -91,20 +91,20 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		// TODO Auto-generated method stub
 		predParticles = new ArrayList<File>();
 		preyParticles = new ArrayList<File>();
-		File f = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun+"/Epoch-"+epochSelected+"/Games/Predator");
+		File f = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun+"/Epoch-"+epochSelected+"/");
 		File[] listFolders = f.listFiles();
 		for(File file : listFolders){
-			if(file.isDirectory())
-				predParticles.add(file);
+			//if(file.isDirectory())
+			predParticles.add(file);
 		}
-		
+		/*
 		f = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun+"/Epoch-"+epochSelected+"/Games/Prey");
 		listFolders = f.listFiles();
 		for(File file : listFolders){
 			if(file.isDirectory())
 				preyParticles.add(file);
 		}
-		
+		*/
 		DefaultListModel listModelPredator = new DefaultListModel();
 		for (File file: predParticles){
 			listModelPredator.addElement(file.getName());

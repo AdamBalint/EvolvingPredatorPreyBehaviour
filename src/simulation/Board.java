@@ -129,11 +129,22 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}
 		int predCount = 0, preyCount = 0;
 		
-		if (!(predFallen && preyFallen)){
-			if (endSimulation || preyFallen)
-				predScore += 1;
-			else
-				preyScore += 1;
+		if (predFallen && preyFallen){
+			predScore -= 2;
+			preyScore -= 2;
+		}
+		else if (endSimulation){
+			predScore += 1;
+			preyScore -= 1;
+		}
+		else if (predFallen){
+			predScore -= 2;
+			preyScore += 1;
+		} else if (preyFallen){
+			preyScore -= 2;
+		} else if(!endSimulation){
+			predScore -= 1;
+			preyScore += 1;
 		}
 		
 		/*for (int c = 0; c < width; c++){

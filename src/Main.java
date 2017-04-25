@@ -56,7 +56,7 @@ public class Main {
 		Variables.perceptionLimit = Double.parseDouble(args[5]);
 		
 		Variables.canFall = Boolean.parseBoolean(args[6]);
-		Variables.runBase = args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
+		Variables.runBase = "V2-" + args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
 		
 		
 		
