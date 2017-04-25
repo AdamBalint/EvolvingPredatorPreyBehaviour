@@ -20,7 +20,7 @@ public class RunDisplayer extends JPanel implements ListSelectionListener{
 	private JList runList;
 	private VisualizerMain vm;
 	public RunDisplayer(VisualizerMain vm){
-		this(225, 150, vm);
+		this(225, 250, vm);
 	}
 	
 	public RunDisplayer(int width, int height, VisualizerMain vm){

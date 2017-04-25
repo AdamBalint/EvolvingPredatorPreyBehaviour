@@ -101,7 +101,7 @@ public class Swarm {
 	
 	// Updates the global best
 	private void evaluatePopulation() {
-		epochBestFit = 0;
+		epochBestFit = -Double.MAX_VALUE;
 		epochBestParticle = 0;
 		
 		// Could have just 1 call to method

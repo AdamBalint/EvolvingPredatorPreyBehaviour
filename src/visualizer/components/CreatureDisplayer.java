@@ -8,7 +8,7 @@ import javax.swing.*;
 public class CreatureDisplayer extends JPanel{
 
 	public CreatureDisplayer(){
-		this(225, 150);
+		this(225, 250);
 	}
 	
 	public CreatureDisplayer(int width, int height){

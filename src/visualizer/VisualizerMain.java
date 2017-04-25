@@ -27,7 +27,7 @@ public class VisualizerMain implements ActionListener{
 		JFrame f = new JFrame("Game Visualizer");
 		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.getContentPane().setPreferredSize(new Dimension(900,600));
+		f.getContentPane().setPreferredSize(new Dimension(900,700));
 		BorderLayout layout = new BorderLayout();
 		layout.setVgap(0);
 		f.setLayout(layout);
@@ -67,8 +67,8 @@ public class VisualizerMain implements ActionListener{
 		topPane.setBackground(Color.blue);
 		topPane.setPreferredSize(new Dimension(900, 450));
 		
-		topPane.add(parameterDisplayer);
 		topPane.add(gameDisplayer);
+		topPane.add(parameterDisplayer);
 		topPane.add(particleDisplayer);
 		f.add(topPane, BorderLayout.CENTER);
 	}
@@ -84,7 +84,7 @@ public class VisualizerMain implements ActionListener{
 		flowLayout.setHgap(0);
 		JPanel botPane = new JPanel(flowLayout);
 		botPane.setBackground(Color.red);
-		botPane.setPreferredSize(new Dimension(900, 150));
+		botPane.setPreferredSize(new Dimension(900, 250));
 		
 		botPane.add(graphDisplayer);
 		botPane.add(creatureDisplayer);
