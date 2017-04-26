@@ -14,5 +14,7 @@ for pred_charge in charges:
             f = open(str(count)+".sh","w+")
             f.write("java -jar pvpv2.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[1] + "\n")
             f.write("java -jar pvpv2.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[0] + "\n")
+            f.write("java -jar pvpv3.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[1] + "\n")
+            f.write("java -jar pvpv3.jar " + pred_charge + " " + pred_hidden + " " + pred_charge + " " + pred_hidden + " " + rad[0] + " " + rad[1] + " " + game_fall[0] + "\n")
             f.flush()
             f.close()
