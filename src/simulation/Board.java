@@ -142,6 +142,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			preyScore += 1;
 		} else if (preyFallen){
 			preyScore -= 2;
+			//predScore -= 1;
 		} else if(!endSimulation){
 			predScore -= 1;
 			preyScore += 1;

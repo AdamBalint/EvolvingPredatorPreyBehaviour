@@ -10,15 +10,15 @@ public class Main {
 	
 	public Main(){
 		// Brain storage
-		String nanoTime = ""+System.nanoTime();
+		//String nanoTime = ""+System.nanoTime();
 		//Variables.runBase = nanoTime;
-		File f = new File ("Logs/"+nanoTime);
+		File f = new File ("Logs/"+Variables.runBase);
 		f.mkdirs();
 		
 		for (int run = 0; run < 5; run++){
 			Variables.currentRun = run;
-			f = new File ("Logs/"+nanoTime+"/Run-"+run);
-			f.mkdir();
+			//f = new File ("Logs/"+nanoTime+"/Run-"+run);
+			//f.mkdir();
 			// Loop for experiments
 			Variables.brainStorage = new BrainStorage();
 			setUpPSO();
@@ -56,7 +56,7 @@ public class Main {
 		Variables.perceptionLimit = Double.parseDouble(args[5]);
 		
 		Variables.canFall = Boolean.parseBoolean(args[6]);
-		Variables.runBase = "V2-" + args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
+		Variables.runBase = "V2/V2-" + args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
 		
 		
 		
