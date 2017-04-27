@@ -192,10 +192,10 @@ public class Swarm {
 				RealMatrix[] distances = new RealMatrix[part.length];
 				for (int i = 0; i < distances.length; i++){
 					if (calcDistance <= perceptionLimit && calcDistance >= coreRad){
-						distances[i] = loc[i].subtract(part[i]).scalarMultiply(1/calcDistance);
+						distances[i] = loc[i].subtract(part[i]).scalarMultiply(16*16/(calcDistance*calcDistance*calcDistance));
 					}
 					else if (calcDistance < coreRad){
-						distances[i] = loc[i].subtract(part[i]).scalarMultiply(1/(coreRad*coreRad*calcDistance));
+						distances[i] = loc[i].subtract(part[i]).scalarMultiply(16*16/(coreRad*coreRad*calcDistance));
 					}
 					else {
 						distances[i] = loc[i].subtract(part[i]).scalarMultiply(0);
