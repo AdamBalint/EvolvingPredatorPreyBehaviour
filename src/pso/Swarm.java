@@ -182,12 +182,37 @@ public class Swarm {
 		}
 	}
 	
-	public RealMatrix calculateForce(RealMatrix loc, int brainNum, int loopCounter){
-		RealMatrix force = null;
+	public RealMatrix[] calculateForce(RealMatrix[] loc, int brainNum){
+		RealMatrix[] force = null;
 		for (Particle p : swarm){
 			if (p.isCharged() && p.getBrainNum() != brainNum){
-				RealMatrix jLoc = p.getLocation()[loopCounter];
-				RealMatrix dist = loc.subtract(jLoc);
+				RealMatrix[] part = p.getLocation();
+				double calcDistance = dist(loc, part);
+				//System.err.println("Distance: " + calcDistance);
+				RealMatrix[] distances = new RealMatrix[part.length];
+				for (int i = 0; i < distances.length; i++){
+					if (calcDistance <= perceptionLimit && calcDistance >= coreRad){
+						distances[i] = loc[i].subtract(part[i]).scalarMultiply(1/calcDistance);
+					}
+					else if (calcDistance < coreRad){
+						distances[i] = loc[i].subtract(part[i]).scalarMultiply(1/(coreRad*coreRad*calcDistance));
+					}
+					else {
+						distances[i] = loc[i].subtract(part[i]).scalarMultiply(0);
+					}
+				}
+				if (force == null){
+					force = distances;
+				}
+				else {
+					for (int i = 0; i < force.length; i++){
+						force[i] = force[i].add(distances[i]);
+					}
+				}
+				
+				
+				
+				/*RealMatrix dist = loc.subtract(part);
 				RealMatrix partialForce = dist.copy().scalarMultiply(0);
 				for (int r = 0; r < dist.getRowDimension(); r++){
 					for (int c = 0; c < dist.getColumnDimension(); c++){
@@ -201,7 +226,9 @@ public class Swarm {
 				if (force == null)
 					force = partialForce;
 				else
-					force = force.add(partialForce);
+					force = force.add(partialForce);*/
+				
+				
 				/*for (int i = 0; i < partialForce.getRowDimension(); i++){
 					RealVector rv = dist.getRowVector(i);
 					//rv = rv.ebeDivide(rv.mapToSelf(new Power(2))).mapMultiply(16);
@@ -220,6 +247,31 @@ public class Swarm {
 		}
 		
 		return force;
+	}
+
+	
+	private RealMatrix squareMatrix(RealMatrix in){
+		RealMatrix ret = in.copy();
+		for (int i = 0; i < ret.getRowDimension(); i++){
+			for (int j = 0; j < ret.getColumnDimension(); j++){
+				ret.setEntry(i, j, ret.getEntry(i, j)* ret.getEntry(i, j));
+			}
+		}
+		return ret;
+	}
+	
+	private double dist(RealMatrix[] loc, RealMatrix[] part) {
+		// TODO Auto-generated method stub
+		double sum = 0;
+		for (int i = 0; i < loc.length; i++){
+			RealMatrix diff = squareMatrix(loc[i].subtract(part[i]));
+			for (int x = 0; x < diff.getRowDimension(); x++){
+				for (int y = 0; y < diff.getColumnDimension(); y++){
+					sum += diff.getEntry(x, y);
+				}
+			}
+		}		
+		return Math.sqrt(sum);
 	}
 	
 }

@@ -95,6 +95,7 @@ public class Particle implements ParticleInterface{
 	// updates the velocity of the particle
 	private void updateVelocity(){
 		RealMatrix[] globalBestLoc = parentSwarm.getGlobalBest();
+		RealMatrix[] force = parentSwarm.calculateForce(getLocation(), brainNum);
 		for (int i = 0; i < velocity.length; i++){
 			velocity[i] = velocity[i].scalarMultiply(sType == SpeciesType.PREDATOR ? Variables.inertiaPred : Variables.inertiaPrey);
 			
@@ -103,9 +104,8 @@ public class Particle implements ParticleInterface{
 			// global component
 			RealMatrix glob = (globalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.socialPred : Variables.socialPrey));
 			if (charged){
-				// charge force
-				RealMatrix force = parentSwarm.calculateForce(location[i].copy(), brainNum, i).scalarMultiply(Math.random()*(sType == SpeciesType.PREDATOR? Variables.chargeCoeffPred : Variables.chargeCoeffPrey));
-				velocity[i] = velocity[i].add(per.add(glob.add(force)));
+				// charge force 
+				velocity[i] = velocity[i].add(per.add(glob.add(force[i])));//.scalarMultiply((sType == SpeciesType.PREDATOR? Variables.chargeCoeffPred : Variables.chargeCoeffPrey)))));
 			}
 			else{
 				velocity[i] = velocity[i].add(per.add(glob));
