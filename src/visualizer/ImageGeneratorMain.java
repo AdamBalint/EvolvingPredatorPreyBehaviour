@@ -271,10 +271,10 @@ public class ImageGeneratorMain extends Application{
 		stage = primaryStage;
 		//gameRulesBase = "V1/";
 		//genPictures();
-		//gameRulesBase = "V2/";
-		//genPictures();
-		gameRulesBase = "V3/";
+		gameRulesBase = "V2/";
 		genPictures();
+		//gameRulesBase = "V3/";
+		//genPictures();
 		
 		System.exit(0);
 	}
