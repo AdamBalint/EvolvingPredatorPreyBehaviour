@@ -19,6 +19,7 @@ import javax.imageio.ImageIO;
 
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.LineChart;
@@ -37,7 +38,7 @@ public class ImageGeneratorMain extends Application{
 		
 	}
 	
-	
+	int count = 0;
 	private void genPictures() {
 		// TODO Auto-generated method stub
 		File progressionChart = new File("Charts");
@@ -45,7 +46,7 @@ public class ImageGeneratorMain extends Application{
 		progressionChart.mkdirs();
 		games.mkdirs();
 		File[] fileList = new File(gameRulesBase).listFiles(File::isDirectory);
-		int count = 0;
+		
 		for (File fil : fileList){
 			File[] runFolders = fil.listFiles(File::isDirectory);
 			for (File runFolder : runFolders){
@@ -84,7 +85,7 @@ public class ImageGeneratorMain extends Application{
 			}
 			
 			count ++;
-			System.out.println("Processed folder: " + 1);
+			System.out.println("Processed folder: " + count);
 		}
 	}
 
@@ -135,9 +136,6 @@ public class ImageGeneratorMain extends Application{
 	private void drawGame(GameLogger gl, String loc, int[] bestWorst, boolean predator, boolean best){
 		
 		try {
-			
-			
-			
 			
 			int width = 450, height = 450;
 			
@@ -225,10 +223,10 @@ public class ImageGeneratorMain extends Application{
 		preyAvg.setName("Prey Avg");
 		
 		for (int i = 0; i < predBestAverage.size(); i++){
-			predBest.getData().add(new XYChart.Data<>(i, predBestAverage.get(i).getX()));
-			predAvg.getData().add(new XYChart.Data<>(i, predBestAverage.get(i).getY()));
-			preyBest.getData().add(new XYChart.Data<>(i, preyBestAverage.get(i).getX()));
-			preyAvg.getData().add(new XYChart.Data<>(i, preyBestAverage.get(i).getY()));
+			predBest.getData().add(new XYChart.Data(i, predBestAverage.get(i).getX()));
+			predAvg.getData().add(new XYChart.Data(i, predBestAverage.get(i).getY()));
+			preyBest.getData().add(new XYChart.Data(i, preyBestAverage.get(i).getX()));
+			preyAvg.getData().add(new XYChart.Data(i, preyBestAverage.get(i).getY()));
 			//System.out.println("Added data: " + i);
 			//System.out.println(predBestAverage.toString());
 		}
@@ -240,7 +238,13 @@ public class ImageGeneratorMain extends Application{
 		
 		//lineChart.getData().removeAll(lineChart.getData());
 		lineChart.getData().addAll(predBest, predAvg, preyBest, preyAvg);
-		Scene scene  = new Scene(lineChart, 500, 300);
+		lineChart.getXAxis().setSide(Side.BOTTOM);
+		lineChart.getXAxis().setAutoRanging(true);
+		lineChart.getYAxis().setSide(Side.LEFT);
+		lineChart.getYAxis().setAutoRanging(true);
+		lineChart.setAnimated(false);
+		
+		Scene scene  = new Scene(lineChart, 1000, 600);
 		stage.setScene(scene);
 		WritableImage img = scene.snapshot(null);
 		try {
@@ -265,10 +269,10 @@ public class ImageGeneratorMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		stage = primaryStage;
-		gameRulesBase = "V1/";
-		genPictures();
-		gameRulesBase = "V2/";
-		genPictures();
+		//gameRulesBase = "V1/";
+		//genPictures();
+		//gameRulesBase = "V2/";
+		//genPictures();
 		gameRulesBase = "V3/";
 		genPictures();
 		
