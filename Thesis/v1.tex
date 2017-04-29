@@ -1,0 +1,46 @@
+\subsection{Game V1}
+As seen in table \ref{tab:game-rules}, the game V1 rules are heavily stacked in favour of the prey. The effect of this can be seen in all of the fitness over time graphs that were produced. Even the experiments that included charged particles performed poorly with this version of the game. An example of a graph from 25 and 41 can be seen in figure \ref{fig:v1-no-charged-graphs} and an example of a graph from experiment 28 and 44 can be seen in figure \ref{fig:v1-fully-charged-graphs}. In figure \ref{fig:v1-fully-charged-graphs} it is expected that at least one particle should have a high fitness value, but as it can be seen, the full charged swarms from experiment 28 and 44 do not perform better than those from experiments 25 and 41.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{exp25-Run-4.png}  \includegraphics[width=0.4\textwidth]{exp41-Run-0.png}
+  \caption{Game V1 Experiments 25(Left) and 41(Right)}
+  \label{fig:v1-no-charged-graphs}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{exp28-Run-0.png}  \includegraphics[width=0.4\textwidth]{exp44-Run-2.png}
+  \caption{Game V1 Experiments 28(Left) and 44(Right)}
+  \label{fig:v1-fully-charged-graphs}
+\end{figure}
+
+When observing the games being played by the particle with the best fitness over all of the runs an interesting pattern emerges. In most cases, the game ends with the prey running off of the board. This is because the easiest way for the prey to win if for it to fall off. While the predator also falls off about one third of the time, the predator tends to stay on the board for a longer time than the prey. An example of this technique can be seen in figure \ref{exp25-pred-game-58}. Observing the prey behaviour, this can be reinforced as the best prey had 324 games of 400 ending with the prey falling off the board. An example of several games can be seen in figure \ref{fig:exp25-prey-example-games}. Unfortunately, since it is extremely easy for the prey to win and for the predator to lose, the type of behaviour that evolved is quite basic. In general, both creatures tend to just move in a straight line until one of them falls off the board.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{exp25-pred-Game-382.png}
+  \caption{Experiment 25 example predator game}
+  \label{fig:exp25-pred-game-58.png}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.4\textwidth}
+  \includegraphics[width=\linewidth]{exp25-prey-Game-58.png}
+  \end{subfigure}
+  \begin{subfigure}{.4\textwidth}
+  \includegraphics[width=\linewidth]{exp25-prey-Game-119.png}
+  \end{subfigure} \\\hfill
+  
+  \begin{subfigure}{.4\textwidth}
+   \includegraphics[width=\linewidth]{exp25-prey-Game-376.png}  
+   \end{subfigure}
+   \begin{subfigure}{.4\textwidth}
+   \includegraphics[width=\linewidth]{exp25-prey-Game-386.png}
+   \end{subfigure}
+  \caption{Experiment 25 examples of prey games}
+  \label{fig:exp25-prey-example-games}
+\end{figure}

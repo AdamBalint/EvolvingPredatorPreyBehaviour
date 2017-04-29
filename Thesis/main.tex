@@ -1,0 +1,88 @@
+
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin = 1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+\usepackage[utf8]{inputenc}
+\usepackage[doublespacing]{setspace}
+\usepackage{graphicx}
+\usepackage{changepage}
+\bibliographystyle{ieeetr}  
+\usepackage{pdfpages}
+\usepackage{algpseudocode}
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{multirow,tabularx}
+\graphicspath{ {images/} }
+
+\usepackage{caption}
+\usepackage{subcaption}
+ 
+\pagestyle{fancy}
+\rhead{A. Balint}
+\lhead{PSO for Competitive Co-evolution of Neural-Controllers}
+
+\title{PSO for Competitive Co-evolution of Neural-Controllers for the Game of Predator vs. Prey}
+\vspace{3cm}
+\author{Adam Balint, ab11fl@brocku.ca}
+
+\date{Winter 2016}
+ 
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{\LARGE {\bf PSO for Competitive Co-evolution of Neural-Controllers for the Game of Predator vs. Prey}}
+\\[3cm]
+{\large{ \bf \textit{Adam Balint}}}
+{\large \\ Supervised by Beatrice M. Ombuki-Berman}
+\\[3cm]
+{\large Submitted in partial fulfillment\\ of the requirements for COSC 4F90}
+\\[3cm]
+{\large Department of Computer Science\\Brock University\\
+St. Catharines, Ontario}
+\\[4cm]
+\copyright \textit{ Adam Balint, $ 2017 $}
+\end{center}
+\end{titlepage}
+
+
+%% Abstract %%
+\input{abstract}
+
+\newpage
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\newpage 
+
+
+
+%% Code goes here %%
+
+\input{introduction}
+\input{background}
+\input{litreview}
+\input{experimentalsetup}
+\input{results}
+\input{conclusion}
+\input{futurework}
+
+
+
+%\addcontentsline{toc}{section}{Bibliography}
+%\bibliographystyle{unsrt}
+%\bibliography{thesis}
+\input{references}
+
+\end{document}
