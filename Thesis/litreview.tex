@@ -1,10 +1,28 @@
+
 \section{Literature Review}
 
 \subsection{Co-operative Coevolution}
  Cooperative coevolution can be defined as the evolution of models that work together to solve a common goal. Co-operative co-evolution is very prominent in every day life in many work disciplines. As such, to improve the quality of every day life, artificially intelligent co-operative coevolution techniques have been applied to certain real life scenarios. Specifically for simulating emergency response for disaster scenarios. In this type of scenario, there would be three sets of models working together. This would be the ambulance, fire department and the police.
 
 \subsection{Competitive Coevolution}
-  Competitive coevolution on the other hand can be see everywhere in games. As an example if two people are playing chess, then if one player begins to play better, then the other player will adapt and reaching the same level if not surpassing the other player's level. Another example of Competitive coevolution that was mentioned by \cite{Scheepers-2013} is the RoboCup and the Federation of International Robot-soccer Association (FIRA). These two organizations hold robot soccer competitions, both real and virtual with varying amounts of information. Competitive coevolution in this case would be the two teams of robots improving their techniques in order to counter the other team. 
+  Competitive coevolution on the other hand can be see everywhere in games. As an example consider two people who are playing chess. If one player begins to play better, then the other player will adapt and reaching the same level if not surpassing the other player's level. Another example of competitive coevolution is the RoboCup and the Federation of International Robot-soccer Association (FIRA)\cite{Scheepers-2013}. These two organizations hold robot soccer competitions, both real and virtual with both complete and incomplete information of the system. Competitive coevolution in this case would be the two teams of robots improving their techniques in order to counter the other team. 
+
+\subsection{Neural Network Training}
+\subsubsection{Back propagation}
+
+
+
+\subsubsection{PSO}
+
+
+
+\subsubsection{Charged PSO}
+
+
+
 
 \subsection{Predator vs. Prey}
-The type of competitive coevolution that this paper focuses on is the predator vs prey game. This game is similar to the robot soccer in the way that both the predator and the prey attempt to out manouver each other in order to emerge victorious. This paper implements and expands on a variation of \cite{Langenhoven-2006} paper on evolving behaviour through competition for the predator vs prey game.
+The type of competitive coevolution that this thesis focuses on is the predator vs prey game. This game is similar to the robot soccer in the way that both the predator and the prey attempt to out maneuver each other in order to emerge victorious. This thesis implements and expands on a variation of \cite{Langenhoven-2006} on evolving behaviour through competition for the predator vs prey game. In \cite{Langenhoven-2006}, the predator vs prey game was implemented using a closed board. There were 50 prey and 50 predators that played a total of 800 turn-based games, 400 of which the predator made the first move and 400 of which the prey made the first move. Langenhoven's implementation of the predators and prey allowed for both agents to take the following actions: move along x-axis, move along y-axis, do not move. The prey has an additional option of jumping in which case the prey moves two squares rather than one. The inputs for both the predators and the prey were the location of the agent and the opponent scaled to within the range of the hyperbolic tangent function that was used. 
+
+The main differences between the system proposed in \cite{Langenhoven-2006} and the system used in this thesis is the dimensionality of the input and the fact that the games are based on simultaneous movement rather than an action-reaction based turn taking system. 
+The system used in this thesis is discussed in section \ref{sec:exp-setup}.

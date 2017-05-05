@@ -19,11 +19,11 @@
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage{multirow,tabularx}
+\usepackage{multirow}
 \graphicspath{ {images/} }
-
 \usepackage{caption}
 \usepackage{subcaption}
+
  
 \pagestyle{fancy}
 \rhead{A. Balint}
@@ -60,7 +60,11 @@ St. Catharines, Ontario}
 
 \tableofcontents
 
+\newpage
+
 \listoftables
+
+\newpage
 
 \listoffigures
 
@@ -70,19 +74,23 @@ St. Catharines, Ontario}
 
 %% Code goes here %%
 
-\input{introduction}
-\input{background}
-\input{litreview}
-\input{experimentalsetup}
-\input{results}
-\input{conclusion}
-\input{futurework}
+\input{introduction} \newpage
+\input{background} \newpage
+\input{litreview} \newpage
+\input{experimentalsetup} \newpage
+\input{results} \newpage
+\input{conclusion} \newpage
+\input{futurework} \newpage
 
 
 
-%\addcontentsline{toc}{section}{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+
 %\bibliographystyle{unsrt}
-%\bibliography{thesis}
+%\bibliography{references}
+%\nocite{*}
 \input{references}
+
+
 
 \end{document}

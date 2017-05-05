@@ -6,9 +6,10 @@ I found no \bibdata command---while reading file main.aux
 Warning--I didn't find a database entry for "englebrecht-pso"
 Warning--I didn't find a database entry for "Scheepers-2013"
 Warning--I didn't find a database entry for "Langenhoven-2006"
+Warning--I didn't find a database entry for "apache"
 You've used 0 entries,
             1876 wiz_defined-function locations,
-            481 strings with 3533 characters,
+            482 strings with 3539 characters,
 and the built_in function-call counts, 20 in all, are:
 = -- 0
 > -- 0
