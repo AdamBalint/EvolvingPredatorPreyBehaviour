@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 MAY 2017 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 MAY 2017 15:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -613,18 +613,18 @@ Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -729,13 +729,13 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
  [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./abst
@@ -814,11 +814,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7 <./images/ANN_structure.png>]
-<images/sigmoid.png, id=39, 321.2pt x 213.79875pt>
+<images/sigmoid.png, id=39, 333.245pt x 217.81375pt>
 File: images/sigmoid.png Graphic file (type png)
  <use images/sigmoid.png>
 Package pdftex.def Info: images/sigmoid.png used on input line 34.
-(pdftex.def)             Requested size: 140.92793pt x 93.80748pt.
+(pdftex.def)             Requested size: 140.92793pt x 92.11261pt.
 
 ./background.tex:42: Extra }, or forgotten \endgroup.
 l.42     }
@@ -829,11 +829,11 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-<images/tanh.png, id=40, 451.6875pt x 301.125pt>
+<images/tanh.png, id=40, 227.85126pt x 157.58875pt>
 File: images/tanh.png Graphic file (type png)
  <use images/tanh.png>
 Package pdftex.def Info: images/tanh.png used on input line 46.
-(pdftex.def)             Requested size: 140.92793pt x 93.95428pt.
+(pdftex.def)             Requested size: 140.92793pt x 97.47075pt.
 
 ./background.tex:54: Extra }, or forgotten \endgroup.
 l.54     }
@@ -844,11 +844,11 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-<images/relu.png, id=41, 312.16624pt x 210.7875pt>
+<images/relu.png, id=41, 231.86626pt x 173.64874pt>
 File: images/relu.png Graphic file (type png)
  <use images/relu.png>
 Package pdftex.def Info: images/relu.png used on input line 59.
-(pdftex.def)             Requested size: 140.92793pt x 95.16226pt.
+(pdftex.def)             Requested size: 140.92793pt x 105.54402pt.
 
 ./background.tex:66: Extra }, or forgotten \endgroup.
 l.66     }
@@ -866,7 +866,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./images/neuron.png> <./images/sigmoid.png> <./images/tanh.png> <./images/r
-elu.png>] <images/pso-conv.png, id=50, 682.55pt x 408.52625pt>
+elu.png>] <images/pso-conv.png, id=53, 682.55pt x 408.52625pt>
 File: images/pso-conv.png Graphic file (type png)
 
 <use images/pso-conv.png>
@@ -900,7 +900,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12] <images/pso-pseudocode.png, id=70, 798.985pt x 529.98pt>
+[12]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13] <images/pso-pseudocode.png, id=75, 798.985pt x 529.98pt>
 File: images/pso-pseudocode.png Graphic file (type png)
 
 <use images/pso-pseudocode.png>
@@ -913,14 +920,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13] (./litreview.tex
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14 <./images/pso-pseudocode.png>])
+[14 <./images/pso-pseudocode.png>] (./litreview.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -934,14 +934,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16] (./experimentalsetup.tex
+[16])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17]
+[17] (./experimentalsetup.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -962,7 +962,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20] <images/Board-Visualization.png, id=98, 499.8675pt x 451.6875pt>
+[20]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21] <images/Board-Visualization.png, id=102, 499.8675pt x 451.6875pt>
 File: images/Board-Visualization.png Graphic file (type png)
 
 <use images/Board-Visualization.png>
@@ -976,22 +983,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21])
+[22])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22 <./images/Board-Visualization.png>]
+[23 <./images/Board-Visualization.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23] (./results.tex (./walled-game.tex
-<images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png, id=109, 1003.75pt x 602
+[24] (./results.tex (./walled-game.tex
+<images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png, id=114, 1003.75pt x 602
 .25pt>
 File: images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png Graphic file (type 
 png)
@@ -1000,7 +1007,7 @@ Package pdftex.def Info: images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png
 used on input line 8.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r2.png, id=110, 1003.75pt x 602
+<images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r2.png, id=115, 1003.75pt x 602
 .25pt>
 File: images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r2.png Graphic file (type 
 png)
@@ -1009,7 +1016,7 @@ Package pdftex.def Info: images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r2.png
 used on input line 12.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/V3-false-rc2-pl40-pdh0-pdc15-pyh0-pyc15-r3.png, id=111, 1003.75pt x 602
+<images/V3-false-rc2-pl40-pdh0-pdc15-pyh0-pyc15-r3.png, id=116, 1003.75pt x 602
 .25pt>
 File: images/V3-false-rc2-pl40-pdh0-pdc15-pyh0-pyc15-r3.png Graphic file (type 
 png)
@@ -1024,30 +1031,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24]
+[25]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png> <./images/V3-fals
+[26 <./images/V3-false-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r0.png> <./images/V3-fals
 e-rc5-pl30-pdh0-pdc30-pyh0-pyc30-r2.png>]
-<images/walled-good-ex-1.png, id=121, 451.6875pt x 451.6875pt>
+<images/walled-good-ex-1.png, id=125, 451.6875pt x 451.6875pt>
 File: images/walled-good-ex-1.png Graphic file (type png)
 
 <use images/walled-good-ex-1.png>
 Package pdftex.def Info: images/walled-good-ex-1.png used on input line 33.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/walled-good-ex-2.png, id=122, 451.6875pt x 451.6875pt>
+<images/walled-good-ex-2.png, id=126, 451.6875pt x 451.6875pt>
 File: images/walled-good-ex-2.png Graphic file (type png)
 
 <use images/walled-good-ex-2.png>
 Package pdftex.def Info: images/walled-good-ex-2.png used on input line 33.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.png, id=123, 1003.75pt x
+<images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.png, id=127, 1003.75pt x
  602.25pt>
 File: images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.png Graphic file (t
 ype png)
@@ -1056,7 +1063,7 @@ Package pdftex.def Info: images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.
 png used on input line 40.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/V3-false-rc5-pl30-pdh033-pdc15-pyh033-pyc15-r1.png, id=124, 1003.75pt x
+<images/V3-false-rc5-pl30-pdh033-pdc15-pyh033-pyc15-r1.png, id=128, 1003.75pt x
  602.25pt>
 File: images/V3-false-rc5-pl30-pdh033-pdc15-pyh033-pyc15-r1.png Graphic file (t
 ype png)
@@ -1072,7 +1079,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./images/V3-false-rc2-pl40-pdh0-pdc15-pyh0-pyc15-r3.png> <./images/walled-
+[27 <./images/V3-false-rc2-pl40-pdh0-pdc15-pyh0-pyc15-r3.png> <./images/walled-
 good-ex-1.png (PNG copy)> <./images/walled-good-ex-2.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1080,7 +1087,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.png> <./images/V3-
+[28 <./images/V3-false-rc5-pl30-pdh067-pdc30-pyh067-pyc30-r2.png> <./images/V3-
 false-rc5-pl30-pdh033-pdc15-pyh033-pyc15-r1.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1088,77 +1095,63 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28] <images/exp25-Run-4.png, id=137, 1003.75pt x 602.25pt>
+[29] <images/exp25-Run-4.png, id=141, 1003.75pt x 602.25pt>
 File: images/exp25-Run-4.png Graphic file (type png)
 
 <use images/exp25-Run-4.png>
 Package pdftex.def Info: images/exp25-Run-4.png used on input line 6.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/exp41-Run-0.png, id=138, 1003.75pt x 602.25pt>
+<images/exp41-Run-0.png, id=142, 1003.75pt x 602.25pt>
 File: images/exp41-Run-0.png Graphic file (type png)
 
 <use images/exp41-Run-0.png>
 Package pdftex.def Info: images/exp41-Run-0.png used on input line 7.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/exp28-Run-0.png, id=139, 1003.75pt x 602.25pt>
+<images/exp28-Run-0.png, id=143, 1003.75pt x 602.25pt>
 File: images/exp28-Run-0.png Graphic file (type png)
 
 <use images/exp28-Run-0.png>
 Package pdftex.def Info: images/exp28-Run-0.png used on input line 15.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-<images/exp44-Run-2.png, id=140, 1003.75pt x 602.25pt>
+<images/exp44-Run-2.png, id=144, 1003.75pt x 602.25pt>
 File: images/exp44-Run-2.png Graphic file (type png)
 
 <use images/exp44-Run-2.png>
 Package pdftex.def Info: images/exp44-Run-2.png used on input line 16.
 (pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29 <./images/exp25-Run-4.png> <./images/exp41-Run-0.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[30 <./images/exp28-Run-0.png> <./images/exp44-Run-2.png>]
-<images/exp25-pred-Game-382.png, id=152, 451.6875pt x 451.6875pt>
+<images/exp25-pred-Game-382.png, id=145, 451.6875pt x 451.6875pt>
 File: images/exp25-pred-Game-382.png Graphic file (type png)
 
 <use images/exp25-pred-Game-382.png>
 Package pdftex.def Info: images/exp25-pred-Game-382.png used on input line 26.
 (pdftex.def)             Requested size: 234.8775pt x 234.87885pt.
 
-<images/exp25-prey-Game-58.png, id=153, 451.6875pt x 451.6875pt>
+<images/exp25-prey-Game-58.png, id=146, 451.6875pt x 451.6875pt>
 File: images/exp25-prey-Game-58.png Graphic file (type png)
 
 <use images/exp25-prey-Game-58.png>
 Package pdftex.def Info: images/exp25-prey-Game-58.png used on input line 34.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/exp25-prey-Game-119.png, id=154, 451.6875pt x 451.6875pt>
+<images/exp25-prey-Game-119.png, id=147, 451.6875pt x 451.6875pt>
 File: images/exp25-prey-Game-119.png Graphic file (type png)
 
 <use images/exp25-prey-Game-119.png>
 Package pdftex.def Info: images/exp25-prey-Game-119.png used on input line 37.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/exp25-prey-Game-376.png, id=155, 451.6875pt x 451.6875pt>
+<images/exp25-prey-Game-376.png, id=148, 451.6875pt x 451.6875pt>
 File: images/exp25-prey-Game-376.png Graphic file (type png)
 
 <use images/exp25-prey-Game-376.png>
 Package pdftex.def Info: images/exp25-prey-Game-376.png used on input line 41.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/exp25-prey-Game-386.png, id=156, 451.6875pt x 451.6875pt>
+<images/exp25-prey-Game-386.png, id=149, 451.6875pt x 451.6875pt>
 File: images/exp25-prey-Game-386.png Graphic file (type png)
 
 <use images/exp25-prey-Game-386.png>
@@ -1166,8 +1159,75 @@ Package pdftex.def Info: images/exp25-prey-Game-386.png used on input line 44.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 ) (./v2.tex
 
-LaTeX Warning: Reference `fig:v2-pred-better-graphs' on page 31 undefined on in
-put line 2.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31 <./images/exp25-Run-4.png> <./images/exp41-Run-0.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32 <./images/exp28-Run-0.png> <./images/exp44-Run-2.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33] <images/V2-exp30-Run-2.png, id=167, 1003.75pt x 602.25pt>
+File: images/V2-exp30-Run-2.png Graphic file (type png)
+
+<use images/V2-exp30-Run-2.png>
+Package pdftex.def Info: images/V2-exp30-Run-2.png used on input line 7.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+<images/V2-exp32-Run-4.png, id=168, 1003.75pt x 602.25pt>
+File: images/V2-exp32-Run-4.png Graphic file (type png)
+
+<use images/V2-exp32-Run-4.png>
+Package pdftex.def Info: images/V2-exp32-Run-4.png used on input line 11.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+./v2.tex:13: Extra }, or forgotten \endgroup.
+l.13   \label{fig:v2-pred-better-graphs}}
+                                         
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+<images/V2-exp39-Run-0.png, id=169, 1003.75pt x 602.25pt>
+File: images/V2-exp39-Run-0.png Graphic file (type png)
+
+<use images/V2-exp39-Run-0.png>
+Package pdftex.def Info: images/V2-exp39-Run-0.png used on input line 21.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+<images/V2-exp39-Run-3.png, id=170, 1003.75pt x 602.25pt>
+File: images/V2-exp39-Run-3.png Graphic file (type png)
+
+<use images/V2-exp39-Run-3.png>
+Package pdftex.def Info: images/V2-exp39-Run-3.png used on input line 25.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+<images/v2-exp31-Run-2.png, id=171, 1003.75pt x 602.25pt>
+File: images/v2-exp31-Run-2.png Graphic file (type png)
+
+<use images/v2-exp31-Run-2.png>
+Package pdftex.def Info: images/v2-exp31-Run-2.png used on input line 36.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1175,14 +1235,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31 <./images/exp25-pred-Game-382.png (PNG copy)>]
+[34 <./images/exp25-pred-Game-382.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./images/exp25-prey-Game-58.png (PNG copy)> <./images/exp25-prey-Game-119.
+[35 <./images/exp25-prey-Game-58.png (PNG copy)> <./images/exp25-prey-Game-119.
 png (PNG copy)> <./images/exp25-prey-Game-376.png (PNG copy)> <./images/exp25-p
 rey-Game-386.png (PNG copy)>]
 
@@ -1191,74 +1251,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33] <images/V2-exp30-Run-2.png, id=166, 1003.75pt x 602.25pt>
-File: images/V2-exp30-Run-2.png Graphic file (type png)
-
-<use images/V2-exp30-Run-2.png>
-Package pdftex.def Info: images/V2-exp30-Run-2.png used on input line 7.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/V2-exp32-Run-4.png, id=167, 1003.75pt x 602.25pt>
-File: images/V2-exp32-Run-4.png Graphic file (type png)
-
-<use images/V2-exp32-Run-4.png>
-Package pdftex.def Info: images/V2-exp32-Run-4.png used on input line 11.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/V2-exp39-Run-0.png, id=168, 1003.75pt x 602.25pt>
-File: images/V2-exp39-Run-0.png Graphic file (type png)
-
-<use images/V2-exp39-Run-0.png>
-Package pdftex.def Info: images/V2-exp39-Run-0.png used on input line 20.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/V2-exp39-Run-3.png, id=169, 1003.75pt x 602.25pt>
-File: images/V2-exp39-Run-3.png Graphic file (type png)
-
-<use images/V2-exp39-Run-3.png>
-Package pdftex.def Info: images/V2-exp39-Run-3.png used on input line 24.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/v2-exp31-Run-2.png, id=170, 1003.75pt x 602.25pt>
-File: images/v2-exp31-Run-2.png Graphic file (type png)
-
-<use images/v2-exp31-Run-2.png>
-Package pdftex.def Info: images/v2-exp31-Run-2.png used on input line 35.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
+[36 <./images/V2-exp30-Run-2.png> <./images/V2-exp32-Run-4.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[34 <./images/V2-exp30-Run-2.png> <./images/V2-exp32-Run-4.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35 <./images/V2-exp39-Run-0.png> <./images/V2-exp39-Run-3.png>]
-<images/v2-exp39-r0-best-Game-370.png, id=181, 451.6875pt x 451.6875pt>
+[37 <./images/V2-exp39-Run-0.png> <./images/V2-exp39-Run-3.png>]
+<images/v2-exp39-r0-best-Game-370.png, id=189, 451.6875pt x 451.6875pt>
 File: images/v2-exp39-r0-best-Game-370.png Graphic file (type png)
 
 <use images/v2-exp39-r0-best-Game-370.png>
 Package pdftex.def Info: images/v2-exp39-r0-best-Game-370.png used on input lin
-e 44.
+e 45.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v2-exp39-r0-best-Game-388.png, id=182, 451.6875pt x 451.6875pt>
+<images/v2-exp39-r0-best-Game-388.png, id=190, 451.6875pt x 451.6875pt>
 File: images/v2-exp39-r0-best-Game-388.png Graphic file (type png)
 
 <use images/v2-exp39-r0-best-Game-388.png>
 Package pdftex.def Info: images/v2-exp39-r0-best-Game-388.png used on input lin
-e 44.
+e 45.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
-
-
-LaTeX Warning: Reference `fig:v2-pred-better-graphs' on page 36 undefined on in
-put line 49.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1266,83 +1281,55 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36 <./images/v2-exp31-Run-2.png> <./images/v2-exp39-r0-best-Game-370.png (PNG 
+[38 <./images/v2-exp31-Run-2.png> <./images/v2-exp39-r0-best-Game-370.png (PNG 
 copy)> <./images/v2-exp39-r0-best-Game-388.png (PNG copy)>]
-<images/V2-exp30-r2-Game-152.png, id=188, 451.6875pt x 451.6875pt>
+<images/V2-exp30-r2-Game-152.png, id=195, 451.6875pt x 451.6875pt>
 File: images/V2-exp30-r2-Game-152.png Graphic file (type png)
 
 <use images/V2-exp30-r2-Game-152.png>
-Package pdftex.def Info: images/V2-exp30-r2-Game-152.png used on input line 53.
+Package pdftex.def Info: images/V2-exp30-r2-Game-152.png used on input line 54.
 
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/V2-exp30-r2-Game-362.png, id=189, 451.6875pt x 451.6875pt>
+<images/V2-exp30-r2-Game-362.png, id=196, 451.6875pt x 451.6875pt>
 File: images/V2-exp30-r2-Game-362.png Graphic file (type png)
 
 <use images/V2-exp30-r2-Game-362.png>
-Package pdftex.def Info: images/V2-exp30-r2-Game-362.png used on input line 53.
+Package pdftex.def Info: images/V2-exp30-r2-Game-362.png used on input line 54.
 
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v2-exp40-py-r4-Game-30.png, id=190, 451.6875pt x 451.6875pt>
+<images/v2-exp40-py-r4-Game-30.png, id=197, 451.6875pt x 451.6875pt>
 File: images/v2-exp40-py-r4-Game-30.png Graphic file (type png)
 
 <use images/v2-exp40-py-r4-Game-30.png>
 Package pdftex.def Info: images/v2-exp40-py-r4-Game-30.png used on input line 6
-4.
+5.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v2-exp40-py-r4-Game-31.png, id=191, 451.6875pt x 451.6875pt>
+<images/v2-exp40-py-r4-Game-31.png, id=198, 451.6875pt x 451.6875pt>
 File: images/v2-exp40-py-r4-Game-31.png Graphic file (type png)
 
 <use images/v2-exp40-py-r4-Game-31.png>
 Package pdftex.def Info: images/v2-exp40-py-r4-Game-31.png used on input line 6
-4.
+5.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v2-exp40-py-r4-Game-43.png, id=192, 451.6875pt x 451.6875pt>
+<images/v2-exp40-py-r4-Game-43.png, id=199, 451.6875pt x 451.6875pt>
 File: images/v2-exp40-py-r4-Game-43.png Graphic file (type png)
 
 <use images/v2-exp40-py-r4-Game-43.png>
-Package pdftex.def Info: images/v2-exp40-py-r4-Game-43.png used on input line 6
-9.
+Package pdftex.def Info: images/v2-exp40-py-r4-Game-43.png used on input line 7
+0.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 ) (./v3.tex
-<images/v3-exp26-Run-4.png, id=193, 1003.75pt x 602.25pt>
-File: images/v3-exp26-Run-4.png Graphic file (type png)
-
-<use images/v3-exp26-Run-4.png>
-Package pdftex.def Info: images/v3-exp26-Run-4.png used on input line 9.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/v3-exp27-Run-3.png, id=194, 1003.75pt x 602.25pt>
-File: images/v3-exp27-Run-3.png Graphic file (type png)
-
-<use images/v3-exp27-Run-3.png>
-Package pdftex.def Info: images/v3-exp27-Run-3.png used on input line 14.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/v3-exp47-Run-2.png, id=195, 1003.75pt x 602.25pt>
-File: images/v3-exp47-Run-2.png Graphic file (type png)
-
-<use images/v3-exp47-Run-2.png>
-Package pdftex.def Info: images/v3-exp47-Run-2.png used on input line 27.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
-<images/v3-exp47-Run-4.png, id=196, 1003.75pt x 602.25pt>
-File: images/v3-exp47-Run-4.png Graphic file (type png)
-
-<use images/v3-exp47-Run-4.png>
-Package pdftex.def Info: images/v3-exp47-Run-4.png used on input line 32.
-(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37 <./images/V2-exp30-r2-Game-152.png (PNG copy)> <./images/V2-exp30-r2-Game-3
+[39 <./images/V2-exp30-r2-Game-152.png (PNG copy)> <./images/V2-exp30-r2-Game-3
 62.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1350,7 +1337,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38 <./images/v2-exp40-py-r4-Game-30.png (PNG copy)> <./images/v2-exp40-py-r4-G
+[40 <./images/v2-exp40-py-r4-Game-30.png (PNG copy)> <./images/v2-exp40-py-r4-G
 ame-31.png (PNG copy)> <./images/v2-exp40-py-r4-Game-43.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1358,86 +1345,94 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39]
+[41] <images/v3-exp26-Run-4.png, id=209, 1003.75pt x 602.25pt>
+File: images/v3-exp26-Run-4.png Graphic file (type png)
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+<use images/v3-exp26-Run-4.png>
+Package pdftex.def Info: images/v3-exp26-Run-4.png used on input line 9.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-[40 <./images/v3-exp26-Run-4.png> <./images/v3-exp27-Run-3.png>]
+<images/v3-exp27-Run-3.png, id=210, 1003.75pt x 602.25pt>
+File: images/v3-exp27-Run-3.png Graphic file (type png)
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+<use images/v3-exp27-Run-3.png>
+Package pdftex.def Info: images/v3-exp27-Run-3.png used on input line 14.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
 
-[41 <./images/v3-exp47-Run-2.png> <./images/v3-exp47-Run-4.png>]
-<images/v3-exp47-r4-Game-24.png, id=216, 451.6875pt x 451.6875pt>
+<images/v3-exp47-Run-2.png, id=211, 1003.75pt x 602.25pt>
+File: images/v3-exp47-Run-2.png Graphic file (type png)
+
+<use images/v3-exp47-Run-2.png>
+Package pdftex.def Info: images/v3-exp47-Run-2.png used on input line 27.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+<images/v3-exp47-Run-4.png, id=212, 1003.75pt x 602.25pt>
+File: images/v3-exp47-Run-4.png Graphic file (type png)
+
+<use images/v3-exp47-Run-4.png>
+Package pdftex.def Info: images/v3-exp47-Run-4.png used on input line 32.
+(pdftex.def)             Requested size: 328.82707pt x 197.30034pt.
+
+<images/v3-exp47-r4-Game-24.png, id=213, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-Game-24.png Graphic file (type png)
 
 <use images/v3-exp47-r4-Game-24.png>
-Package pdftex.def Info: images/v3-exp47-r4-Game-24.png used on input line 45.
+Package pdftex.def Info: images/v3-exp47-r4-Game-24.png used on input line 42.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-Game-33.png, id=217, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-Game-33.png, id=214, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-Game-33.png Graphic file (type png)
 
 <use images/v3-exp47-r4-Game-33.png>
-Package pdftex.def Info: images/v3-exp47-r4-Game-33.png used on input line 50.
+Package pdftex.def Info: images/v3-exp47-r4-Game-33.png used on input line 47.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-Game-45.png, id=218, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-Game-45.png, id=215, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-Game-45.png Graphic file (type png)
 
 <use images/v3-exp47-r4-Game-45.png>
-Package pdftex.def Info: images/v3-exp47-r4-Game-45.png used on input line 56.
+Package pdftex.def Info: images/v3-exp47-r4-Game-45.png used on input line 53.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-interesting-Game-91.png, id=219, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-interesting-Game-91.png, id=216, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-interesting-Game-91.png Graphic file (type png)
 
 <use images/v3-exp47-r4-interesting-Game-91.png>
 Package pdftex.def Info: images/v3-exp47-r4-interesting-Game-91.png used on inp
-ut line 61.
+ut line 58.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-1-Game-327.png, id=220, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-1-Game-327.png, id=217, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-1-Game-327.png Graphic file (type png)
 
 <use images/v3-exp47-r4-1-Game-327.png>
-Package pdftex.def Info: images/v3-exp47-r4-1-Game-327.png used on input line 7
-3.
+Package pdftex.def Info: images/v3-exp47-r4-1-Game-327.png used on input line 6
+9.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-1-Game-328.png, id=221, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-1-Game-328.png, id=218, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-1-Game-328.png Graphic file (type png)
 
 <use images/v3-exp47-r4-1-Game-328.png>
 Package pdftex.def Info: images/v3-exp47-r4-1-Game-328.png used on input line 7
-8.
+4.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-1-Game-329.png, id=222, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-1-Game-329.png, id=219, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-1-Game-329.png Graphic file (type png)
 
 <use images/v3-exp47-r4-1-Game-329.png>
 Package pdftex.def Info: images/v3-exp47-r4-1-Game-329.png used on input line 8
-4.
+0.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
 
-<images/v3-exp47-r4-1-Game-330.png, id=223, 451.6875pt x 451.6875pt>
+<images/v3-exp47-r4-1-Game-330.png, id=220, 451.6875pt x 451.6875pt>
 File: images/v3-exp47-r4-1-Game-330.png Graphic file (type png)
 
 <use images/v3-exp47-r4-1-Game-330.png>
 Package pdftex.def Info: images/v3-exp47-r4-1-Game-330.png used on input line 8
-9.
+5.
 (pdftex.def)             Requested size: 187.89914pt x 187.90169pt.
-
-
-LaTeX Warning: Reference `fig:v2-pred-better-graphs' on page 42 undefined on in
-put line 95.
-
 ))
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1452,7 +1447,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43 <./images/v3-exp47-r4-Game-24.png (PNG copy)> <./images/v3-exp47-r4-Game-33
+[43 <./images/v3-exp26-Run-4.png> <./images/v3-exp27-Run-3.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[44 <./images/v3-exp47-Run-2.png> <./images/v3-exp47-Run-4.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[45 <./images/v3-exp47-r4-Game-24.png (PNG copy)> <./images/v3-exp47-r4-Game-33
 .png (PNG copy)> <./images/v3-exp47-r4-Game-45.png (PNG copy)> <./images/v3-exp
 47-r4-interesting-Game-91.png (PNG copy)>]
 
@@ -1461,23 +1470,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44 <./images/v3-exp47-r4-1-Game-327.png (PNG copy)> <./images/v3-exp47-r4-1-Ga
+[46 <./images/v3-exp47-r4-1-Game-327.png (PNG copy)> <./images/v3-exp47-r4-1-Ga
 me-328.png (PNG copy)> <./images/v3-exp47-r4-1-Game-329.png (PNG copy)> <./imag
 es/v3-exp47-r4-1-Game-330.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[45] (./conclusion.tex)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[46] (./futurework.tex)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1491,52 +1486,93 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48] (./references.tex
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-[]\OT1/cmr/m/n/12 Apache Com-mons: Com-mons Math, $\OT1/cmtt/m/n/12 http : / / 
-commons . apache . org / proper /
- []
-
-)
+[48] (./conclusion.tex)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49] (./main.aux)
+[49] (./futurework.tex)
 
-LaTeX Warning: There were undefined references.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
- ) 
+[50] (./references.tex
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+[]\OT1/cmr/m/n/12 Apache Com-mons: Com-mons Math, $\OT1/cmtt/m/n/12 http : / / 
+commons . apache . org / proper /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+[]\OT1/cmr/m/n/12 J. Brown-lee, ''Par-ti-cle Swarm Op-ti-miza-tion Pseu-docode'
+', $\OT1/cmtt/m/n/12 http : / / www .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+\OT1/cmtt/m/n/12 cleveralgorithms . com / nature-[]inspired / swarm / pso . htm
+l$ \OT1/cmr/m/n/12 [On-line, Ac-cessed 2-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/cmtt/m/n/12 cs . tufts . edu / comp / 150GA / homeworks / hw3 / _reading6 
+\ %201995 \ %20particle \
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[51]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[53] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 7268 strings out of 493014
- 110811 string characters out of 6133351
- 206695 words of memory out of 5000000
- 10585 multiletter control sequences out of 15000+600000
+ 7286 strings out of 493014
+ 111020 string characters out of 6133351
+ 208795 words of memory out of 5000000
+ 10603 multiletter control sequences out of 15000+600000
  11724 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,43p,1288b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ./main.pdf (50 pages, 1673673 bytes).
+ 38i,12n,43p,1300b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ./main.pdf (54 pages, 1678559 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
+ 318 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  241 words of extra memory for PDF output out of 10000 (max. 10000000)
 

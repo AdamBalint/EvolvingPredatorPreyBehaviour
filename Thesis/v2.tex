@@ -1,5 +1,5 @@
 \subsection{Game V2}
-Game V2 is the game with the even set of rules for the predators and the prey. This game mode should be the mode that provides the closest set of results between the predators and the prey. Unfortunately, the system still seems to provide an advantage to the prey as in every experiment the prey are the agents with the highest fitness. However, unlike in the walled off game and the V1 game, in this game mode, there are times when the predators have a better score than the prey (Figures \ref{fig:v2-pred-better-graphs} and \ref{fig:v2-pred-better-graphs-2}). Unfortunately for the predator, they always get outperformed by the prey. It should be noted that in this case, a core radius of 5 and a perception limit does make an impact in the initial fitness of the particles, and it is in these cases where the predator fitness is initially higher than the prey fitness.
+Game V2 is the game with the even set of rules for the predators and the prey. This game mode should be the mode that provides the closest set of results between the predators and the prey. Unfortunately, the system still seems to provide an advantage to the prey as in every experiment the prey are the agents with the highest fitness. However, unlike in the walled off game and the V1 game, in this game mode, there are times when the predators have a better score than the prey (Figures \ref{fig:v2-pred-better-graphs} and \ref{fig:v2-pred-better-graphs-2}). Unfortunately for the predator, they always get outperformed by the prey. It should be noted that in this case, a core radius of 5 and a perception limit of 30 does make an impact in the initial fitness of the particles, and it is in these cases where the predator fitness is initially higher than the prey fitness.
 
 \begin{figure}
   \centering
@@ -10,6 +10,7 @@ Game V2 is the game with the even set of rules for the predators and the prey. T
   \begin{subfigure}{.7\textwidth}
   \includegraphics[width=\linewidth]{V2-exp32-Run-4.png}
   \caption{V2 experiment 8 run 5}
+  \label{fig:v2-pred-better-graphs}}
   \end{subfigure}
  \end{figure}
 
@@ -33,20 +34,20 @@ Something of note is that in this game mode, the prey seem to converge as in som
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{v2-exp31-Run-2.png}
-  \caption{Game V2 experiment 7: Example of large fitness drop in prey}
+  \caption{Game V2 experiment 7 run 3: Example of large fitness drop in prey}
   \label{fig:v2-prey-large-drop}
 \end{figure}
 
-Observing the games played by the predators in experiment 15 run 0, the predator with one of the highest overall fitnesses can be observed. The games show that the reason this particle received a higher fitness value is because it mostly remained on the board with a couple of captures. As experiment 7 run 2 had the highest fitness value right at the beginning of the run, the movements made by the predator and prey are chaotic with no real structure with the results being similar to game V1 where both the predator and prey just pick a direction to move in and they move in that direction until the game ends (see Figure \ref{fig:v2-exp39-best}). 
+Observing the games played by the predators in experiment 15 run 1, the predator with one of the highest overall fitnesses can be observed. The games show that the reason this particle received a higher fitness value is because it mostly remained on the board with a couple of captures. As experiment 7 run 3 had the highest fitness value right at the beginning of the run, the movements made by the predator and prey are chaotic with no real structure with the results being similar to game V1 where both the predator and prey just pick a direction to move in and they move in that direction until the game ends (see Figure \ref{fig:v2-exp39-best}). 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.4\textwidth]{v2-exp39-r0-best-Game-370.png}  \includegraphics[width=0.4\textwidth]{v2-exp39-r0-best-Game-388.png}
-  \caption{Game V2 experiment 39 Run 0: Example Games}
+  \caption{Game V2 experiment 15 Run 1: Example Games}
   \label{fig:v2-exp39-best}
 \end{figure}
 
-Taking a look at Game V2 experiment 6 run 3 (as seen in Figure \ref{fig:v2-pred-better-graphs})) it can be seen that the predator with the overall highest fitness appeared later on in the run. This predator adopted a patrolling approach. In most of the runs, the predator tended to move back and forth on the same line and hope that the prey would come that way (see Figure \ref{fig:v2-pred-patrol}). In most cases this did not work and the prey just ran off the board. The major development for the predator is that in most cases, the prey remained on the board.
+Taking a look at Game V2 experiment 6 run 3 (as seen in Figure \ref{fig:v2-pred-better-graphs}) it can be seen that the predator with the overall highest fitness appeared later on in the run. This predator adopted a patrolling approach. In most of the runs, the predator tended to move back and forth on the same line and hope that the prey would come that way (see Figure \ref{fig:v2-pred-patrol}). In most cases this did not work and the prey just ran off the board. The major development for the predator is that in most cases, the predator remained on the board.
 
 \begin{figure}
   \centering
@@ -55,7 +56,7 @@ Taking a look at Game V2 experiment 6 run 3 (as seen in Figure \ref{fig:v2-pred-
   \label{fig:v2-pred-patrol}
 \end{figure}
 
-As it can be seen in all of the graphs for V2, the prey score has lowered. It is no longer close to 1 as the prey is now penalized for falling off the board. One of the best tactics that the prey evolve is to match the predator's patrol tactic. Using this tactic, the prey just wait for the game to end by patrolling their own area as the predator will never approach the prey anyways. This tactic in can be seen in Figure \ref{fig:v2-prey-patrol}.
+As it can be seen in all of the graphs for V2, the prey score has lowered. It is no longer close to 1 as the prey is now penalized for falling off the board. One of the best tactics that the prey evolved is to match the predator's patrol tactic. Using this tactic, the prey just wait for the game to end by patrolling their own area as the predator will never approach the prey anyways. This tactic in can be seen in Figure \ref{fig:v2-prey-patrol}.
 
 \begin{figure}
   \centering
@@ -111,4 +112,4 @@ As it can be seen in all of the graphs for V2, the prey score has lowered. It is
   \label{tab:v2-summary}
 \end{table}
 
-
+The summary results for game V2 can be seen in Table \ref{tab:v2-summary}. The results are much more varied in this version compared to the results seen in game V1, however in game V2, both the predator and prey achieved better scores on average using the core radius of 5 and perception limit of 30 parameter set. This seems to suggest that allowing the particles to converge closer together before repelling is more beneficial than expanding the search space.

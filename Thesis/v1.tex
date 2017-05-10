@@ -1,5 +1,5 @@
 \subsection{Game V1}
-As seen in Table \ref{tab:game-rules}, the game V1 rules are heavily stacked in favour of the prey. The effect of this can be seen in all of the fitness over time graphs that were produced. Even the experiments that included charged particles performed poorly with this version of the game. An example of a graph from experiments 1 and 17 can be seen in Figure \ref{fig:v1-no-charged-graphs} and an example of a graph from experiment 4 and 20 can be seen in Figure \ref{fig:v1-fully-charged-graphs}. In Figure \ref{fig:v1-fully-charged-graphs} it is expected that at least one particle should have a high fitness value, but as it can be seen, the full charged swarms from experiment 4 and 20 do not perform better than those from experiments 1 and 17.
+As seen in Table \ref{tab:game-rules}, the game V1 rules are heavily stacked in favour of the prey. The effect of this can be seen in all of the fitness over time graphs that were produced. Even the experiments that included charged particles performed poorly with this version of the game. An example of a graph from experiments 1 and 17 can be seen in Figure \ref{fig:v1-no-charged-graphs} and an example of a graph from experiment 4 and 20 can be seen in Figure \ref{fig:v1-fully-charged-graphs}. In Figure \ref{fig:v1-fully-charged-graphs} it is expected that at least one particle would have a high fitness value, but as it can be seen, the full charged swarms from experiment 4 and 20 do not perform better than those from experiments 1 and 17.
 
 \begin{figure}
   \centering
@@ -18,7 +18,7 @@ As seen in Table \ref{tab:game-rules}, the game V1 rules are heavily stacked in 
   \label{fig:v1-fully-charged-graphs}
 \end{figure}
 
-When observing the games being played by the particle with the best fitness over all of the runs an interesting pattern emerges. In most cases, the game ends with the prey running off of the board. This is because the easiest way for the prey to win if for it to fall off. While the predator also falls off about one third of the time, the predator tends to stay on the board for a longer time than the prey. An example of this technique can be seen in Figure \ref{fig:exp1-pred-game-58}. Observing the prey behaviour, this can be reinforced as the best prey had 324 games of 400 ending with the prey falling off the board. An example of several games can be seen in Figure \ref{fig:exp1-prey-example-games}. Unfortunately, since it is extremely easy for the prey to win and for the predator to lose, the type of behaviour that evolved is quite basic. In general, both agents tend to just move in a straight line until one of them falls off the board.
+When observing the games being played by the particle with the best fitness over all of the epochs an interesting pattern emerges. In most cases, the game ends with the prey running off of the board. This is because the easiest way for the prey to win is for it to fall off. While the predator also falls off about one third of the time, the predator tends to stay on the board for a longer time than the prey. An example of this technique can be seen in Figure \ref{fig:exp1-pred-game-58}. The falling off behaviour of the prey can be reinforced by the fact that the best prey had 324 games of 400 ending with the prey falling off the board. An example of several games can be seen in Figure \ref{fig:exp1-prey-example-games}. Unfortunately, since it is extremely easy for the prey to win and for the predator to lose, the type of behaviour that evolved is quite basic. In general, both agents tend to just move in a straight line until one of them falls off the board.
 
 
 \begin{figure}
@@ -84,5 +84,5 @@ When observing the games being played by the particle with the best fitness over
   \label{tab:v1-summary}
 \end{table}
 
-
+In Table \ref{tab:v1-summary}, it can be seen that the parameter set did not provide much change in the prey results, while the highest values produced by the predator all occurred when 33\% of the swarm was charged. This result does seem promising, however the core radius and perception limit parameters are not the same. Observing the core radius and perception limit, the set with the lower perception limit on average provides better fitness scores. Furthermore, for larger networks, the core radius of 5 and perception limit of 30 seems to perform better than the other variation when all other parameters are identical.
 

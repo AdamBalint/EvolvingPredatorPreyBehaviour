@@ -1,6 +1,6 @@
 \subsection{Walled Game}
 
-When the arena is walled off and the agents are not able to fall off of the board, it is hypothesized that the prey will Figure out some sort of move pattern to avoid the predator quickly, and the predator should be able to quickly adapt to the prey and capture it. This would show on fitness graphs as lines representing the predators and prey crossing over each other as they keep adapting to capture or escape respectively. This type of behaviour is not seen in any of the walled off game graphs, although the fitnesses do fluctuate in tandem with each other, just not as extremely as expected. Furthermore, the prey always outperforms the predator in the walled off game. The general pattern of all of the graphs tends to be a sharp improvement in the beginning of the run, and then the curve flattens out as seen in Figure \ref{fig:wall-exp-1} which both came from the same experiment. In most cases the fitness of the particles at the end of the run are determined by the gain/loss that occurred at the beginning of the run. A more promising run that seems like it would have improved if training time was longer can be seen in Figure \ref{fig:walled-better-run}. 
+When the arena is walled off and the agents are not able to fall off of the board, it is hypothesized that the prey will figure out some sort of move pattern to avoid the predator quickly, and the predator should be able to quickly adapt to the prey and capture it. This would show on fitness graphs as lines representing the predators and prey crossing over each other as they keep adapting to capture or escape respectively. This type of behaviour is not seen in any of the walled off game graphs, although the fitnesses do fluctuate in tandem with each other, just not as extremely as expected. Furthermore, the prey always outperforms the predator in the walled off game. The general pattern of all of the graphs tend to be a sharp improvement in the beginning of the run, and then the curve flattens out as seen in Figure \ref{fig:wall-exp-1} in which both runs came from the same experiment. In most cases the fitness of the particles at the end of the run are determined by the gain or loss that occurred at the beginning of the run. A more promising run that seems like it would have improved if training time was longer can be seen in Figure \ref{fig:walled-better-run}. 
 
 \begin{figure}
   \centering
@@ -88,3 +88,7 @@ In the walled game, although the overall population performance for the predator
   \caption{Walled Game Summary}
   \label{tab:walled-summary}
 \end{table}
+
+
+Since only 5 runs were conducted per experiment, the results are not statistically significant, however, in general, both the predator and the prey perform better using the core radius of 5 and perception limit of 30. Furthermore, the predator performs better with a smaller network, while network size has no impact on the prey results. This implies that for the walled off game, a smaller network is enough for the predator to predict the movements of and capture the prey.
+
