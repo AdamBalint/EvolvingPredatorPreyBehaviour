@@ -9,5 +9,4 @@ public interface ParticleInterface {
 	public RealMatrix[] getPersonalBestLoc();
 	public RealMatrix[] getLocation();
 	public void updateParticle();
-		
 }

@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+I found no \bibdata command---while reading file main.aux
+Warning--I didn't find a database entry for "neural-net"
+Warning--I didn't find a database entry for "neuron"
+Warning--I didn't find a database entry for "englebrecht-pso"
+Warning--I didn't find a database entry for "pso-pseudocode-ref"
+Warning--I didn't find a database entry for "Sonali"
+Warning--I didn't find a database entry for "deep-learning-book"
+Warning--I didn't find a database entry for "kennedy"
+Warning--I didn't find a database entry for "charged-pso-slides"
+Warning--I didn't find a database entry for "Yong"
+Warning--I didn't find a database entry for "Runka"
+Warning--I didn't find a database entry for "Hawe"
+Warning--I didn't find a database entry for "Rosin"
+Warning--I didn't find a database entry for "coevolution-chess"
+Warning--I didn't find a database entry for "Lubberts"
+Warning--I didn't find a database entry for "Scheepers-2013"
+Warning--I didn't find a database entry for "yann"
+Warning--I didn't find a database entry for "koehn"
+Warning--I didn't find a database entry for "neat"
+Warning--I didn't find a database entry for "Garro"
+Warning--I didn't find a database entry for "Langenhoven-2006"
+Warning--I didn't find a database entry for "apache"
+You've used 0 entries,
+            1876 wiz_defined-function locations,
+            506 strings with 3720 characters,
+and the built_in function-call counts, 20 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 9
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There was 1 error message)

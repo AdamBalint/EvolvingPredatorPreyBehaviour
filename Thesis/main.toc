@@ -1,0 +1,47 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{6}
+\contentsline {section}{\numberline {2}Background}{7}
+\contentsline {subsection}{\numberline {2.1}Artificial Neural Networks}{7}
+\contentsline {subsubsection}{\numberline {2.1.1}Neurons}{7}
+\contentsline {subsubsection}{\numberline {2.1.2}Activation Functions}{8}
+\contentsline {subsection}{\numberline {2.2}Particle Swarm Optimization}{9}
+\contentsline {subsubsection}{\numberline {2.2.1}Base PSO Overview}{9}
+\contentsline {subsubsection}{\numberline {2.2.2}Particle}{9}
+\contentsline {subsubsection}{\numberline {2.2.3}Particle Position Update}{10}
+\contentsline {subsubsection}{\numberline {2.2.4}Particle Velocity Update}{10}
+\contentsline {subsubsection}{\numberline {2.2.5}Particle Evaluation}{11}
+\contentsline {subsubsection}{\numberline {2.2.6}Swarms}{11}
+\contentsline {subsection}{\numberline {2.3}Charged PSO}{12}
+\contentsline {subsubsection}{\numberline {2.3.1}Charged PSO Overview}{12}
+\contentsline {subsubsection}{\numberline {2.3.2}Charged Particles and Updating}{12}
+\contentsline {subsubsection}{\numberline {2.3.3}Charged Swarms}{13}
+\contentsline {section}{\numberline {3}Literature Review}{15}
+\contentsline {subsection}{\numberline {3.1}Cooperative Coevolution}{15}
+\contentsline {subsection}{\numberline {3.2}Competitive Coevolution}{15}
+\contentsline {subsection}{\numberline {3.3}Neural Network Training}{15}
+\contentsline {subsubsection}{\numberline {3.3.1}Backpropagation}{15}
+\contentsline {subsubsection}{\numberline {3.3.2}Genetic Algorithms}{16}
+\contentsline {subsubsection}{\numberline {3.3.3}PSO}{16}
+\contentsline {subsection}{\numberline {3.4}Predator vs. Prey}{16}
+\contentsline {section}{\numberline {4}Experimental Setup}{18}
+\contentsline {subsection}{\numberline {4.1}Predator vs Prey}{18}
+\contentsline {subsubsection}{\numberline {4.1.1}Predator}{18}
+\contentsline {subsubsection}{\numberline {4.1.2}Prey}{18}
+\contentsline {subsubsection}{\numberline {4.1.3}Game Progression}{19}
+\contentsline {subsection}{\numberline {4.2}NN Implementation}{19}
+\contentsline {subsection}{\numberline {4.3}PSO Implementation}{20}
+\contentsline {subsubsection}{\numberline {4.3.1}Particle Representation}{20}
+\contentsline {subsubsection}{\numberline {4.3.2}Calculating Fitness Values}{20}
+\contentsline {subsubsection}{\numberline {4.3.3}Simulation}{21}
+\contentsline {subsubsection}{\numberline {4.3.4}Board Encoding}{21}
+\contentsline {subsubsection}{\numberline {4.3.5}Hall of Fame}{22}
+\contentsline {subsection}{\numberline {4.4}Visual Board Representation}{22}
+\contentsline {subsection}{\numberline {4.5}Run Summary}{22}
+\contentsline {section}{\numberline {5}Results}{25}
+\contentsline {subsection}{\numberline {5.1}Walled Game}{25}
+\contentsline {subsection}{\numberline {5.2}Game V1}{30}
+\contentsline {subsection}{\numberline {5.3}Game V2}{34}
+\contentsline {subsection}{\numberline {5.4}Game V3}{42}
+\contentsline {section}{\numberline {6}Conclusion}{49}
+\contentsline {section}{\numberline {7}Future Work}{50}
+\contentsline {section}{Bibliography}{51}

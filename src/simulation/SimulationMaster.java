@@ -1,0 +1,183 @@
+package simulation;
+
+import java.awt.Point;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
+
+import messages.SimulationLog;
+import simulation.creature.NeuralNet;
+import storage.SpeciesType;
+import storage.Variables;
+
+// Set up the board to call the simulation stuff
+public class SimulationMaster {
+
+	private SpeciesType specType;
+	private NeuralNet nn;
+	private int particleNum;
+	private GameLogger gameLogger = null;
+	
+	
+	// Species type to get type of brain, 
+	public SimulationMaster(SpeciesType specType, NeuralNet nn, int particleNum){
+		this.specType = specType;
+		this.nn = nn;
+		this.particleNum = particleNum;
+		this.gameLogger = new GameLogger();
+	}
+	
+	public double runSimulations(){
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(20);
+		List<Future<SimulationLog>> resultList = new ArrayList<>();
+		
+		for (int i = 0; i < Variables.simulationNum; i++){
+			Board b = new Board();
+			if (specType == SpeciesType.PREDATOR)
+				b.placeCreatures(nn, Variables.brainStorage.getRandomBrain(1));
+			else
+				b.placeCreatures(Variables.brainStorage.getRandomBrain(0), nn);
+			Future<SimulationLog> res = executor.submit(b);
+			resultList.add(res);
+		}
+		
+		double score = 0;
+		int count = 0;
+		
+		while(count < Variables.simulationNum){
+			for (int i = 0; i < resultList.size(); i++){
+				if (resultList.get(i).isDone()){
+					count++;
+					Future<SimulationLog> f = resultList.remove(i);
+					try {
+						SimulationLog sl = f.get();
+						ArrayList<Point> moves = sl.movementLog;
+						score += specType == SpeciesType.PREDATOR ? sl.predatorScore : sl.preyScore;
+						gameLogger.addGame(moves);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					/*count++;
+					Future<SimulationLog> f = resultList.remove(i);
+					if (specType == SpeciesType.PREDATOR){
+						try {
+							SimulationLog sl = f.get();
+							//System.err.println("Added to Predator score");
+							score += (sl.predatorScore);
+							if (particleNum != -1){
+								ArrayList<Point> moves = sl.movementLog;
+								String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Predator/Pred-"+particleNum+"/";
+								writeMovementLog(moves, loc, count-1);
+							}
+						} catch (InterruptedException | ExecutionException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}else{
+						try {
+							SimulationLog sl = f.get();
+							//System.err.println("Added to Prey score");
+							score += (sl.preyScore);
+							if (particleNum != -1){
+								ArrayList<Point> moves = sl.movementLog;
+								String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Prey/Prey-"+particleNum+"/";
+								writeMovementLog(moves, loc, count-1);
+							}
+						} catch (InterruptedException | ExecutionException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}*/
+				}
+			}
+			
+		}
+		gameLogger.setParticleFitness(score/Variables.simulationNum);
+		
+		//if (particleNum != -1){
+			
+		//}
+		executor.shutdown();
+		
+		
+		/*if (specType == SpeciesType.PREDATOR)
+			return predScore;
+		else
+			return preyScore;
+		*/
+		//System.out.println("Score: " + score);
+		return score/Variables.simulationNum;
+	}
+	
+	public void saveSimulationGames(){
+		String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch;;
+		String save;
+		if (specType == SpeciesType.PREDATOR){
+			save = "/PredBest-"+particleNum+".save";
+		}else{
+			save = "/PreyBest-"+particleNum+".save";
+		}
+		try {
+			File f = new File(loc);
+			//f.createNewFile();
+			f.mkdirs();
+			FileOutputStream fout = new FileOutputStream(loc+save);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(gameLogger);
+			oos.flush();
+			oos.close();
+			/*
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(loc+"Fitness.txt")));
+			bw.write(""+score);
+			bw.flush();
+			bw.close();
+			*/
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void writeMovementLog(ArrayList<Point> moves, String location, int gameNum){
+		File f = new File(location);
+		if (!f.exists()){
+			f.mkdirs();
+		}
+		
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(location+"Game-"+gameNum+".txt")));
+			for (int i = 0; i < moves.size(); i++){
+				Point cur = moves.get(i);
+				bw.write(cur.x+","+cur.y + "\t");
+				
+				if (i % 2 != 0){
+					bw.newLine();
+				}
+			}
+			bw.flush();
+			bw.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+}

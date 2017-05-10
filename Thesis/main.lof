@@ -1,0 +1,25 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1}{\ignorespaces Representation of a neural network\cite {neural-net}\relax }}{7}
+\contentsline {figure}{\numberline {2}{\ignorespaces Representation of a single neuron in a neural network\cite {neuron}\relax }}{8}
+\contentsline {figure}{\numberline {3}{\ignorespaces Common Activation Functions \relax }}{8}
+\contentsline {figure}{\numberline {4}{\ignorespaces Parameter convergence graph for PSO\cite {englebrecht-pso}\relax }}{10}
+\contentsline {figure}{\numberline {5}{\ignorespaces PSO Pseudocode\cite {pso-pseudocode-ref}\relax }}{14}
+\contentsline {figure}{\numberline {6}{\ignorespaces Labeled visualization of the game board\relax }}{23}
+\contentsline {figure}{\numberline {7}{\ignorespaces Experiment 13 fitness over time\relax }}{26}
+\contentsline {figure}{\numberline {8}{\ignorespaces Experiment 1 run 2 fitness over time\relax }}{27}
+\contentsline {figure}{\numberline {9}{\ignorespaces Experiment 15 run 2: Example games\relax }}{27}
+\contentsline {figure}{\numberline {10}{\ignorespaces Experiment 15 run 2 fitness over time\relax }}{28}
+\contentsline {figure}{\numberline {11}{\ignorespaces Experiment 6 run 1 fitness over time\relax }}{28}
+\contentsline {figure}{\numberline {12}{\ignorespaces Game V1 Experiments 1(top) and 17(bottom)\relax }}{31}
+\contentsline {figure}{\numberline {13}{\ignorespaces Game V1 Experiments 4(top) and 21(bottom)\relax }}{32}
+\contentsline {figure}{\numberline {14}{\ignorespaces Game V1 Experiment 1: Example predator game\relax }}{34}
+\contentsline {figure}{\numberline {15}{\ignorespaces Game V1 Experiment 1: Examples of prey games \relax }}{35}
+\contentsline {figure}{\numberline {17}{\ignorespaces Examples of Game V2 fitness over time \relax }}{37}
+\contentsline {figure}{\numberline {18}{\ignorespaces Game V2 experiment 7 run 3: Example of large fitness drop in prey\relax }}{38}
+\contentsline {figure}{\numberline {19}{\ignorespaces Game V2 experiment 15 Run 1: Example Games\relax }}{38}
+\contentsline {figure}{\numberline {20}{\ignorespaces Game V2 experiment 6 run 3: Predator Patrol Example Games\relax }}{39}
+\contentsline {figure}{\numberline {21}{\ignorespaces Game V2 Experiment 16 run 5: Prey Patrol Example Games \relax }}{40}
+\contentsline {figure}{\numberline {22}{\ignorespaces Game V3 fitness over time examples above -0.75\relax }}{43}
+\contentsline {figure}{\numberline {23}{\ignorespaces Game V3 fitness over time examples above -0.75 continued\relax }}{44}
+\contentsline {figure}{\numberline {24}{\ignorespaces Game V3 Experiment 23 Run 5: Predator Game Examples\relax }}{45}
+\contentsline {figure}{\numberline {25}{\ignorespaces Game V3 Experiment 23 Run 5: Prey Running off of the Board Examples\relax }}{46}
