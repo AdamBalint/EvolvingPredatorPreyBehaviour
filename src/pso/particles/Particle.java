@@ -101,7 +101,7 @@ public class Particle implements ParticleInterface{
 			RealMatrix glob = (globalBestLoc[i].subtract(location[i])).scalarMultiply(Math.random()* (sType == SpeciesType.PREDATOR ? Variables.socialPred : Variables.socialPrey));
 			if (charged){
 				// charge force 
-				velocity[i] = velocity[i].add(per.add(glob.add(force[i])));//.scalarMultiply((sType == SpeciesType.PREDATOR? Variables.chargeCoeffPred : Variables.chargeCoeffPrey)))));
+				velocity[i] = velocity[i].add(per.add(glob.add(force[i])));
 			}
 			else{
 				velocity[i] = velocity[i].add(per.add(glob));

@@ -23,8 +23,6 @@ public class Main {
 			// Run the PSO
 			pso.runPSO();
 		}
-	
-	
 	}
 
 

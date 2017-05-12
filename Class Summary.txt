@@ -98,3 +98,7 @@ Visualizing the games (GUI):
 Image Generation:
     ImageGeneratorMain.java
         - Generates the fitness graphs and the game images for all experiments
+
+Python Scripts:
+    make_tests.py
+        - Produces .sh files that contain different parameters sets that were specified
