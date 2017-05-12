@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.*;
 import visualizer.components.*;
 
+// Main class for GUI demonstration of the information
 public class VisualizerMain implements ActionListener{
 
 	public static String experimentBaseLocation = "";

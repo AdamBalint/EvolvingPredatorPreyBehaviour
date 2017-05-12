@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import messages.MovementMessage;
 
+// Unit tests for the MovementMessage
 public class MovementTest {
 
 	@Test

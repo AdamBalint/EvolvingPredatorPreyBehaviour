@@ -9,6 +9,7 @@ import java.io.File;
 
 import javax.swing.*;
 
+// Handles the set up and changing of the games
 public class GameDisplayer extends JPanel implements ActionListener{
 
 	private JButton left, right;
@@ -22,7 +23,7 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		this(450, 450);
 		
 	}
-	
+	// Sets up panel (Contains buttons to swap between games)
 	public GameDisplayer(int width, int height){
 		
 		this.setPreferredSize(new Dimension(width, height));
@@ -56,7 +57,7 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		this.add(buttonDisplayer, BorderLayout.SOUTH);
 	}
 	
-	
+	// Updates the available games
 	public void update(String dir){
 		this.dir = dir;
 		File f = new File(dir);
@@ -78,7 +79,7 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		
 	}
 	
-	
+	// When button is pressed, loads the correct game
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -96,13 +97,14 @@ public class GameDisplayer extends JPanel implements ActionListener{
 		b.loadBoard(counter-1);
 	}
 	
-	
+	// Decrements the counter
 	private void loadPrevious(){
 		if (counter == 1)
 			return;
 		counter--;
 	}
 	
+	// Increments the counter
 	private void loadNext(){
 		if (counter == max)
 			return;

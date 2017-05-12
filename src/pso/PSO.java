@@ -9,8 +9,10 @@ public class PSO {
 	// [0=predator, 1=prey][specializationSub-swarm]
 	Swarm[][] predPreySwarms;
 	
+	// Logs the fitness of the population best and average and best particle number
 	double iterationLog[][] = new double[Variables.psoEpochs][6];
 	
+	// Sets up the swarms
 	public PSO(){
 		predPreySwarms = new Swarm[2][1];
 		predPreySwarms[0][0] = new Swarm(Variables.popSizePred, SpeciesType.PREDATOR, 0);
@@ -18,14 +20,18 @@ public class PSO {
 		iterationLog[2][1] = 1;
 	}
 	
+	// Runs the PSO and logs files
 	public void runPSO(){
 		try {
+			// Creates the directory structure required
 			File f = new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun);
 			f.mkdirs();
+			// Creates a summary file to log to
 			f = new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/ParticleSummary.txt");
 			f.createNewFile();
 			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
 			
+			// Writes the particle summary - particle number and whether it is charged or not
 			for (int i = 0; i < predPreySwarms.length; i++){
 				bw.write((i == 0 ? "Predator\t" : "Prey\t")+predPreySwarms[i][0].getSwarmSize());
 				bw.newLine();
@@ -43,35 +49,41 @@ public class PSO {
 			e.printStackTrace();
 		}
 		
-		
+		// Runs the pso for n number of generations
 		for (int i = 0; i < Variables.psoEpochs; i++){
+			// Updates the counter and prints out the values
 			Variables.currentEpoch = i;
 			System.err.println("Epoch: " + i);
+			// Slight delay to print correctly
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			// Loop through species
 			for (int s = 0; s < predPreySwarms.length; s++){
 				// loop through specializations
 				
 				if (i % 10 == 0 && i != 0){
 					// Recalculate old best
-					//if (s == 0)
 					predPreySwarms[s][0].recalculateBest();
 				}
 				
+				// Store the values
 				iterationLog[i][s*3] = predPreySwarms[s][0].getGlobalBestFitness();
 				iterationLog[i][s*3+1] = predPreySwarms[s][0].getAverageFitness();
 				iterationLog[i][s*3+2] = predPreySwarms[s][0].getBestParticleNum();
 				
+				// Updates the population and prints best
 				for (int spec = 0; spec <predPreySwarms[s].length; spec++){
 					predPreySwarms[s][spec].updatePopulation();
 					System.out.println((s == 0 ? "Pred ":"Prey ") + "Global Best Fitness: " + predPreySwarms[s][spec].getGlobalBestFitness() + "\t Average: " + iterationLog[i][s*2+1]);
 				}
 			}
+			// Goes through each swarm and updates the particles at the same time
+			// Synchronous PSO
 			for (int s = 0; s < predPreySwarms.length; s++){
 				for (int spec = 0; spec <predPreySwarms[s].length; spec++){
 					predPreySwarms[s][spec].stepPopulation();
@@ -80,7 +92,7 @@ public class PSO {
 		}
 		
 		
-		// print to log file of run
+		// Print to log file of run
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/RunSummary.txt")));
 			
@@ -101,14 +113,6 @@ public class PSO {
 			System.out.println(iterationLog[i][0] + "\t" + iterationLog[i][1] + "\t" + iterationLog[i][2] + "\t" + iterationLog[i][3]);
 		}
 		
-		
-		/*System.err.println(predPreySwarms[0][0].getGlobalBestFitness());
-		for (int i = 0; i < Variables.popSizePred; i++){
-			System.out.println(predPreySwarms[0][0].getParticle(i).getPersonalBestFit());
-		}*/
-		
 	}
-	
-	
 	
 }

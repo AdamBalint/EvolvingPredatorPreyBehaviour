@@ -1,11 +1,10 @@
 package messages;
 
-import java.util.Arrays;
-
 import org.apache.commons.math3.linear.RealMatrix;
 
 import storage.Variables;
 
+// This class stores the results of the output of the neural network
 public class MovementMessage {
 
 	private boolean diagonalFlag;
@@ -52,6 +51,7 @@ public class MovementMessage {
 		}
 	}
 	
+	// Getters for the data
 	public boolean getDiagonalFlag(){
 		return diagonalFlag;
 	}

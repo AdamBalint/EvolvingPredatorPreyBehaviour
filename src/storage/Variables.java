@@ -4,6 +4,8 @@ import java.util.Random;
 
 import simulation.*;
 
+
+// Contains all the parameters for the program
 public class Variables {
 
 	public static String runBase = "";

@@ -5,6 +5,8 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
+// Displays the parameters used for the set of runs
+// Not vital to view display, therefore it is not complete
 public class ParameterDisplayer extends JPanel{
 
 	public ParameterDisplayer(){

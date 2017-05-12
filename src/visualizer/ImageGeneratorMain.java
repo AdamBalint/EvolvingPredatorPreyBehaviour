@@ -29,6 +29,7 @@ import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 import simulation.GameLogger;
 
+// Generates the graphs of fitness and the visualization of the games
 public class ImageGeneratorMain extends Application{
 
 	String gameRulesBase = "V3/";

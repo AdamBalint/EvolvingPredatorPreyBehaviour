@@ -5,6 +5,8 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
+// Holds information about the agents that are currently being shown
+// Not vital, and therefore this panel is incomplete
 public class CreatureDisplayer extends JPanel{
 
 	public CreatureDisplayer(){

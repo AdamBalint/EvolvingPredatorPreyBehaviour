@@ -12,6 +12,7 @@ import storage.BrainStorage;
 import storage.SpeciesType;
 import storage.Variables;
 
+// Unit test for Particle class
 public class ParticleTest {
 
 	@Test
