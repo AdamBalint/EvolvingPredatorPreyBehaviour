@@ -19,7 +19,7 @@ import simulation.creature.NeuralNet;
 import storage.SpeciesType;
 import storage.Variables;
 
-// Set up the board to call the simulation stuff
+// In charge of running all of the simulations
 public class SimulationMaster {
 
 	private SpeciesType specType;
@@ -36,10 +36,13 @@ public class SimulationMaster {
 		this.gameLogger = new GameLogger();
 	}
 	
+	// Runs the simulations for a particle
 	public double runSimulations(){
+		// Sets up the thread executor to allow for multi-threading
 		ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(20);
 		List<Future<SimulationLog>> resultList = new ArrayList<>();
 		
+		// Runs all of the simulations and stores stores the object that will hold the result
 		for (int i = 0; i < Variables.simulationNum; i++){
 			Board b = new Board();
 			if (specType == SpeciesType.PREDATOR)
@@ -53,11 +56,13 @@ public class SimulationMaster {
 		double score = 0;
 		int count = 0;
 		
+		// Keeps checking for correct solutions until all the simulations are complete
 		while(count < Variables.simulationNum){
 			for (int i = 0; i < resultList.size(); i++){
 				if (resultList.get(i).isDone()){
 					count++;
 					Future<SimulationLog> f = resultList.remove(i);
+					// Adds the score to the particle
 					try {
 						SimulationLog sl = f.get();
 						ArrayList<Point> moves = sl.movementLog;
@@ -70,58 +75,19 @@ public class SimulationMaster {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					/*count++;
-					Future<SimulationLog> f = resultList.remove(i);
-					if (specType == SpeciesType.PREDATOR){
-						try {
-							SimulationLog sl = f.get();
-							//System.err.println("Added to Predator score");
-							score += (sl.predatorScore);
-							if (particleNum != -1){
-								ArrayList<Point> moves = sl.movementLog;
-								String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Predator/Pred-"+particleNum+"/";
-								writeMovementLog(moves, loc, count-1);
-							}
-						} catch (InterruptedException | ExecutionException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}else{
-						try {
-							SimulationLog sl = f.get();
-							//System.err.println("Added to Prey score");
-							score += (sl.preyScore);
-							if (particleNum != -1){
-								ArrayList<Point> moves = sl.movementLog;
-								String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch+"/Games/Prey/Prey-"+particleNum+"/";
-								writeMovementLog(moves, loc, count-1);
-							}
-						} catch (InterruptedException | ExecutionException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}*/
 				}
 			}
 			
 		}
+		// Sets the particles fitness
 		gameLogger.setParticleFitness(score/Variables.simulationNum);
-		
-		//if (particleNum != -1){
-			
-		//}
+		// Closes the thread pool
 		executor.shutdown();
 		
-		
-		/*if (specType == SpeciesType.PREDATOR)
-			return predScore;
-		else
-			return preyScore;
-		*/
-		//System.out.println("Score: " + score);
 		return score/Variables.simulationNum;
 	}
 	
+	// Saves the simulations to a specific location
 	public void saveSimulationGames(){
 		String loc = "Logs/"+Variables.runBase + "/Run-"+Variables.currentRun+"/Epoch-"+Variables.currentEpoch;;
 		String save;
@@ -132,19 +98,12 @@ public class SimulationMaster {
 		}
 		try {
 			File f = new File(loc);
-			//f.createNewFile();
 			f.mkdirs();
 			FileOutputStream fout = new FileOutputStream(loc+save);
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(gameLogger);
 			oos.flush();
 			oos.close();
-			/*
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(loc+"Fitness.txt")));
-			bw.write(""+score);
-			bw.flush();
-			bw.close();
-			*/
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -152,6 +111,7 @@ public class SimulationMaster {
 		}
 	}
 	
+	// Writes the movement log (a text version of what was done above)
 	private void writeMovementLog(ArrayList<Point> moves, String location, int gameNum){
 		File f = new File(location);
 		if (!f.exists()){

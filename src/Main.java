@@ -9,30 +9,22 @@ public class Main {
 	PSO pso;
 	
 	public Main(){
-		// Brain storage
-		//String nanoTime = ""+System.nanoTime();
-		//Variables.runBase = nanoTime;
+		// Creates folders to log to
 		File f = new File ("Logs/"+Variables.runBase);
 		f.mkdirs();
 		
+		// Run the experiment 5 times
 		for (int run = 0; run < 5; run++){
 			Variables.currentRun = run;
-			//f = new File ("Logs/"+nanoTime+"/Run-"+run);
-			//f.mkdir();
-			// Loop for experiments
+			// Set up the Neural network storage
 			Variables.brainStorage = new BrainStorage();
+			// Set up the PSO
 			setUpPSO();
-			setUpSimulation();
+			// Run the PSO
 			pso.runPSO();
 		}
 	
 	
-	}
-	
-	
-	
-	private void setUpSimulation() {
-		
 	}
 
 
@@ -46,6 +38,7 @@ public class Main {
 
 
 	public static void main(String[] args) {
+		// Parse arguments to set up parameters for the experiment
 		Variables.predPercentCharged = Double.parseDouble(args[0]);
 		Variables.hiddenLayerSizesPred = new int[]{Integer.parseInt(args[1])};
 		
@@ -57,8 +50,6 @@ public class Main {
 		
 		Variables.canFall = Boolean.parseBoolean(args[6]);
 		Variables.runBase = "V1/V1-" + args[6] + "-rc" + args[4] + "-pl" + args[5] + "-pdh" + args[0] + "-pdc" + args[1] + "-pyh" + args[2] + "-pyc" + args[3];
-		
-		
 		
 		new Main();
 	}

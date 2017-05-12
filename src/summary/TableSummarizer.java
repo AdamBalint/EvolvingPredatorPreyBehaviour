@@ -14,6 +14,8 @@ import java.util.Scanner;
 import simulation.GameLogger;
 import storage.Variables;
 
+// Generates a summary table for the experiments
+
 public class TableSummarizer {
 
 	public TableSummarizer(){
@@ -29,7 +31,7 @@ public class TableSummarizer {
 	}
 	
 	
-	//  V1-true-rc5-pl30-pdh1-pdc15-pyh1-pyc15
+	//  Example of file naming convention - V1-true-rc5-pl30-pdh1-pdc15-pyh1-pyc15
 	public void generateTable(String root, boolean canFall){
 		//ArrayList<String> files = new ArrayList<>();
 		String[][] limits = {{"2", "40"},{"5", "30"}};
@@ -66,6 +68,7 @@ public class TableSummarizer {
 		
 	}
 	
+	// Returns the summary
 	private double[] getSummary(String f) {
 		// TODO Auto-generated method stub
 		// Pred Max, avg, min, Prey max, avg, min

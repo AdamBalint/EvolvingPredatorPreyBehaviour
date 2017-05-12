@@ -8,6 +8,7 @@ import org.apache.commons.math3.linear.RealMatrix;
 
 import messages.MovementMessage;
 
+// Stores the Neural Network used by an agent
 public class NeuralNet {
 	
 	private RealMatrix[] brain;
@@ -18,7 +19,7 @@ public class NeuralNet {
 	
 	private int numConnections = 0;
 	
-	
+	// Sets up the neural network based on the parameters provided
 	public NeuralNet(SpeciesType specType){
 		if (specType == SpeciesType.PREDATOR){
 			brain = new RealMatrix[Variables.hiddenLayerSizesPred.length+1];
@@ -35,6 +36,7 @@ public class NeuralNet {
 		setUpMatrices();
 	}
 	
+	// Creates a neural based on an array of matrices
 	public NeuralNet(SpeciesType specType, RealMatrix[] net){
 		this.specType = specType;
 		if (specType == SpeciesType.PREDATOR){
@@ -76,7 +78,7 @@ public class NeuralNet {
 	}
 
 	
-	
+	// Randomize the matrices (weights of connections)
 	public void generateRandomBrains(){
 		for (int i = 0; i < brain.length; i++){
 			for (int j = 0; j < brain[i].getRowDimension(); j++){
@@ -87,7 +89,7 @@ public class NeuralNet {
 		}
 	}
 	
-	
+	// Returns the output of the matrix as a MovementMessage
 	public MovementMessage getOutput(RealMatrix inp){
 		for (int i = 0; i < brain.length; i++){
 			//System.out.println(brain[i].getRowDimension() + "\t" + brain[i].getColumnDimension());
@@ -100,6 +102,7 @@ public class NeuralNet {
 		return new MovementMessage(inp);
 	}
 	
+	// Returns the raw output of the matrix
 	public double[] getRawOutput(RealMatrix inp){
 
 		for (int i = 0; i < brain.length; i++){
@@ -114,6 +117,7 @@ public class NeuralNet {
 		return inp.getRow(0);
 	}
 	
+	// Sigmoid activation function
 	private double sigmoid(double in){
 		return 1/(1+Math.exp(-in));
 	}

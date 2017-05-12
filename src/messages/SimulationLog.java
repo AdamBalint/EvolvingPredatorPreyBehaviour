@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SimulationLog {
 
+	// Stores the simulations.
 	public SimulationLog(SimulationLog log) {
 		// TODO Auto-generated constructor stub
 		predatorScore = log.predatorScore;
@@ -17,7 +18,6 @@ public class SimulationLog {
 	public double predatorScore;
 	public double preyScore;
 	public ArrayList<Point> movementLog;
-	//public Movement[] movement
 	
 	
 }

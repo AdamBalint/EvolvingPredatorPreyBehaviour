@@ -1,15 +1,9 @@
 package pso;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
-
-import org.apache.commons.math3.analysis.function.Abs;
-import org.apache.commons.math3.analysis.function.Power;
-import org.apache.commons.math3.analysis.function.Sqrt;
 import org.apache.commons.math3.linear.RealMatrix;
-import org.apache.commons.math3.linear.RealVector;
 
 import pso.particles.Particle;
 import simulation.SimulationMaster;
@@ -30,6 +24,7 @@ public class Swarm {
 	private double perceptionLimit = 40;
 	private int bestParticle;
 	
+	// Sets up the swarm
 	public Swarm(int num, SpeciesType sType, int speciesNumber){
 		coreRad = Variables.coreRad;
 		perceptionLimit = Variables.perceptionLimit;
@@ -39,32 +34,27 @@ public class Swarm {
 		setUpParticles();
 	}
 	
-	/*public void createSwarm(int num, SpeciesType sType, int speciesNumber){
-		swarm = new Particle[num];
-		this.sType = sType;
-		setUpParticles();
-	}*/
-	
+	// Creates the particles
 	private void setUpParticles() {
 		// TODO Auto-generated method stub
 		System.err.println("Swarm - Setting up particles");
 		double percentCharged = sType == SpeciesType.PREDATOR ? Variables.predPercentCharged : Variables.preyPercentCharged;
 		for (int i = 0; i < swarm.length; i++){
-			//if (sType == SpeciesType.PREDATOR)
 			swarm[i] = new Particle(sType, this, i, i > swarm.length*(1-percentCharged) ? true : false);
-			//else
-			//	swarm[i] = new Particle(sType, this, i, false);
 		}
 	}
 	
+	// Returns if the particle is charged or not
 	public boolean particleIsCharged(int num){
 		return swarm[num].isCharged();
 	}
 	
+	// Returns the size of the swarm
 	public int getSwarmSize(){
 		return swarm.length;
 	}
 	
+	// Returns the location of the global best particle
 	public RealMatrix[] getGlobalBest(){
 		RealMatrix[] copy = new RealMatrix[globalBest.length];
 		for (int i = 0; i < copy.length; i++){
@@ -74,23 +64,27 @@ public class Swarm {
 		return copy;
 	}
 	
+	// Returns the best fitness
 	public double getGlobalBestFitness(){
 		return globalBestFitness;
 	}
 	
+	// Updates the population
 	public void updatePopulation(){
 		//System.err.println("Swarm - Updating Population");
 		evaluatePopulation();
 		updateLocations();
 	}
 
-	//
+	// Updates the location of the swarm
 	private void updateLocations() {
 		// TODO Auto-generated method stub
 		
+		// Parallelizes the particle update
 		List<Particle> swarmList = Arrays.asList(swarm);
 		swarmList.parallelStream().forEach(p -> p.updateParticle());
 		
+		// Iterative version (Left in just in case)
 		/*for (int i = 0; i < swarm.length; i++){
 			swarm[i].updateParticle();
 		}*/
@@ -108,9 +102,9 @@ public class Swarm {
 		double maxFit = globalBestFitness;
 		RealMatrix[] bestLoc = null;
 		
+		// Loops through the particles
 		for (int i = 0; i < swarm.length; i++){
 			Particle p = swarm[i];
-		//for (Particle p : swarm){
 			if (p.getFitness() > globalBestFitness){
 				maxFit = p.getPersonalBestFit();
 				bestLoc = p.getPersonalBestLoc();
@@ -121,7 +115,10 @@ public class Swarm {
 				epochBestParticle = i;
 			}
 		}
+		// Writes the games of the best particle
 		swarm[epochBestParticle].writeGames();
+		
+		// If if a new best location was found then add it to the HOF
 		if (bestLoc != null){
 			globalBestFitness = maxFit;
 			globalBest = bestLoc;
@@ -131,14 +128,17 @@ public class Swarm {
 		}		
 	}
 	
+	// Returns the particle
 	public Particle getParticle(int particleNum){
 		return swarm[particleNum];
 	}
 	
+	// Returns which species the particle is
 	public int getSpeciesNumber(){
 		return speciesNum;
 	}
 
+	// Calculates and returns the average fitness of the swarm
 	public double getAverageFitness() {
 		// TODO Auto-generated method stub
 		double fit = 0;
@@ -148,6 +148,7 @@ public class Swarm {
 		return fit/swarm.length;
 	}
 	
+	// Updates the location of each particle
 	public void stepPopulation(){
 		for (int i = 0; i < swarm.length; i++){
 			swarm[i].stepParticle();
@@ -156,6 +157,7 @@ public class Swarm {
 		}
 	}
 	
+	// Returns the best particle number
 	public int getBestParticleNum(){
 		return bestParticle;
 	}
@@ -175,20 +177,17 @@ public class Swarm {
 				globalBestFitness = nFitness;
 				System.err.println("Prior Fitness has better fitness");
 			}
-			
-			/*if (nFitness < globalBestFitness)
-				System.err.println(sType.toString() + " Best got worse!" );
-			globalBestFitness = nFitness;*/
 		}
 	}
 	
+	// Calculates the force on the charged particles
 	public RealMatrix[] calculateForce(RealMatrix[] loc, int brainNum){
 		RealMatrix[] force = null;
 		for (Particle p : swarm){
 			if (p.isCharged() && p.getBrainNum() != brainNum){
 				RealMatrix[] part = p.getLocation();
+				// Calculates the Euclidean distance
 				double calcDistance = dist(loc, part);
-				//System.err.println("Distance: " + calcDistance);
 				RealMatrix[] distances = new RealMatrix[part.length];
 				for (int i = 0; i < distances.length; i++){
 					if (calcDistance <= perceptionLimit && calcDistance >= coreRad){
@@ -209,47 +208,13 @@ public class Swarm {
 						force[i] = force[i].add(distances[i]);
 					}
 				}
-				
-				
-				
-				/*RealMatrix dist = loc.subtract(part);
-				RealMatrix partialForce = dist.copy().scalarMultiply(0);
-				for (int r = 0; r < dist.getRowDimension(); r++){
-					for (int c = 0; c < dist.getColumnDimension(); c++){
-						double absDist = Math.abs(dist.getEntry(r, c));
-						if (absDist >= coreRad && absDist <= perceptionLimit)
-							partialForce.setEntry(r, c, partialForce.getEntry(r, c)+(1/(Math.pow(absDist, 3))));
-						else if (absDist < coreRad)
-							partialForce.setEntry(r, c, partialForce.getEntry(r, c)+(coreRad*coreRad));
-					}
-				}
-				if (force == null)
-					force = partialForce;
-				else
-					force = force.add(partialForce);*/
-				
-				
-				/*for (int i = 0; i < partialForce.getRowDimension(); i++){
-					RealVector rv = dist.getRowVector(i);
-					//rv = rv.ebeDivide(rv.mapToSelf(new Power(2))).mapMultiply(16);
-					rv = rv.mapMultiply(16*16).ebeDivide(rv.mapToSelf(new Abs()).map(new Power(3)));
-					partialForce.setRowVector(i, rv);
-				}
-				//.scalarMultiply(64).multiply(dist.power(-3));//.power(2).power(1/2).power(-3));
-				if (force == null){
-					force = partialForce;
-				}
-				else{
-					force = force.add(partialForce);
-				}
-				*/
 			}
 		}
 		
 		return force;
 	}
 
-	
+	// Squares the matrix
 	private RealMatrix squareMatrix(RealMatrix in){
 		RealMatrix ret = in.copy();
 		for (int i = 0; i < ret.getRowDimension(); i++){
@@ -260,6 +225,7 @@ public class Swarm {
 		return ret;
 	}
 	
+	// Euclidean distance calculation
 	private double dist(RealMatrix[] loc, RealMatrix[] part) {
 		// TODO Auto-generated method stub
 		double sum = 0;

@@ -14,6 +14,7 @@ import javax.swing.event.ListSelectionListener;
 
 import visualizer.VisualizerMain;
 
+// Sets up the display that shows all of the runs of the experiment
 public class RunDisplayer extends JPanel implements ListSelectionListener{
 
 	private ArrayList<File> runs;
@@ -23,6 +24,7 @@ public class RunDisplayer extends JPanel implements ListSelectionListener{
 		this(225, 250, vm);
 	}
 	
+	// Sets up the panel
 	public RunDisplayer(int width, int height, VisualizerMain vm){
 		this.vm = vm;
 		this.setPreferredSize(new Dimension(width, height));
@@ -44,6 +46,7 @@ public class RunDisplayer extends JPanel implements ListSelectionListener{
 		this.add(listScroller);
 	}
 	
+	// If a different file was selected, update the available runs
 	public void update(){
 		if (!VisualizerMain.experimentBaseLocation.equals("")){
 			getFolderList();
@@ -57,6 +60,7 @@ public class RunDisplayer extends JPanel implements ListSelectionListener{
 		}
 	}
 	
+	// Gets a list of folders that are available (different runs)
 	private void getFolderList(){
 		runs = new ArrayList<File>();
 		File experiment = new File(VisualizerMain.experimentBaseLocation);
@@ -68,6 +72,7 @@ public class RunDisplayer extends JPanel implements ListSelectionListener{
 		
 	}
 
+	// If the value is selected, then update the particles available from that run
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub

@@ -15,6 +15,7 @@ import javax.swing.event.ListSelectionListener;
 
 import visualizer.VisualizerMain;
 
+// Displays a list of particles that can be selected
 public class ParticleDisplayer extends JPanel implements ChangeListener, ListSelectionListener{
 
 	JList displayPred, displayPrey;
@@ -28,6 +29,7 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		this(225, 450, vm);
 	}
 	
+	// Sets up the displayer
 	public ParticleDisplayer(int width, int height, VisualizerMain vm){
 		this.setPreferredSize(new Dimension(width, height));
 		this.setBackground(Color.magenta);
@@ -56,16 +58,12 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		displayPrey.setName("prey");
 		JScrollPane listScroller2 = new JScrollPane(displayPrey);
 		listScroller2.setPreferredSize(new Dimension(width, height-100));
-		//this.add(listScroller);
-		
+
 		
 		JTabbedPane tp = new JTabbedPane();
-		//tp.setLayout(flowLayout2);
-		//tp.add("Predator", component)
 		tp.add("Predator", listScroller);
 		tp.add("Prey", listScroller2);
 		tp.setTabPlacement(JTabbedPane.BOTTOM);
-		//tp.setPreferredSize(new Dimension(width, height-50));
 		this.add(tp);
 		
 		
@@ -78,6 +76,7 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		this.add(epochSelector);
 	}
 	
+	// Updates the available particles
 	public void update(){
 		if (!VisualizerMain.selectedRun.equals("")){
 			updateEpochNum();
@@ -86,7 +85,8 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		}
 		
 	}
-
+	
+	// Reads in the list of particles that are available
 	private void updateParticles() {
 		// TODO Auto-generated method stub
 		predParticles = new ArrayList<File>();
@@ -94,17 +94,9 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		File f = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun+"/Epoch-"+epochSelected+"/");
 		File[] listFolders = f.listFiles();
 		for(File file : listFolders){
-			//if(file.isDirectory())
 			predParticles.add(file);
 		}
-		/*
-		f = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun+"/Epoch-"+epochSelected+"/Games/Prey");
-		listFolders = f.listFiles();
-		for(File file : listFolders){
-			if(file.isDirectory())
-				preyParticles.add(file);
-		}
-		*/
+		
 		DefaultListModel listModelPredator = new DefaultListModel();
 		for (File file: predParticles){
 			listModelPredator.addElement(file.getName());
@@ -118,6 +110,7 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		displayPrey.setModel(listModelPrey);
 	}
 
+	// Updates the number of epochs that are available
 	private void updateEpochNum() {
 		// TODO Auto-generated method stub
 		File epCount = new File(VisualizerMain.experimentBaseLocation+"/"+VisualizerMain.selectedRun);
@@ -133,6 +126,7 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		epochSelector.setModel(model1);
 	}
 
+	// If the epoch is updated, then load new particles that are available
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		// TODO Auto-generated method stub
@@ -141,6 +135,7 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 		this.repaint();
 	}
 
+	// If the selected particle is changed, then show the games played by that particle
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
@@ -158,10 +153,5 @@ public class ParticleDisplayer extends JPanel implements ChangeListener, ListSel
 			String loc = preyParticles.get(selected).getPath();
 			vm.updateParticleGame(loc);
 		}
-		
-		
-		
 	}
-	
-	
 }

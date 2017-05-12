@@ -16,7 +16,7 @@ import java.util.Scanner;
 import javax.swing.JPanel;
 
 import simulation.GameLogger;
-
+// Display for the board
 public class Board extends JPanel{
 
 	private int width, height;
@@ -36,6 +36,8 @@ public class Board extends JPanel{
 		this.setBackground(Color.white);
 	}
 	
+	
+	// Loads the board with the game number specified
 	public void loadBoard(int game){
 		System.out.println("Game Number: " + game);
 		ArrayList<Point> moves = gameLogger.getGame(game);
@@ -48,30 +50,10 @@ public class Board extends JPanel{
 			preyMoves.add(moves.get(i+1));
 		}
 		this.repaint();
-		/*try {
-			
-			Scanner in = new Scanner(f);
-			while (in.hasNextLine()){
-				String line = in.nextLine();
-				String[] parts = line.split("\t");
-				System.out.println(Arrays.toString(parts));
-				String[] loc = parts[0].split(",");
-				predMoves.add(new Point (Integer.parseInt(loc[0]), Integer.parseInt(loc[1])));
-				if (parts.length == 1)
-					break;
-				loc = parts[1].split(",");
-				preyMoves.add(new Point (Integer.parseInt(loc[0]), Integer.parseInt(loc[1])));
-			}
-			in.close();
-			this.repaint();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
 		
 	}
 	
+	// Draws the game
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
@@ -79,9 +61,7 @@ public class Board extends JPanel{
 			g.drawLine(i*(width/9), 0, i*(width/9), height);
 			g.drawLine(0, i*(height/9), width, i*(height/9));
 		}
-		
-		
-		//g.drawRect(0, 0, 50, 50);
+
 		g.setColor(Color.RED);
 		if (predMoves != null){
 			for (int i = 0; i < predMoves.size()-1; i++){
@@ -103,6 +83,7 @@ public class Board extends JPanel{
 		}
 	}
 
+	// Reads in all of the games from the file specified
 	public void loadGames(File file) {
 		// TODO Auto-generated method stub
 		
@@ -123,11 +104,10 @@ public class Board extends JPanel{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
-		
 		
 	}
 
+	// Returns the number of games
 	public int getGamesNumber() {
 		// TODO Auto-generated method stub
 		if (gameLogger != null)

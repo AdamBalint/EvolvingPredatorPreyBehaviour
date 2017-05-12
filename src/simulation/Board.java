@@ -10,6 +10,7 @@ import simulation.creature.NeuralNet;
 import storage.SpeciesType;
 import storage.Variables;
 
+// This class stores the board used for the simulation
 public class Board implements BoardInterface, Callable<SimulationLog>{
 
 	int width, height;
@@ -20,6 +21,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 	
 	SimulationLog log = new SimulationLog();
 	
+	// Sets up the board
 	public Board(){
 		this(Variables.boardWidth,Variables.boardHeight);
 	}
@@ -30,21 +32,15 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		board = new Creature[width][height];
 	}
 	
-	// predator, prey
+	// Places the creatures on the board
 	public void placeCreatures(NeuralNet predatorBrain, NeuralNet preyBrain){
+		// Generates the predator location
 		Point p1 = new Point(Variables.rand.nextInt(width), Variables.rand.nextInt(height/2));
 		
-		// Replace with random point later
-		//Point p1 = new Point (0,0);
-		Point p2;
-		//do {
-			p2 = new Point(Variables.rand.nextInt(width), (height/2)+Variables.rand.nextInt(height/2));
+		// Generates the prey location
+		Point p2 = new Point(Variables.rand.nextInt(width), (height/2)+Variables.rand.nextInt(height/2));
 			
-		//}while (p1.equals(p2) || p1.distance(p2) < 2);
-		
-		// Remove later
-		//p2 = new Point(0,4);
-		
+		// Places the agents into the board array
 		for (int r = 0; r < height; r++){
 			for (int c = 0; c < width; c++){
 				board[c][r] = null;
@@ -76,40 +72,17 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		log.movementLog.add(new Point(creat.getX(), creat.getY()));
 		boolean endSimulation = false;
 		boolean predFallen = false, preyFallen = false;
+		// Runs the simulation for n turns
 		for (int i = 0; i < Variables.simulationTurnNum; i++){
+			// Moves the creatures
 			for (int cr = 0; cr < creatures.size(); cr++){
 				Creature currCreature = creatures.get(cr);
 				Point prev = new Point (currCreature.getX(), currCreature.getY());
 				currCreature.makeMove(getSurroundings(currCreature));
 				Point n = new Point(currCreature.getX(), currCreature.getY());
 				log.movementLog.add((Point)n.clone());
-				/*board[prev.x][prev.y] = null;
-				
-				*/
-				/*if(n.x >= width || n.x < 0 || n.y >= height || n.y < 0){
-					board[prev.x][prev.y] = currCreature;
-					break;
-				}
-				if (board[n.x][n.y] == null){
-					board[n.x][n.y] = currCreature;
-				}
-				else if (board[n.x][n.y].getSpeciesType() == SpeciesType.PREY && currCreature.getSpeciesType() == SpeciesType.PREDATOR){
-					// caught the enemy get a score
-					board[n.x][n.y] = currCreature;
-					//predScore += 0.1;
-					//preyScore -= 0.1;
-					
-					
-					// Remove prey from arraylist
-					
-					
-					removePrey(n.x, n.y);
-					endSimulation = true;
-					// increase score of predators
-				} else{
-					board[prev.x][prev.y] = currCreature;
-				}*/
 			}
+			// Checks if either agent fell off the board
 			Creature pred = creatures.get(0);
 			Creature prey = creatures.get(1);
 			if (Variables.canFall){
@@ -125,10 +98,14 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			}
 			if (endSimulation)
 				break;
+			
+			// If neither agent fell and the game has not ended update
+			// the board matrix representation
 			updateBoard();
 		}
 		int predCount = 0, preyCount = 0;
 		
+		// Score the agents based on the result
 		if (predFallen && preyFallen){
 			predScore -= 2;
 			preyScore -= 2;
@@ -148,26 +125,12 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 			preyScore += 1;
 		}
 		
-		/*for (int c = 0; c < width; c++){
-			for (int r = 0; r < height; r++){
-				if (board[c][r] != null){
-					if (board[c][r].getSpeciesType() == SpeciesType.PREDATOR)
-						predCount++;
-					else
-						preyCount++;
-				}
-			}
-		}*/
-		/*if (predCount > preyCount){
-			predScore += 1;
-		}
-		else if (preyCount >= predCount){
-			preyScore += 1;
-		}*/
+		
 		log.predatorScore = predScore;
 		log.preyScore = preyScore;
 	}
-
+	
+	// Check if agent fell off the board or not
 	private boolean offBoard(Creature creat) {
 		// TODO Auto-generated method stub
 		if (creat.getX() < 0 || creat.getX() >= Variables.boardWidth || creat.getY() < 0 || creat.getY() >= Variables.boardHeight)
@@ -175,6 +138,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		return false;
 	}
 
+	// Removes the prey if caught (from an older implementation)
 	private void removePrey(int x, int y) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < creatures.size(); i++){
@@ -188,6 +152,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}
 	}
 
+	// Encodes the board, 
 	private double[] getSurroundings(Creature creature) {
 		// TODO Auto-generated method stub
 		// See in 3x3 box around themselves
@@ -205,29 +170,9 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}
 		return surr;
 		
-		/*int start = creature.getSpeciesType() == SpeciesType.PREDATOR? -2 : -1;
-		int end = creature.getSpeciesType() == SpeciesType.PREDATOR? 2 : 1;;
-		double[] surr = new double[(end-start+1)*(end-start+1)];
-		
-		for (int i = start; i <= end; i++){
-			for (int j = start; j <= end; j++){
-				int xLoc = creature.getX()-i;
-				int yLoc = creature.getY()-j;
-				int ind = (i+end)*(end-start+1)+(j+end);
-				if (xLoc < width || xLoc >= width || yLoc < height || yLoc >= height)
-					surr[ind] = -2;
-				else if(board[xLoc][yLoc] == null)
-					surr[ind] = 0;
-				else if (board[xLoc][yLoc].getSpeciesType() == creature.getSpeciesType())
-					surr[ind] = 1;
-				else
-					surr[ind] = -1;
-			}
-		}
-		
-		return surr;*/
 	}
 
+	// Updates the location of the agents
 	private void updateBoard(){
 		board = new Creature[board.length][board[0].length];
 		for (Creature curr : creatures){
@@ -235,6 +180,8 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		}
 	}
 	
+	
+	// Implementation for the FOV version
 	@Override
 	public int[] getSurroundings(int x, int y, int xOff, int yOff, int xLOS, int yLOS) {
 		// TODO Auto-generated method stub
@@ -268,6 +215,7 @@ public class Board implements BoardInterface, Callable<SimulationLog>{
 		return surr;
 	}
 
+	// Runs the sumulation and returns the log of what happened
 	@Override
 	public SimulationLog call() throws Exception {
 		// TODO Auto-generated method stub

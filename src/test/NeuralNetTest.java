@@ -12,6 +12,7 @@ import simulation.creature.NeuralNet;
 import storage.BrainStorage;
 import storage.Variables;
 
+// Unit test for NeuralNet class
 public class NeuralNetTest {
 
 	@Test

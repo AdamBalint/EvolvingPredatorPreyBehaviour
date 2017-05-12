@@ -2,6 +2,7 @@ package simulation;
 
 import simulation.creature.NeuralNet;
 
+// Interface for the Board class
 public interface BoardInterface {
 
 	public void runSimulation();
