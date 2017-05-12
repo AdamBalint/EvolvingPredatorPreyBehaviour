@@ -1,0 +1,100 @@
+Libraries used:
+    - Appache Commons Math (http://commons.apache.org/proper/commons-math/userguide/linear.html)
+    - JavaFX
+
+Note: When 2 agents are logged per epoch (1 predator, 1 prey), each run of an experiment 
+    produces a folder of data roughly 80M in size
+
+Running the program:
+    Main.java
+        - Parses arguments for program and begins the run
+
+    BrainStorage.java
+        - Stores all of the neural networks
+
+    NeuralNet.java
+        - Stores all of the connections within a neural network
+        - Provides the functionality to do the forward pass on a given input
+
+    PSO.java
+        - Maintains the PSO structure and functionality
+            - Stores all of the swarms
+            - Loops through the swarms to update the particles
+
+    Swarm.java
+        - Holds all of the particles in the swarm and provides swarm functionality
+            - Allows method to update particle locations
+            - Computes the force between charged particles
+
+    Particle.java
+        - Holds the location of a single particle
+        - Provides the methods to update the velocity and location of the particle
+        - Provides getters for fitness and location
+        - Provides method to calculate the fitness
+
+    SimulationMaster.java
+        - Provides a callable object to calculate the fitness of a particle
+        - Manages all of the games and provides multithreading of the games
+        - Returns the fitness of the particle
+        - Has methods for logging the games of the particle
+    
+    Board.java (simulation package)
+        - Provides a callable object that runs a single game simulation
+        - Plays a single game and returns the result to the simulation master
+        - Uses Creatures to make decisions based on input provided by the Board
+
+    Creature.java
+        - Stores the agent type, x and y location and neural network
+        - This agent interacts with the environment
+
+    Variables.java
+        - Stores all of the PSO and NN parameters that are used
+        - Contains some parameters to change the simulation
+
+    MovementMesage.java
+        - Contains the information of the move that the agent makes
+
+    SimulationLog.java
+        - Stores the simulation of a single game
+
+    GameLogger.java
+        - Stores all the simulation logs for an agent 
+
+    SpeciesType.java
+        - Enumeration of the agent types available
+
+    ParticleInterface.java
+        - Contains the interface for a particle
+
+
+Visualizing the games (GUI):
+    VisualizerMain.java
+        - Provides the main frame for the Visualizer
+        - Sets up the frame and adds components
+
+    Board.java (visualizer.components package)
+        - provides a visual of the board
+        - Displays the game on the board
+    
+    CreatureDisplayer.java (not implemented, not essential)
+        - Displays the agent information for the specific game selected
+    
+    GameDisplayer.java
+        - Contains the Board object
+        - Allows the user to scroll through games using left and right buttons
+
+    GraphDisplayer.java
+        - Displays the graph of the fitness for a specific run
+
+    ParameterDisplayer.java (not implemented, not essential)
+        - Displays the parameters used for the run
+
+    ParticleDisplayer.java
+        - Contains the list of particles that were logged for a specific epoch/generation
+
+    RunDisplayer.java
+        - Displays all of the runs that are available for viewing for an experiment`
+
+Image Generation:
+    ImageGeneratorMain.java
+        - Generates the fitness graphs and the game images for all experiments
